@@ -1,7 +1,10 @@
 """ Provides an SMBus class for use on micropython """
 
+import gc
+
 try:
     from machine import I2C
+    gc.collect()
 except ImportError:
     raise ImportError("Can't find the micropython machine.I2C class: "
                       "perhaps you don't need this adapter?")
