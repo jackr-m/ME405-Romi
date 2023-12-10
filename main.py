@@ -10,7 +10,7 @@ from pyb import Timer, Pin, UART, repl_uart, USB_VCP
 import micropython
 from task_share import Queue, Share
 import cotask
-from nb_input import NB_Input
+#from nb_input import NB_Input
 from time import ticks_ms, ticks_diff, sleep_ms
 from math import pi, cos, sin
 
@@ -27,7 +27,7 @@ gc.collect()
 from machine import I2C
 import adafruit_vl53l1x
 gc.collect()
-from BNO055 import BNO055
+#from BNO055 import BNO055
 gc.collect()
 
 class Control:
@@ -77,45 +77,21 @@ class Control:
                 
                 self._motor.set_duty(0)
                 self._motor.enable()
-                
-                if self._feedbackOn.get() == 1:
-                    self._state = 2
-                elif  self._feedbackOn.get() == 0:
-                    self._state = 1
-                else:
-                    print("stuck in init")
-
-
-            elif self._state == 1:
-
-                #print(self._desiredSpeed.get())
-
-                #direct open loop speed setting
-                #_speed = self._desiredSpeed.get()
-                #print("Motor: {0}, speed: {1}".format(self._motorLetter, _speed))
-                self._motor.set_duty(self._desiredSpeed.get())
-
-                #change to closed loop if needed
-                if self._feedbackOn.get() == 1:
-                    self._desiredSpeed.put(0)
-                    self._state = 2
             
-            elif self._state == 2:
-
-                self._closedLoop.setTarget(self._desiredSpeed.get())
                 self._closedLoop.setKp(self._kp.get())
                 self._closedLoop.setKi(self._ki.get())
                 self._closedLoop.setKd(self._kd.get())
 
+                self._state = 1
+            
+            elif self._state == 1:
+
+                self._closedLoop.setTarget(self._desiredSpeed.get())
+
                 self._efforts = self._closedLoop.calculateEfforts(self._velocities.get(), self._timeDeltas.get())
-                #change to open loop if needed
-                if self._feedbackOn.get() == 0:
-                    self._desiredSpeed.put(0)
-                    self._state = 1
 
                 self._motor.set_duty(int(round(sum(self._efforts), 0)))
 
-                #gc.collect()
 
             yield self._state
 
@@ -155,8 +131,25 @@ class UpdateMotor:
         # Motor object
         if motor == "A":
             self._encoder = RomiCoder(Pin.cpu.B6, Pin.cpu.B7, 65535, 0, 4)
+
+            self._qtr_front.dimmable(True)
+            self._qtr_front.dimmingLevel(5)
+            self._qtr_front.emittersOn()
+            sleep_ms(5)
+
+            self._qtr_front.calibrationOn.load_json('{"initialized": true, "maximum": [3918.0, 3917.5, 3311.75, 3478.75, 3476.25, 3607.75, 3396.75], "minimum": [192.0, 196.75, 188.75, 185.0, 197.0, 191.75, 194.0]}') # 5V calibration
+            #self._qtr_front.calibrationOn.load_json('{"initialized": true, "maximum": [2491.75, 2537.0, 2091.5, 2190.0, 2189.25, 2370.5, 2096.5], "minimum": [217.5, 222.25, 213.25, 211.5, 215.75, 215.5, 214.25]}') # 3.3V calibration
+            self._qtr_front.calibrationOff.load_json( '{"maximum": null, "minimum": null, "initialized": false}' )
         elif motor == "B":
             self._encoder = RomiCoder(Pin.cpu.C6, Pin.cpu.C7, 65535, 0, 8)
+
+            self._qtr_rear.dimmable(True)
+            self._qtr_rear.dimmingLevel(5)
+            self._qtr_rear.emittersOn()
+            sleep_ms(5)
+            self._qtr_rear.calibrationOn.load_json('{"initialized": true, "maximum": [4095.0, 2242.25, 4095.0, 4095.0, 4095.0], "minimum": [337.75, 419.75, 405.75, 398.0, 377.0]}') # 5V calibration
+            #self._qtr_rear.calibrationOn.load_json('{"initialized": true, "maximum": [3329.5, 2032.25, 3212.5, 3232.5, 3112.25], "minimum": [393.0, 351.75, 309.0, 323.75, 276.75]}') # 3.3V calibration
+            self._qtr_rear.calibrationOff.load_json( '{"maximum": null, "minimum": null, "initialized": false}' )
         else:
             raise ValueError("Invalid motor")
 
@@ -164,25 +157,6 @@ class UpdateMotor:
         while True:
             #immediately go to run state after qtr initialization
             if self._state == 0:
-
-                if self._motorLetter == "A":
-                    self._qtr_front.dimmable(True)
-                    self._qtr_front.dimmingLevel(15)
-                    self._qtr_front.emittersOn()
-                    sleep_ms(5)
-
-                    #self._qtr_front.calibrationOn.load_json('{"initialized": true, "maximum": [4080.0, 4092.5, 3811.5, 3909.25, 3892.0, 3983.75, 3729.5], "minimum": [213.5, 226.75, 217.75, 216.75, 219.75, 225.75, 225.5]}') # 5V calibration
-                    self._qtr_front.calibrationOn.load_json('{"initialized": true, "maximum": [2491.75, 2537.0, 2091.5, 2190.0, 2189.25, 2370.5, 2096.5], "minimum": [217.5, 222.25, 213.25, 211.5, 215.75, 215.5, 214.25]}') # 3.3V calibration
-                    self._qtr_front.calibrationOff.load_json( '{"maximum": null, "minimum": null, "initialized": false}' )
-
-                if self._motorLetter == "B":
-                    self._qtr_rear.dimmable(True)
-                    self._qtr_rear.dimmingLevel(15)
-                    self._qtr_rear.emittersOn()
-                    sleep_ms(5)
-                    #self._qtr_rear.calibrationOn.load_json('{"initialized": true, "maximum": [4095.0, 2207.0, 4095.0, 4095.0, 4095.0], "minimum": [352.75, 361.0, 373.75, 373.75, 340.0]}') # 5V calibration
-                    self._qtr_rear.calibrationOn.load_json('{"initialized": true, "maximum": [3329.5, 2032.25, 3212.5, 3232.5, 3112.25], "minimum": [393.0, 351.75, 309.0, 323.75, 276.75]}') # 3.3V calibration
-                    self._qtr_rear.calibrationOff.load_json( '{"maximum": null, "minimum": null, "initialized": false}' )
 
                 self._encoder.zero()
                 self._state = 1
@@ -242,6 +216,9 @@ class UpdateTOF:
 
         self.vl53 = adafruit_vl53l1x.VL53L1X(self._i2c)
 
+        self.vl53.distance_mode = 1 # short range = 1, long range = 2
+        self.vl53.timing_budget = 100 # ms
+
         #init state
         self._state = 0
 
@@ -249,18 +226,11 @@ class UpdateTOF:
         while True:
             # immediately go to run state after tof initialization
             if self._state == 0:
-                self.vl53.distance_mode = 1 # short range = 1, long range = 2
-                self.vl53.timing_budget = 100 # ms
+                self.vl53.start_ranging()
                 self._state = 1
 
-            # start ranging
-            elif self._state == 1:
-                self.vl53.start_ranging()
-                #self._tofdistance.put(self.vl53.distance)
-                self._state = 2
-
             # get the position and put it in the share
-            elif self._state == 2:
+            elif self._state == 1:
                 try:
                     self._distance = int(self.vl53.distance)
                     self._tofdistance.put(self._distance)
@@ -287,26 +257,19 @@ class UpdateIMU:
 
         self.sensor = BNO055()
 
+        self.sensor.begin()
+        self.sensor.set_axis_remap(x=BNO055.AXIS_REMAP_Y, y=BNO055.AXIS_REMAP_X, z=BNO055.AXIS_REMAP_Z, x_sign=BNO055.AXIS_REMAP_NEGATIVE, y_sign=BNO055.AXIS_REMAP_POSITIVE, z_sign=BNO055.AXIS_REMAP_POSITIVE)
+        self.sensor.setCalibrationData([0xeb,0xff,0xfd,0xff,0xe1,0xff,0x1a,0x3,0x49,0xf7,0x6,0x7,0xfe,0xff,0xfe,0xff,0x0,0x0,0xe8,0x3,0x70,0x1])
+
         self._state = 0
 
     def run(self):
         while True:
-            # IMU initialization
-            if self._state == 0:
-                self.sensor.begin()
-                self._state = 1
-            # set axis remap
-            elif self._state == 1:
-                self.sensor.set_axis_remap(x=BNO055.AXIS_REMAP_Y, y=BNO055.AXIS_REMAP_X, z=BNO055.AXIS_REMAP_Z, x_sign=BNO055.AXIS_REMAP_NEGATIVE, y_sign=BNO055.AXIS_REMAP_POSITIVE, z_sign=BNO055.AXIS_REMAP_POSITIVE)
-                self._state = 2
-            # set calibration
-            elif self._state == 2:
-                self.sensor.setCalibrationData([0xeb,0xff,0xfd,0xff,0xe1,0xff,0x1a,0x3,0x49,0xf7,0x6,0x7,0xfe,0xff,0xfe,0xff,0x0,0x0,0xe8,0x3,0x70,0x1])
-                self._state = 3
-
             # get the position and put it in the share
-            elif self._state == 3:
+            if self._state == 0:
                 self._heading.put(self.sensor.getVector(BNO055.VECTOR_EULER)[0])
+            else:
+                raise ValueError("Invalid state")
                 
             yield self._state
 
@@ -341,10 +304,15 @@ class LineFollower:
 
         self.user_button = Pin(Pin.cpu.C13, mode=Pin.IN)
 
-        self.kp = 1.15e-4
-        self.ki = 1.05e-4
-        self.kd = self.kp / 1000
+        #self.kp = 1.15e-4
+        self.kp = 2.65e-4
+        # self.ki = 1.05e-4
+        self.ki = 0
+        self.kd = self.kp/9.17
+        #self.ki = 1.05-4
+        #self.kd = self.kp / 1000
         self._linePosPID = PID(self.kp, self.ki, self.kd, self._linePosTarget_front, sample_time=self.time_scale, scale="ms", proportional_on_measurement=False)
+        #self._linePosPID.output_limits = (-0.90, 0.90)
 
     def run(self):
         while True:
@@ -355,11 +323,11 @@ class LineFollower:
 
             elif self._state == 1:
                 
-                if self.user_button.value() == 0:
-                    self.ki *= 0.98 # increase by 2% every button press
-                    #self.kd = 0 * self.kp
-                    #self._linePosPID.Kp = self.kp
-                    self._linePosPID.Ki = self.ki
+                # if self.user_button.value() == 0:
+                #     self.kp *= 1.02 # increase by 2% every button press
+                #     #self.kd = 0 * self.kp
+                #     self._linePosPID.Kp = self.kp
+                #     #self._linePosPID.Ki = self.ki
 
                 # Scale rear position to have same full scale as front sensor array
                 rearPos = (self._qtrPos_rear.get()) * (self._linePosTarget_front/self._linePosTarget_rear)
@@ -374,8 +342,12 @@ class LineFollower:
                 elif rearPos==6000 and frontPos==6000:
                     pos = 6000
                 else:
-                    pos = (frontPos + rearPos)/2
-                    #pos = frontPos
+                    #pos = (frontPos + rearPos)/2
+                    pos = frontPos
+
+                # dead zone
+                if 2800<pos<3200:
+                    pos = 3000
 
                 #print(pos)
                 #print("Distance : {} mm".format(self._tofdistance.get()))
@@ -398,13 +370,19 @@ class LineFollower:
                 # self._prevRightDistanceTraveled = self._rightDistanceTraveled.get()
                 # self._prevLeftDistanceTraveled = self._leftDistanceTraveled.get()
 
-                if self._tofdistance.get() <= 50:
+                if self._tofdistance.get() <= 100: # mm
                    self._state = 2
 
             elif self._state == 2:
                 self._e1SpeedTarget.put(0)
                 self._e2SpeedTarget.put(0)
-                #print("DISTANCE MET")
+                m1_control_obj._motor.set_duty(0)
+                m2_control_obj._motor.set_duty(0)
+                print("DISTANCE MET")
+                self._state = 3
+            
+            elif self._state == 3:
+                pass
             
             yield self._state
 
@@ -454,11 +432,11 @@ if __name__ == "__main__":
     q_e2_resetEncoder.put(0)
 
     #These closed loop params wont get used in open loop
-    s_e1_kp.put(2) # 2, 100, 0.01
+    s_e1_kp.put(2.7) # 2, 100, 0.01
     s_e1_ki.put(100)
     s_e1_kd.put(0.01)
 
-    s_e2_kp.put(2)
+    s_e2_kp.put(2.7)
     s_e2_ki.put(100)
     s_e2_kd.put(0.01)
 
@@ -496,13 +474,13 @@ if __name__ == "__main__":
 
     lineCenterPosition_front = 3000
     lineCenterPosition_rear = 2000
-    #baseSpeed = 4.2 rad/s
-    baseSpeed = 1.5
+    
+    baseSpeed = 2.0 # rad/s
 
     s_leftWheelPosition:    Share = Share('d')
     s_rightWheelPosition:   Share = Share('d')
 
-    period_all = 50 # ms
+    period_all = 25 # ms
 
     s_field_heading: Share = Share('d')
     
@@ -518,20 +496,20 @@ if __name__ == "__main__":
     
     tof_updater_obj = UpdateTOF(s_tofdistance=s_TOF_Distance)
     
-    imu_updater_obj = UpdateIMU(s_field_heading=s_field_heading)
+    #imu_updater_obj = UpdateIMU(s_field_heading=s_field_heading)
 
-    garbage_collector_obj = GarbageCollector()
+    #garbage_collector_obj = GarbageCollector()
 
-    update1 = cotask.Task(e1_update_obj.run, name = "Encoder 1 Update", priority = 7, period = period_all)
-    update2 = cotask.Task(e2_update_obj.run, name = "Encoder 2 Update", priority = 6, period = period_all)
-    control1 = cotask.Task(m1_control_obj.run, name = "Motor 1 Control loop", priority = 5, period = period_all)
-    control2 = cotask.Task(m2_control_obj.run, name = "Motor 2 Control loop", priority = 4, period = period_all)
-    tofUpdate = cotask.Task(tof_updater_obj.run, name = "Time of Flight Updater", priority = 8, period = 3*period_all)
-    imuUpdate = cotask.Task(imu_updater_obj.run, name = "IMU Updater", priority = 9, period = 2*period_all)
+    update1 = cotask.Task(e1_update_obj.run, name = "Encoder 1 Update", priority = 7, period = period_all*1.0)
+    update2 = cotask.Task(e2_update_obj.run, name = "Encoder 2 Update", priority = 6, period = period_all*1.0)
+    control1 = cotask.Task(m1_control_obj.run, name = "Motor 1 Control loop", priority = 5, period = period_all*1.0)
+    control2 = cotask.Task(m2_control_obj.run, name = "Motor 2 Control loop", priority = 4, period = period_all*1.0)
+    tofUpdate = cotask.Task(tof_updater_obj.run, name = "Time of Flight Updater", priority = 8, period = period_all*3)
+    #imuUpdate = cotask.Task(imu_updater_obj.run, name = "IMU Updater", priority = 9, period = 2*period_all)
 
     lineFollower = cotask.Task(line_follower_obj.run, name="Line Follower", priority=3, period=period_all)
     
-    garbageCollector = cotask.Task(garbage_collector_obj.run, name="Garbage Collector", priority=1, period=2*period_all)
+    #garbageCollector = cotask.Task(garbage_collector_obj.run, name="Garbage Collector", priority=1, period=2*period_all)
 
     cotask.task_list.append(update1)
     cotask.task_list.append(update2)
@@ -539,7 +517,7 @@ if __name__ == "__main__":
     cotask.task_list.append(control2)
     cotask.task_list.append(lineFollower)
     cotask.task_list.append(tofUpdate)
-    cotask.task_list.append(imuUpdate)
+    #cotask.task_list.append(imuUpdate)
     #cotask.task_list.append(garbageCollector)
 
     try:
