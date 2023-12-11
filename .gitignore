@@ -10,3 +10,10 @@
 /QTRFrontCal.json
 /QTRSensors_ReadlineCalibrate.py
 /README.txt
+/array.py
+/gc.py
+/machine.py
+/math.py
+/micropython.py
+/pyb.py
+/time.py
