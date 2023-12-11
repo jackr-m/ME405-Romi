@@ -10,7 +10,9 @@ Welcome to ME405-Romi's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+.. note::
 
+   This documentation is under construction.
 
 Indices and tables
 ==================
