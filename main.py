@@ -27,7 +27,7 @@ gc.collect()
 from machine import I2C
 import adafruit_vl53l1x
 gc.collect()
-#from BNO055 import BNO055
+from BNO055 import BNO055
 gc.collect()
 
 class Control:
