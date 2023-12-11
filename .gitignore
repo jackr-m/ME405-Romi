@@ -1,4 +1,5 @@
 /backup
+/__pycache__
 /boot.py
 /main_bno055_example.py
 /main_lab5.py
