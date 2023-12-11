@@ -16,6 +16,7 @@ author = 'Jack Miller & Casey Pickett'
 
 # Add napoleon (numpy & google docstring support) to the extensions list
 extensions = [
+    'sphinx.ext.todo',
     'sphinx.ext.napoleon',
     'sphinx.ext.autodoc',
 ]
