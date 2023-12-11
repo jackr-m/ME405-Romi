@@ -14,9 +14,8 @@ Welcome to ME405-Romi's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   adafruit_vl531lx
-   BNO055
-   ClosedLoop
+   modules
+
 
 Indices and tables
 ==================
