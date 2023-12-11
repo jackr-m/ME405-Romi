@@ -17,11 +17,21 @@ author = 'Jack Miller & Casey Pickett'
 # Add napoleon (numpy & google docstring support) to the extensions list
 extensions = [
     'sphinx.ext.napoleon',
-    'sphinx.ext.autodoc'
+    'sphinx.ext.autodoc',
 ]
 
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build',
+    'Thumbs.db',
+    '.DS_Store',
+    'boot.rst',
+    'main_bno055_example.rst',
+    'main_lab3.rst',
+    'main_lab4.rst',
+    'main_lab5.rst',
+    'QTRSensors_ReadlineCalibrate.rst',
+    'vl53l1x_example.rst',
+]
 
 
 
