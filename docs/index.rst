@@ -6,6 +6,10 @@
 Welcome to ME405-Romi's documentation!
 ======================================
 
+.. note::
+
+   This documentation is under construction.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
@@ -13,10 +17,6 @@ Welcome to ME405-Romi's documentation!
    adafruit_vl531lx
    BNO055
    ClosedLoop
-
-.. note::
-
-   This documentation is under construction.
 
 Indices and tables
 ==================
