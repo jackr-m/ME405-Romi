@@ -17,3 +17,6 @@
 /micropython.py
 /pyb.py
 /time.py
+/uarray.py
+/uio.py
+/uos.py

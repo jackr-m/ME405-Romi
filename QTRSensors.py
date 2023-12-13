@@ -28,10 +28,11 @@
 
 from micropython import const
 from machine import Pin
+import machine
 from pyb import ADC
 from array import array
-import time
-from time import ticks_diff
+import utime as time
+from utime import ticks_diff
 #import gc
 
 # QTRReadMode

@@ -10,6 +10,9 @@ import sys
 import os
 sys.path.insert(0, os.path.abspath('../'))
 
+# replace time with utime
+#sys.modules['time'] = __import__('utime')
+
 project = 'ME405-Romi'
 copyright = '2023, Jack Miller & Casey Pickett'
 author = 'Jack Miller & Casey Pickett'
@@ -38,10 +41,10 @@ exclude_patterns = ['_build',
     'vl53l1x_example.rst',
 ]
 
-
+autodoc_mock_imports = ["pyb", "micropython"]
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'sphinx_rtd_theme'
-html_static_path = ['_static']
+html_static_path = ['html/_static']

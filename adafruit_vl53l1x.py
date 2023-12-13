@@ -26,7 +26,7 @@ Implementation Notes
 * Adafruit's Bus Device library: https://github.com/adafruit/Adafruit_CircuitPython_BusDevice
 """
 
-import time
+import utime
 import struct
 from machine import I2C
 from micropython import const

@@ -1,5 +1,5 @@
 from math import isnan
-#from time import ticks_diff
+#from utime import ticks_diff
 
 '''!@file
     @brief Closed Loop control algorithm

@@ -1,7 +1,7 @@
 import gc
 from SMBus import SMBus
 gc.collect()
-import time
+import utime
 gc.collect()
 import struct
 gc.collect()

@@ -6,7 +6,7 @@
 # Simple demo of the VL53L1X distance sensor.
 # Will print the sensed range/distance every second.
 
-import time
+import utime
 from machine import I2C
 from pyb import Pin
 import adafruit_vl53l1x

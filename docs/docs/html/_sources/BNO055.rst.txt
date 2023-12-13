@@ -1,0 +1,7 @@
+BNO055 module
+=============
+
+.. automodule:: BNO055
+   :members:
+   :undoc-members:
+   :show-inheritance:

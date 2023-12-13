@@ -7,7 +7,7 @@
 from pyb import Timer
 from pyb import Pin
 
-import time
+import utime as time
 
 
 class RomiMotor:
@@ -23,8 +23,11 @@ class RomiMotor:
         self.DIR_pin = DIR_pin
 
     def set_duty(self, duty):
-        '''Set the PWM duty cycle for the DC motor.\n
-           This method sets the duty cycle to be sent to the L6206 to a given level. Positive values cause effort in one direction, negative values in the opposite direction.\n@duty: A signed number holding the duty cycle of the PWM signal sent to the L6206'''
+        '''Set the PWM duty cycle for the DC motor.
+
+           This method sets the duty cycle to be sent to the L6206 to a given level. Positive values cause effort in one direction, negative values in the opposite direction.
+           @duty: A signed number holding the duty cycle of the PWM signal sent to the L6206
+        '''
         #print("SETTING DUTY CYCLE")
 
         self.PWM_tim.deinit()
