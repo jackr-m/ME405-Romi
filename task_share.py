@@ -1,4 +1,4 @@
-""" This file contains classes which allow tasks to share data without the risk
+"""This file contains classes which allow tasks to share data without the risk
 of data corruption by interrupts. 
 
 Author: JR Ridgely
