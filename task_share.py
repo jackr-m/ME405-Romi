@@ -1,13 +1,15 @@
-"""!
-@file task_share.py
-This file contains classes which allow tasks to share data without the risk
+""" This file contains classes which allow tasks to share data without the risk
 of data corruption by interrupts. 
 
-@author JR Ridgely
-@date   2017-Jan-01 JRR Approximate date of creation of file
-@date   2021-Dec-18 JRR Docstrings changed to work without DoxyPyPy
-@copyright This program is copyright (c) 2017-2021 by JR Ridgely and released
-           under the GNU Public License, version 3.0. 
+Author: JR Ridgely
+Changelog:
+
+    2017-Jan-01 JRR Approximate date of creation of file
+    2021-Dec-18 JRR Docstrings changed to work without DoxyPyPy
+    2023-Dec-31 Jack Miller changed docstrings to google format for use with Sphinx
+
+Copyright: This program is copyright (c) 2017-2021 by JR Ridgely and released
+under the GNU Public License, version 3.0.
 
 It is intended for educational use only, but its use is not limited thereto.
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
@@ -59,7 +61,7 @@ class BaseShare:
     
     One should never create an object from this class; it doesn't do anything
     useful. It exists to implement things which are common between its child
-    classes @c Queue and @c Share. 
+    classes :class:`Queue` and :class:`Share`. 
     """
 
     def __init__ (self, type_code, thread_protect = True, name = None):
