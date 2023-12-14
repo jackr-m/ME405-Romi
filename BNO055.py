@@ -1,7 +1,12 @@
+
+"""Driver for Bosch BNO055 Driver, adapter from Adafruit
+
+"""
+
 import gc
 from SMBus import SMBus
 gc.collect()
-import utime
+import time
 gc.collect()
 import struct
 gc.collect()
@@ -197,16 +202,18 @@ class BNO055:
     # REGISTER DEFINITION END
 
 
-    def __init__(self, sensorId=-1, address=0x28):
+    def __init__(self, i2c, sensorId=-1, address=0x28):
         self._sensorId = sensorId
         self._address = address
         self._mode = BNO055.OPERATION_MODE_NDOF
+        self._i2c = i2c
 
 
     def begin(self, mode=None):
         if mode is None: mode = BNO055.OPERATION_MODE_NDOF
         # Open I2C bus
-        self._bus = SMBus(1)
+        #self._bus = SMBus(1)
+        self._bus = SMBus(self._i2c)
 
         # Make sure we have the right device
         if self.readBytes(BNO055.BNO055_CHIP_ID_ADDR)[0] != BNO055.BNO055_ID:
