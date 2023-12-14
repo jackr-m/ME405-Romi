@@ -7,7 +7,7 @@
 '''
 
 from pyb import Timer
-from utime import ticks_ms, ticks_diff
+from time import ticks_ms, ticks_diff
 from math import pi
 
 
@@ -69,8 +69,9 @@ class RomiCoder:
         self.totalEncPos = 0
 
         # Scaling
-        counts_per_revolution = 1440
-        gear_ratio = 1 # ignore, using Pololu adjusted CPR
+        #counts_per_revolution = 1440
+        counts_per_revolution = 256
+        gear_ratio = 16 # ignore, using Pololu adjusted CPR
         self.position_scale = (2 * pi)/(counts_per_revolution * gear_ratio)
     
     
