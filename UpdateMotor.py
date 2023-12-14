@@ -1,3 +1,6 @@
+"""Houses the UpdateMotor class.
+"""
+
 from pyb import Timer, Pin
 from task_share import Share, Queue
 from RomiCoder import RomiCoder
@@ -5,10 +8,11 @@ from utime import sleep_ms
 import QTRSensors
 
 class UpdateMotor:
-    '''!
-        Class for task to update an encoder position at a different frequency compared to the 
-        respective motor control loop
-    '''
+    """Communicates with a motor's respective encoder to provide updated position, and velocity value; also manages a QTR Sensor.
+
+    
+
+    """
 
     def __init__(self, motor, q_positions: Queue, s_timeDelta: Share, s_velocity: Share, q_velocities: Queue, q_times: Queue, resetRequest: Share, printList: Queue, collectOLData: Share, collectStepData: Share, qtrfront: QTRSensors.QTRSensors, qtrrear: QTRSensors.QTRSensors, s_qtrPositionfront: Share, s_qtrPositionrear: Share, s_position: Share):
         '''
