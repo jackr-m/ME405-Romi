@@ -1,7 +1,7 @@
 from pyb import Timer, Pin
 from task_share import Share, Queue
 from RomiCoder import RomiCoder
-from time import sleep_ms
+from utime import sleep_ms
 import QTRSensors
 
 class UpdateMotor:
