@@ -28,7 +28,6 @@
 
 from micropython import const
 from machine import Pin
-import machine
 from pyb import ADC
 from array import array
 import utime as time
@@ -110,7 +109,7 @@ class CalibrationData:
         self.maximum = _dict['maximum']
     
 class QTRSensors():
-    def __init__(self, pins: list[machine.Pin], emitterPin: machine.Pin, evenEmitterPin: machine.Pin=None, timeout: int=DEFAULT_TIMEOUT, maxValue: int=MAX_VALUE, samples: int=DEFAULT_SAMPLES_PER_SENSOR, type=TYPE_RC) -> None:
+    def __init__(self, pins: list[Pin], emitterPin: Pin, evenEmitterPin: Pin=None, timeout: int=DEFAULT_TIMEOUT, maxValue: int=MAX_VALUE, samples: int=DEFAULT_SAMPLES_PER_SENSOR, type=TYPE_RC) -> None:
         """Represents a QTR sensor array.
        
         An instance of this class represents a QTR sensor array, consisting of one or more sensors of the same type.
@@ -613,7 +612,7 @@ class QTRSensors():
             raise ValueError('Invalid sensor type')
 
     def __readLinePrivate( self, mode, invertReadings): # returns uint16_t, uint16_t * sensorValues, QTRReadMode mode, bool invertReadings
-        onLine = False # Sensor is on the line
+        onLine = [False] # Sensor is on the line
         avg = 0 # this is for the weighted total
         sum = 0 # this is for the denominator, which is <= 64000
 
@@ -629,7 +628,7 @@ class QTRSensors():
                 value = 1000 - value
 
             # keep track of whether we see the line at all
-            if value > 200:
+            if value > 300:
                 onLine = True
 
             # only average in values that are above a noise threshold
@@ -863,7 +862,7 @@ class QTRSensors():
         return self._dimmable
     def dimmable(self, value):
         self._dimmable = value
-
+    
     
     def dimmingLevel(self):
         return self._dimmingLevel
