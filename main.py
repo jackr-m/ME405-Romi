@@ -12,7 +12,7 @@ from machine import I2C
 from task_share import Queue, Share
 import cotask
 #from nb_input import NB_Input
-from time import ticks_ms, ticks_diff, sleep_ms
+from utime import ticks_ms, ticks_diff, sleep_ms
 from math import pi, cos, sin
 
 gc.collect()
