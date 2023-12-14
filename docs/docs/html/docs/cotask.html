@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cotask module &mdash; ME405-Romi  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ME405-Romi
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">docs</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ME405-Romi</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">cotask module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/docs/cotask.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-cotask">
+<span id="cotask-module"></span><h1>cotask module<a class="headerlink" href="#module-cotask" title="Link to this heading"></a></h1>
+<p>!
+&#64;file cotask.py
+This file contains classes to run cooperatively scheduled tasks in a
+multitasking system.</p>
+<p>Tasks are created as generators, functions which have infinite loops and call
+&#64;c yield at least once in the loop. References to all the tasks to be run
+in the system are kept in a list maintained by class &#64;c CoTaskList; the
+system scheduler then runs the tasks’ &#64;c run() methods according to a
+chosen scheduling algorithm such as round-robin or highest-priority-first.</p>
+<p>&#64;author JR Ridgely
+&#64;date   2017-Jan-01 JRR Approximate date of creation of file
+&#64;date   2021-Dec-18 JRR Docstrings modified to work without DoxyPyPy
+&#64;copyright This program is copyright (c) 2017-2022 by JR Ridgely and released</p>
+<blockquote>
+<div><p>under the GNU Public License, version 3.0.</p>
+</div></blockquote>
+<p>It is intended for educational use only, but its use is not limited thereto.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="cotask.Task">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cotask.</span></span><span class="sig-name descname"><span class="pre">Task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_fun</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NoName'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shares</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cotask.Task" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>!
+Implements multitasking with scheduling and some performance logging.</p>
+<p>This class implements behavior common to tasks in a cooperative
+multitasking system which runs in MicroPython. The ability to be scheduled
+on the basis of time or an external software trigger or interrupt is
+implemented, state transitions can be recorded, and run times can be
+profiled. The user’s task code must be implemented in a generator which
+yields the state (and the CPU) after it has run for a short and bounded
+period of time.</p>
+<p class="rubric">Example</p>
+<dl>
+<dt>&#64;code</dt><dd><dl>
+<dt>def task1_fun ():</dt><dd><p>‘’’! This function switches states repeatedly for no reason ‘’’
+state = 0
+while True:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>if state == 0:</dt><dd><p>state = 1</p>
+</dd>
+<dt>elif state == 1:</dt><dd><p>state = 0</p>
+</dd>
+</dl>
+<p>yield (state)</p>
+</div></blockquote>
+</dd>
+</dl>
+<p># In main routine, create this task and set it to run twice per second
+task1 = cotask.Task (task1_fun, name = ‘Task 1’, priority = 1,</p>
+<blockquote>
+<div><p>period = 500, profile = True, trace = True)</p>
+</div></blockquote>
+<p># Add the task to the list (so it will be run) and run scheduler
+cotask.task_list.append (task1)
+while True:</p>
+<blockquote>
+<div><p>cotask.task_list.pri_sched ()</p>
+</div></blockquote>
+</dd>
+</dl>
+<p>&#64;endcode</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cotask.Task.get_trace">
+<span class="sig-name descname"><span class="pre">get_trace</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cotask.Task.get_trace" title="Link to this definition"></a></dt>
+<dd><p>!
+This method returns a string containing the task’s transition trace.
+The trace is a set of tuples, each of which contains a time and the
+states from and to which the system transitioned.
+&#64;return A possibly quite large string showing state transitions</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cotask.Task.go">
+<span class="sig-name descname"><span class="pre">go</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cotask.Task.go" title="Link to this definition"></a></dt>
+<dd><p>!
+Method to set a flag so that this task indicates that it’s ready to run.
+This method may be called from an interrupt service routine or from
+another task which has data that this task needs to process soon.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cotask.Task.ready">
+<span class="sig-name descname"><span class="pre">ready</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#cotask.Task.ready" title="Link to this definition"></a></dt>
+<dd><p>!
+This method checks if the task is ready to run.
+If the task runs on a timer, this method checks what time it is; if not,
+this method checks the flag which indicates that the task is ready to
+go. This method may be overridden in descendent classes to implement
+some other behavior.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cotask.Task.reset_profile">
+<span class="sig-name descname"><span class="pre">reset_profile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cotask.Task.reset_profile" title="Link to this definition"></a></dt>
+<dd><p>!
+This method resets the variables used for execution time profiling.
+This method is also used by &#64;c __init__() to create the variables.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cotask.Task.schedule">
+<span class="sig-name descname"><span class="pre">schedule</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#cotask.Task.schedule" title="Link to this definition"></a></dt>
+<dd><p>!
+This method is called by the scheduler; it attempts to run this task.
+If the task is not yet ready to run, this method returns &#64;c False
+immediately; if this task is ready to run, it runs the task’s generator
+up to the next &#64;c yield() and then returns &#64;c True.</p>
+<p>&#64;return &#64;c True if the task ran or &#64;c False if it did not</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cotask.Task.set_period">
+<span class="sig-name descname"><span class="pre">set_period</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_period</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cotask.Task.set_period" title="Link to this definition"></a></dt>
+<dd><p>!
+This method sets the period between runs of the task to the given
+number of milliseconds, or &#64;c None if the task is triggered by calls
+to &#64;c go() rather than time.
+&#64;param new_period The new period in milliseconds between task runs</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cotask.TaskList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cotask.</span></span><span class="sig-name descname"><span class="pre">TaskList</span></span><a class="headerlink" href="#cotask.TaskList" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>!
+A list of tasks used internally by the task scheduler.
+This class holds the list of tasks which will be run by the task scheduler.
+The task list is usually not directly used by the programmer except when
+tasks are added to it and the scheduler is called. An example showing the
+use of the task list is given in the last few lines of the documentation
+for class &#64;c Task.</p>
+<p>The task list is sorted by priority so that the scheduler can efficiently
+look through the list to find the highest priority task which is ready to
+run at any given time. Tasks can also be scheduled in a simpler
+“round-robin” fashion.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cotask.TaskList.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cotask.TaskList.append" title="Link to this definition"></a></dt>
+<dd><p>!
+Append a task to the task list. The list will be sorted by task
+priorities so that the scheduler can quickly find the highest priority
+task which is ready to run at any given time.
+&#64;param task The task to be appended to the list</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cotask.TaskList.pri_sched">
+<span class="sig-name descname"><span class="pre">pri_sched</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cotask.TaskList.pri_sched" title="Link to this definition"></a></dt>
+<dd><p>!
+Run tasks according to their priorities.</p>
+<p>This scheduler runs tasks in a priority based fashion. Each time it is
+called, it finds the highest priority task which is ready to run and
+calls that task’s &#64;c run() method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cotask.TaskList.rr_sched">
+<span class="sig-name descname"><span class="pre">rr_sched</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cotask.TaskList.rr_sched" title="Link to this definition"></a></dt>
+<dd><p>!
+Run tasks in order, ignoring the tasks’ priorities.</p>
+<p>This scheduling method runs tasks in a round-robin fashion. Each
+time it is called, it goes through the list of tasks and gives each of
+them a chance to run. Although this scheduler first runs higher priority
+tasks first, that has no significant effect in the long run, as all the
+tasks are given a chance to run each time through the list, and it takes
+about the same amount of time before each is given a chance to run
+again.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Jack Miller &amp; Casey Pickett.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

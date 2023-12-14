@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>time module &mdash; ME405-Romi  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="utime module" href="utime.html" />
+    <link rel="prev" title="task_share module" href="task_share.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ME405-Romi
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Lab 06</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="BNO055.html">BNO055 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ClosedLoop.html">ClosedLoop module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Control.html">Control module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GarbageCollector.html">GarbageCollector module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LineFollower.html">LineFollower module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PID.html">PID module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QTRSensors.html">QTRSensors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RomiCoder.html">RomiCoder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RomiMotor.html">RomiMotor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SMBus.html">SMBus module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateIMU.html">UpdateIMU module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateMotor.html">UpdateMotor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_share.html">task_share module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">time module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#time.asctime"><code class="docutils literal notranslate"><span class="pre">asctime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time.ctime"><code class="docutils literal notranslate"><span class="pre">ctime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time.get_clock_info"><code class="docutils literal notranslate"><span class="pre">get_clock_info()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time.gmtime"><code class="docutils literal notranslate"><span class="pre">gmtime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time.localtime"><code class="docutils literal notranslate"><span class="pre">localtime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time.mktime"><code class="docutils literal notranslate"><span class="pre">mktime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time.monotonic"><code class="docutils literal notranslate"><span class="pre">monotonic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time.monotonic_ns"><code class="docutils literal notranslate"><span class="pre">monotonic_ns()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time.perf_counter"><code class="docutils literal notranslate"><span class="pre">perf_counter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time.perf_counter_ns"><code class="docutils literal notranslate"><span class="pre">perf_counter_ns()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time.process_time"><code class="docutils literal notranslate"><span class="pre">process_time()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time.process_time_ns"><code class="docutils literal notranslate"><span class="pre">process_time_ns()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time.sleep"><code class="docutils literal notranslate"><span class="pre">sleep()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time.strftime"><code class="docutils literal notranslate"><span class="pre">strftime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time.strptime"><code class="docutils literal notranslate"><span class="pre">strptime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time.struct_time"><code class="docutils literal notranslate"><span class="pre">struct_time</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#time.struct_time.n_fields"><code class="docutils literal notranslate"><span class="pre">struct_time.n_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.struct_time.n_sequence_fields"><code class="docutils literal notranslate"><span class="pre">struct_time.n_sequence_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.struct_time.n_unnamed_fields"><code class="docutils literal notranslate"><span class="pre">struct_time.n_unnamed_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.struct_time.tm_gmtoff"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_gmtoff</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.struct_time.tm_hour"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_hour</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.struct_time.tm_isdst"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_isdst</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.struct_time.tm_mday"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_mday</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.struct_time.tm_min"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_min</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.struct_time.tm_mon"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_mon</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.struct_time.tm_sec"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_sec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.struct_time.tm_wday"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_wday</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.struct_time.tm_yday"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_yday</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.struct_time.tm_year"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_year</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.struct_time.tm_zone"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_zone</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#time.thread_time"><code class="docutils literal notranslate"><span class="pre">thread_time()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time.thread_time_ns"><code class="docutils literal notranslate"><span class="pre">thread_time_ns()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time.time"><code class="docutils literal notranslate"><span class="pre">time()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time.time_ns"><code class="docutils literal notranslate"><span class="pre">time_ns()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ME405-Romi</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Lab 06</a></li>
+      <li class="breadcrumb-item active">time module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/time.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-time">
+<span id="time-module"></span><h1>time module<a class="headerlink" href="#module-time" title="Link to this heading"></a></h1>
+<p>This module provides various functions to manipulate time values.</p>
+<p>There are two standard representations of time.  One is the number
+of seconds since the Epoch, in UTC (a.k.a. GMT).  It may be an integer
+or a floating point number (to represent fractions of seconds).
+The Epoch is system-defined; on Unix, it is generally January 1st, 1970.
+The actual value can be retrieved by calling gmtime(0).</p>
+<p>The other representation is a tuple of 9 integers giving local time.
+The tuple items are:</p>
+<blockquote>
+<div><p>year (including century, e.g. 1998)
+month (1-12)
+day (1-31)
+hours (0-23)
+minutes (0-59)
+seconds (0-59)
+weekday (0-6, Monday is 0)
+Julian day (day in the year, 1-366)
+DST (Daylight Savings Time) flag (-1, 0 or 1)</p>
+</div></blockquote>
+<p>If the DST flag is 0, the time is given in the regular time zone;
+if it is 1, the time is given in the DST time zone;
+if it is -1, mktime() should guess based on the date and time.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="time.asctime">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">asctime</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">tuple</span></span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">string</span></span></span><a class="headerlink" href="#time.asctime" title="Link to this definition"></a></dt>
+<dd><p>Convert a time tuple to a string, e.g. ‘Sat Jun 06 16:26:11 1998’.
+When the time tuple is not present, current time as returned by localtime()
+is used.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.ctime">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">ctime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">string</span></span></span><a class="headerlink" href="#time.ctime" title="Link to this definition"></a></dt>
+<dd><p>Convert a time in seconds since the Epoch to a string in local time.
+This is equivalent to asctime(localtime(seconds)). When the time tuple is
+not present, current time as returned by localtime() is used.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.get_clock_info">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">get_clock_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#time.get_clock_info" title="Link to this definition"></a></dt>
+<dd><p>Get information of the specified clock.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.gmtime">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">gmtime</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">(tm_year,</span> <span class="pre">tm_mon,</span> <span class="pre">tm_mday,</span> <span class="pre">tm_hour,</span> <span class="pre">tm_min,</span></span></span><a class="headerlink" href="#time.gmtime" title="Link to this definition"></a></dt>
+<dd><p>tm_sec, tm_wday, tm_yday, tm_isdst)</p>
+<p>Convert seconds since the Epoch to a time tuple expressing UTC (a.k.a.
+GMT).  When ‘seconds’ is not passed in, convert the current time instead.</p>
+<p>If the platform supports the tm_gmtoff and tm_zone, they are available as
+attributes only.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.localtime">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">localtime</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">(tm_year,tm_mon,tm_mday,tm_hour,tm_min,</span></span></span><a class="headerlink" href="#time.localtime" title="Link to this definition"></a></dt>
+<dd><p>tm_sec,tm_wday,tm_yday,tm_isdst)</p>
+<p>Convert seconds since the Epoch to a time tuple expressing local time.
+When ‘seconds’ is not passed in, convert the current time instead.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.mktime">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">mktime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">floating</span> <span class="pre">point</span> <span class="pre">number</span></span></span><a class="headerlink" href="#time.mktime" title="Link to this definition"></a></dt>
+<dd><p>Convert a time tuple in local time to seconds since the Epoch.
+Note that mktime(gmtime(0)) will not generally return zero for most
+time zones; instead the returned value will either be equal to that
+of the timezone or altzone attributes on the time module.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.monotonic">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">monotonic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#time.monotonic" title="Link to this definition"></a></dt>
+<dd><p>Monotonic clock, cannot go backward.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.monotonic_ns">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">monotonic_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#time.monotonic_ns" title="Link to this definition"></a></dt>
+<dd><p>Monotonic clock, cannot go backward, as nanoseconds.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.perf_counter">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">perf_counter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#time.perf_counter" title="Link to this definition"></a></dt>
+<dd><p>Performance counter for benchmarking.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.perf_counter_ns">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">perf_counter_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#time.perf_counter_ns" title="Link to this definition"></a></dt>
+<dd><p>Performance counter for benchmarking as nanoseconds.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.process_time">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">process_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#time.process_time" title="Link to this definition"></a></dt>
+<dd><p>Process time for profiling: sum of the kernel and user-space CPU time.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.process_time_ns">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">process_time_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#time.process_time_ns" title="Link to this definition"></a></dt>
+<dd><p>process_time() -&gt; int</p>
+<p>Process time for profiling as nanoseconds:
+sum of the kernel and user-space CPU time.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.sleep">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">sleep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#time.sleep" title="Link to this definition"></a></dt>
+<dd><p>Delay execution for a given number of seconds.  The argument may be
+a floating point number for subsecond precision.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.strftime">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">strftime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">tuple</span></span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">string</span></span></span><a class="headerlink" href="#time.strftime" title="Link to this definition"></a></dt>
+<dd><p>Convert a time tuple to a string according to a format specification.
+See the library reference manual for formatting codes. When the time tuple
+is not present, current time as returned by localtime() is used.</p>
+<p>Commonly used format codes:</p>
+<p>%Y  Year with century as a decimal number.
+%m  Month as a decimal number [01,12].
+%d  Day of the month as a decimal number [01,31].
+%H  Hour (24-hour clock) as a decimal number [00,23].
+%M  Minute as a decimal number [00,59].
+%S  Second as a decimal number [00,61].
+%z  Time zone offset from UTC.
+%a  Locale’s abbreviated weekday name.
+%A  Locale’s full weekday name.
+%b  Locale’s abbreviated month name.
+%B  Locale’s full month name.
+%c  Locale’s appropriate date and time representation.
+%I  Hour (12-hour clock) as a decimal number [01,12].
+%p  Locale’s equivalent of either AM or PM.</p>
+<p>Other codes may be available on your platform.  See documentation for
+the C library strftime function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.strptime">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">strptime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#time.struct_time" title="time.struct_time"><span class="pre">struct_time</span></a></span></span><a class="headerlink" href="#time.strptime" title="Link to this definition"></a></dt>
+<dd><p>Parse a string to a time tuple according to a format specification.
+See the library reference manual for formatting codes (same as
+strftime()).</p>
+<p>Commonly used format codes:</p>
+<p>%Y  Year with century as a decimal number.
+%m  Month as a decimal number [01,12].
+%d  Day of the month as a decimal number [01,31].
+%H  Hour (24-hour clock) as a decimal number [00,23].
+%M  Minute as a decimal number [00,59].
+%S  Second as a decimal number [00,61].
+%z  Time zone offset from UTC.
+%a  Locale’s abbreviated weekday name.
+%A  Locale’s full weekday name.
+%b  Locale’s abbreviated month name.
+%B  Locale’s full month name.
+%c  Locale’s appropriate date and time representation.
+%I  Hour (12-hour clock) as a decimal number [01,12].
+%p  Locale’s equivalent of either AM or PM.</p>
+<p>Other codes may be available on your platform.  See documentation for
+the C library strftime function.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="time.struct_time">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">struct_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#time.struct_time" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<p>The time value as returned by gmtime(), localtime(), and strptime(), and
+accepted by asctime(), mktime() and strftime().  May be considered as a
+sequence of 9 integers.</p>
+<p>Note that several fields’ values are not the same as those defined by
+the C language standard for struct tm.  For example, the value of the
+field tm_year is the actual year, not year - 1900.  See individual
+fields’ descriptions for details.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="time.struct_time.n_fields">
+<span class="sig-name descname"><span class="pre">n_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#time.struct_time.n_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="time.struct_time.n_sequence_fields">
+<span class="sig-name descname"><span class="pre">n_sequence_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#time.struct_time.n_sequence_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="time.struct_time.n_unnamed_fields">
+<span class="sig-name descname"><span class="pre">n_unnamed_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#time.struct_time.n_unnamed_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="time.struct_time.tm_gmtoff">
+<span class="sig-name descname"><span class="pre">tm_gmtoff</span></span><a class="headerlink" href="#time.struct_time.tm_gmtoff" title="Link to this definition"></a></dt>
+<dd><p>offset from UTC in seconds</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="time.struct_time.tm_hour">
+<span class="sig-name descname"><span class="pre">tm_hour</span></span><a class="headerlink" href="#time.struct_time.tm_hour" title="Link to this definition"></a></dt>
+<dd><p>hours, range [0, 23]</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="time.struct_time.tm_isdst">
+<span class="sig-name descname"><span class="pre">tm_isdst</span></span><a class="headerlink" href="#time.struct_time.tm_isdst" title="Link to this definition"></a></dt>
+<dd><p>1 if summer time is in effect, 0 if not, and -1 if unknown</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="time.struct_time.tm_mday">
+<span class="sig-name descname"><span class="pre">tm_mday</span></span><a class="headerlink" href="#time.struct_time.tm_mday" title="Link to this definition"></a></dt>
+<dd><p>day of month, range [1, 31]</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="time.struct_time.tm_min">
+<span class="sig-name descname"><span class="pre">tm_min</span></span><a class="headerlink" href="#time.struct_time.tm_min" title="Link to this definition"></a></dt>
+<dd><p>minutes, range [0, 59]</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="time.struct_time.tm_mon">
+<span class="sig-name descname"><span class="pre">tm_mon</span></span><a class="headerlink" href="#time.struct_time.tm_mon" title="Link to this definition"></a></dt>
+<dd><p>month of year, range [1, 12]</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="time.struct_time.tm_sec">
+<span class="sig-name descname"><span class="pre">tm_sec</span></span><a class="headerlink" href="#time.struct_time.tm_sec" title="Link to this definition"></a></dt>
+<dd><p>seconds, range [0, 61])</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="time.struct_time.tm_wday">
+<span class="sig-name descname"><span class="pre">tm_wday</span></span><a class="headerlink" href="#time.struct_time.tm_wday" title="Link to this definition"></a></dt>
+<dd><p>day of week, range [0, 6], Monday is 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="time.struct_time.tm_yday">
+<span class="sig-name descname"><span class="pre">tm_yday</span></span><a class="headerlink" href="#time.struct_time.tm_yday" title="Link to this definition"></a></dt>
+<dd><p>day of year, range [1, 366]</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="time.struct_time.tm_year">
+<span class="sig-name descname"><span class="pre">tm_year</span></span><a class="headerlink" href="#time.struct_time.tm_year" title="Link to this definition"></a></dt>
+<dd><p>year, for example, 1993</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="time.struct_time.tm_zone">
+<span class="sig-name descname"><span class="pre">tm_zone</span></span><a class="headerlink" href="#time.struct_time.tm_zone" title="Link to this definition"></a></dt>
+<dd><p>abbreviation of timezone name</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.thread_time">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">thread_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#time.thread_time" title="Link to this definition"></a></dt>
+<dd><p>Thread time for profiling: sum of the kernel and user-space CPU time.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.thread_time_ns">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">thread_time_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#time.thread_time_ns" title="Link to this definition"></a></dt>
+<dd><p>thread_time() -&gt; int</p>
+<p>Thread time for profiling as nanoseconds:
+sum of the kernel and user-space CPU time.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.time">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">floating</span> <span class="pre">point</span> <span class="pre">number</span></span></span><a class="headerlink" href="#time.time" title="Link to this definition"></a></dt>
+<dd><p>Return the current time in seconds since the Epoch.
+Fractions of a second may be present if the system clock provides them.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.time_ns">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">time_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#time.time_ns" title="Link to this definition"></a></dt>
+<dd><p>Return the current time in nanoseconds since the Epoch.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="task_share.html" class="btn btn-neutral float-left" title="task_share module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="utime.html" class="btn btn-neutral float-right" title="utime module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Jack Miller &amp; Casey Pickett.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

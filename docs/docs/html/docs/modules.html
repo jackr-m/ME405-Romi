@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab 06 &mdash; ME405-Romi  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ME405-Romi
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">docs</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ME405-Romi</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Lab 06</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/docs/modules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lab-06">
+<h1>Lab 06<a class="headerlink" href="#lab-06" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="BNO055.html">BNO055 module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="BNO055.html#BNO055.BNO055"><code class="docutils literal notranslate"><span class="pre">BNO055</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.ACCEL_OFFSET_X_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.ACCEL_OFFSET_X_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.ACCEL_OFFSET_X_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.ACCEL_OFFSET_X_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.ACCEL_OFFSET_Y_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.ACCEL_OFFSET_Y_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.ACCEL_OFFSET_Y_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.ACCEL_OFFSET_Y_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.ACCEL_OFFSET_Z_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.ACCEL_OFFSET_Z_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.ACCEL_OFFSET_Z_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.ACCEL_OFFSET_Z_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.ACCEL_RADIUS_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.ACCEL_RADIUS_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.ACCEL_RADIUS_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.ACCEL_RADIUS_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.AXIS_REMAP_NEGATIVE"><code class="docutils literal notranslate"><span class="pre">BNO055.AXIS_REMAP_NEGATIVE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.AXIS_REMAP_POSITIVE"><code class="docutils literal notranslate"><span class="pre">BNO055.AXIS_REMAP_POSITIVE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.AXIS_REMAP_X"><code class="docutils literal notranslate"><span class="pre">BNO055.AXIS_REMAP_X</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.AXIS_REMAP_Y"><code class="docutils literal notranslate"><span class="pre">BNO055.AXIS_REMAP_Y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.AXIS_REMAP_Z"><code class="docutils literal notranslate"><span class="pre">BNO055.AXIS_REMAP_Z</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_ACCEL_DATA_X_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_ACCEL_DATA_X_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_ACCEL_DATA_X_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_ACCEL_DATA_X_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_ACCEL_DATA_Y_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_ACCEL_DATA_Y_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_ACCEL_DATA_Y_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_ACCEL_DATA_Y_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_ACCEL_DATA_Z_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_ACCEL_DATA_Z_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_ACCEL_DATA_Z_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_ACCEL_DATA_Z_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_ACCEL_REV_ID_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_ACCEL_REV_ID_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_ADDRESS_A"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_ADDRESS_A</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_ADDRESS_B"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_ADDRESS_B</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_AXIS_MAP_CONFIG_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_AXIS_MAP_CONFIG_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_AXIS_MAP_SIGN_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_AXIS_MAP_SIGN_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_BL_REV_ID_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_BL_REV_ID_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_CALIB_STAT_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_CALIB_STAT_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_CHIP_ID_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_CHIP_ID_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_DATA_SELECT_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_DATA_SELECT_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_EULER_H_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_EULER_H_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_EULER_H_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_EULER_H_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_EULER_P_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_EULER_P_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_EULER_P_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_EULER_P_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_EULER_R_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_EULER_R_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_EULER_R_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_EULER_R_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_GRAVITY_DATA_X_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_GRAVITY_DATA_X_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_GRAVITY_DATA_X_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_GRAVITY_DATA_X_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_GRAVITY_DATA_Y_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_GRAVITY_DATA_Y_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_GRAVITY_DATA_Y_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_GRAVITY_DATA_Y_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_GRAVITY_DATA_Z_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_GRAVITY_DATA_Z_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_GRAVITY_DATA_Z_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_GRAVITY_DATA_Z_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_GYRO_DATA_X_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_GYRO_DATA_X_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_GYRO_DATA_X_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_GYRO_DATA_X_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_GYRO_DATA_Y_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_GYRO_DATA_Y_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_GYRO_DATA_Y_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_GYRO_DATA_Y_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_GYRO_DATA_Z_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_GYRO_DATA_Z_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_GYRO_DATA_Z_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_GYRO_DATA_Z_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_GYRO_REV_ID_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_GYRO_REV_ID_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_ID"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_ID</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_INTR_STAT_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_INTR_STAT_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_LINEAR_ACCEL_DATA_X_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_LINEAR_ACCEL_DATA_X_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_LINEAR_ACCEL_DATA_X_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_LINEAR_ACCEL_DATA_X_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_LINEAR_ACCEL_DATA_Y_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_LINEAR_ACCEL_DATA_Y_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_LINEAR_ACCEL_DATA_Y_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_LINEAR_ACCEL_DATA_Y_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_LINEAR_ACCEL_DATA_Z_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_LINEAR_ACCEL_DATA_Z_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_LINEAR_ACCEL_DATA_Z_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_LINEAR_ACCEL_DATA_Z_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_MAG_DATA_X_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_MAG_DATA_X_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_MAG_DATA_X_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_MAG_DATA_X_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_MAG_DATA_Y_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_MAG_DATA_Y_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_MAG_DATA_Y_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_MAG_DATA_Y_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_MAG_DATA_Z_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_MAG_DATA_Z_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_MAG_DATA_Z_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_MAG_DATA_Z_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_MAG_REV_ID_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_MAG_REV_ID_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_OPR_MODE_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_OPR_MODE_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_PAGE_ID_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_PAGE_ID_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_PWR_MODE_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_PWR_MODE_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_QUATERNION_DATA_W_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_QUATERNION_DATA_W_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_QUATERNION_DATA_W_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_QUATERNION_DATA_W_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_QUATERNION_DATA_X_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_QUATERNION_DATA_X_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_QUATERNION_DATA_X_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_QUATERNION_DATA_X_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_QUATERNION_DATA_Y_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_QUATERNION_DATA_Y_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_QUATERNION_DATA_Y_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_QUATERNION_DATA_Y_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_QUATERNION_DATA_Z_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_QUATERNION_DATA_Z_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_QUATERNION_DATA_Z_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_QUATERNION_DATA_Z_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SELFTEST_RESULT_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SELFTEST_RESULT_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SIC_MATRIX_0_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SIC_MATRIX_0_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SIC_MATRIX_0_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SIC_MATRIX_0_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SIC_MATRIX_1_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SIC_MATRIX_1_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SIC_MATRIX_1_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SIC_MATRIX_1_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SIC_MATRIX_2_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SIC_MATRIX_2_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SIC_MATRIX_2_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SIC_MATRIX_2_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SIC_MATRIX_3_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SIC_MATRIX_3_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SIC_MATRIX_3_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SIC_MATRIX_3_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SIC_MATRIX_4_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SIC_MATRIX_4_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SIC_MATRIX_4_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SIC_MATRIX_4_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SIC_MATRIX_5_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SIC_MATRIX_5_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SIC_MATRIX_5_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SIC_MATRIX_5_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SIC_MATRIX_6_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SIC_MATRIX_6_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SIC_MATRIX_6_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SIC_MATRIX_6_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SIC_MATRIX_7_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SIC_MATRIX_7_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SIC_MATRIX_7_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SIC_MATRIX_7_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SIC_MATRIX_8_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SIC_MATRIX_8_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SIC_MATRIX_8_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SIC_MATRIX_8_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SW_REV_ID_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SW_REV_ID_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SW_REV_ID_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SW_REV_ID_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SYS_CLK_STAT_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SYS_CLK_STAT_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SYS_ERR_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SYS_ERR_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SYS_STAT_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SYS_STAT_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_SYS_TRIGGER_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_SYS_TRIGGER_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_TEMP_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_TEMP_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_TEMP_SOURCE_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_TEMP_SOURCE_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.BNO055_UNIT_SEL_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.BNO055_UNIT_SEL_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.GYRO_OFFSET_X_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.GYRO_OFFSET_X_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.GYRO_OFFSET_X_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.GYRO_OFFSET_X_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.GYRO_OFFSET_Y_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.GYRO_OFFSET_Y_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.GYRO_OFFSET_Y_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.GYRO_OFFSET_Y_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.GYRO_OFFSET_Z_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.GYRO_OFFSET_Z_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.GYRO_OFFSET_Z_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.GYRO_OFFSET_Z_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.MAG_OFFSET_X_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.MAG_OFFSET_X_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.MAG_OFFSET_X_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.MAG_OFFSET_X_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.MAG_OFFSET_Y_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.MAG_OFFSET_Y_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.MAG_OFFSET_Y_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.MAG_OFFSET_Y_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.MAG_OFFSET_Z_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.MAG_OFFSET_Z_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.MAG_OFFSET_Z_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.MAG_OFFSET_Z_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.MAG_RADIUS_LSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.MAG_RADIUS_LSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.MAG_RADIUS_MSB_ADDR"><code class="docutils literal notranslate"><span class="pre">BNO055.MAG_RADIUS_MSB_ADDR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.OPERATION_MODE_ACCGYRO"><code class="docutils literal notranslate"><span class="pre">BNO055.OPERATION_MODE_ACCGYRO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.OPERATION_MODE_ACCMAG"><code class="docutils literal notranslate"><span class="pre">BNO055.OPERATION_MODE_ACCMAG</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.OPERATION_MODE_ACCONLY"><code class="docutils literal notranslate"><span class="pre">BNO055.OPERATION_MODE_ACCONLY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.OPERATION_MODE_AMG"><code class="docutils literal notranslate"><span class="pre">BNO055.OPERATION_MODE_AMG</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.OPERATION_MODE_COMPASS"><code class="docutils literal notranslate"><span class="pre">BNO055.OPERATION_MODE_COMPASS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.OPERATION_MODE_CONFIG"><code class="docutils literal notranslate"><span class="pre">BNO055.OPERATION_MODE_CONFIG</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.OPERATION_MODE_GYRONLY"><code class="docutils literal notranslate"><span class="pre">BNO055.OPERATION_MODE_GYRONLY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.OPERATION_MODE_IMUPLUS"><code class="docutils literal notranslate"><span class="pre">BNO055.OPERATION_MODE_IMUPLUS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.OPERATION_MODE_M4G"><code class="docutils literal notranslate"><span class="pre">BNO055.OPERATION_MODE_M4G</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.OPERATION_MODE_MAGGYRO"><code class="docutils literal notranslate"><span class="pre">BNO055.OPERATION_MODE_MAGGYRO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.OPERATION_MODE_MAGONLY"><code class="docutils literal notranslate"><span class="pre">BNO055.OPERATION_MODE_MAGONLY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.OPERATION_MODE_NDOF"><code class="docutils literal notranslate"><span class="pre">BNO055.OPERATION_MODE_NDOF</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.OPERATION_MODE_NDOF_FMC_OFF"><code class="docutils literal notranslate"><span class="pre">BNO055.OPERATION_MODE_NDOF_FMC_OFF</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.POWER_MODE_LOWPOWER"><code class="docutils literal notranslate"><span class="pre">BNO055.POWER_MODE_LOWPOWER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.POWER_MODE_NORMAL"><code class="docutils literal notranslate"><span class="pre">BNO055.POWER_MODE_NORMAL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.POWER_MODE_SUSPEND"><code class="docutils literal notranslate"><span class="pre">BNO055.POWER_MODE_SUSPEND</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.VECTOR_ACCELEROMETER"><code class="docutils literal notranslate"><span class="pre">BNO055.VECTOR_ACCELEROMETER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.VECTOR_EULER"><code class="docutils literal notranslate"><span class="pre">BNO055.VECTOR_EULER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.VECTOR_GRAVITY"><code class="docutils literal notranslate"><span class="pre">BNO055.VECTOR_GRAVITY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.VECTOR_GYROSCOPE"><code class="docutils literal notranslate"><span class="pre">BNO055.VECTOR_GYROSCOPE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.VECTOR_LINEARACCEL"><code class="docutils literal notranslate"><span class="pre">BNO055.VECTOR_LINEARACCEL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.VECTOR_MAGNETOMETER"><code class="docutils literal notranslate"><span class="pre">BNO055.VECTOR_MAGNETOMETER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.begin"><code class="docutils literal notranslate"><span class="pre">BNO055.begin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.getAxisRemap"><code class="docutils literal notranslate"><span class="pre">BNO055.getAxisRemap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.getCalibrationData"><code class="docutils literal notranslate"><span class="pre">BNO055.getCalibrationData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.getCalibrationStatus"><code class="docutils literal notranslate"><span class="pre">BNO055.getCalibrationStatus()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.getQuat"><code class="docutils literal notranslate"><span class="pre">BNO055.getQuat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.getRevInfo"><code class="docutils literal notranslate"><span class="pre">BNO055.getRevInfo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.getSystemStatus"><code class="docutils literal notranslate"><span class="pre">BNO055.getSystemStatus()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.getTemp"><code class="docutils literal notranslate"><span class="pre">BNO055.getTemp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.getVector"><code class="docutils literal notranslate"><span class="pre">BNO055.getVector()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.readBytes"><code class="docutils literal notranslate"><span class="pre">BNO055.readBytes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.setCalibrationData"><code class="docutils literal notranslate"><span class="pre">BNO055.setCalibrationData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.setExternalCrystalUse"><code class="docutils literal notranslate"><span class="pre">BNO055.setExternalCrystalUse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.setMode"><code class="docutils literal notranslate"><span class="pre">BNO055.setMode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.set_axis_remap"><code class="docutils literal notranslate"><span class="pre">BNO055.set_axis_remap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="BNO055.html#BNO055.BNO055.writeBytes"><code class="docutils literal notranslate"><span class="pre">BNO055.writeBytes()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ClosedLoop.html">ClosedLoop module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ClosedLoop.html#ClosedLoop.ClosedLoop"><code class="docutils literal notranslate"><span class="pre">ClosedLoop</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ClosedLoop.html#ClosedLoop.ClosedLoop.calculateEfforts"><code class="docutils literal notranslate"><span class="pre">ClosedLoop.calculateEfforts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ClosedLoop.html#ClosedLoop.ClosedLoop.clearIntegral"><code class="docutils literal notranslate"><span class="pre">ClosedLoop.clearIntegral()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ClosedLoop.html#ClosedLoop.ClosedLoop.getError"><code class="docutils literal notranslate"><span class="pre">ClosedLoop.getError()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ClosedLoop.html#ClosedLoop.ClosedLoop.getTarget"><code class="docutils literal notranslate"><span class="pre">ClosedLoop.getTarget()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ClosedLoop.html#ClosedLoop.ClosedLoop.setKd"><code class="docutils literal notranslate"><span class="pre">ClosedLoop.setKd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ClosedLoop.html#ClosedLoop.ClosedLoop.setKi"><code class="docutils literal notranslate"><span class="pre">ClosedLoop.setKi()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ClosedLoop.html#ClosedLoop.ClosedLoop.setKp"><code class="docutils literal notranslate"><span class="pre">ClosedLoop.setKp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ClosedLoop.html#ClosedLoop.ClosedLoop.setSatLower"><code class="docutils literal notranslate"><span class="pre">ClosedLoop.setSatLower()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ClosedLoop.html#ClosedLoop.ClosedLoop.setSatUpper"><code class="docutils literal notranslate"><span class="pre">ClosedLoop.setSatUpper()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ClosedLoop.html#ClosedLoop.ClosedLoop.setTarget"><code class="docutils literal notranslate"><span class="pre">ClosedLoop.setTarget()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Control.html">Control module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Control.html#Control.Control"><code class="docutils literal notranslate"><span class="pre">Control</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Control.html#Control.Control.run"><code class="docutils literal notranslate"><span class="pre">Control.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="GarbageCollector.html">GarbageCollector module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="GarbageCollector.html#GarbageCollector.GarbageCollector"><code class="docutils literal notranslate"><span class="pre">GarbageCollector</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="GarbageCollector.html#GarbageCollector.GarbageCollector.run"><code class="docutils literal notranslate"><span class="pre">GarbageCollector.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="LineFollower.html">LineFollower module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="LineFollower.html#LineFollower.LineFollower"><code class="docutils literal notranslate"><span class="pre">LineFollower</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LineFollower.html#LineFollower.LineFollower.run"><code class="docutils literal notranslate"><span class="pre">LineFollower.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PID.html">PID module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PID.html#PID.PID"><code class="docutils literal notranslate"><span class="pre">PID</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="PID.html#PID.PID.auto_mode"><code class="docutils literal notranslate"><span class="pre">PID.auto_mode</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="PID.html#PID.PID.components"><code class="docutils literal notranslate"><span class="pre">PID.components</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="PID.html#PID.PID.output_limits"><code class="docutils literal notranslate"><span class="pre">PID.output_limits</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="PID.html#PID.PID.reset"><code class="docutils literal notranslate"><span class="pre">PID.reset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="PID.html#PID.PID.set_auto_mode"><code class="docutils literal notranslate"><span class="pre">PID.set_auto_mode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="PID.html#PID.PID.tunings"><code class="docutils literal notranslate"><span class="pre">PID.tunings</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="QTRSensors.html">QTRSensors module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="QTRSensors.html#QTRSensors.CalibrationData"><code class="docutils literal notranslate"><span class="pre">CalibrationData</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.CalibrationData.as_json"><code class="docutils literal notranslate"><span class="pre">CalibrationData.as_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.CalibrationData.load_json"><code class="docutils literal notranslate"><span class="pre">CalibrationData.load_json()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors"><code class="docutils literal notranslate"><span class="pre">QTRSensors</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.calibrate"><code class="docutils literal notranslate"><span class="pre">QTRSensors.calibrate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.dimmable"><code class="docutils literal notranslate"><span class="pre">QTRSensors.dimmable()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.dimmingLevel"><code class="docutils literal notranslate"><span class="pre">QTRSensors.dimmingLevel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.emitterPin"><code class="docutils literal notranslate"><span class="pre">QTRSensors.emitterPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.emitterPinCount"><code class="docutils literal notranslate"><span class="pre">QTRSensors.emitterPinCount()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.emittersOff"><code class="docutils literal notranslate"><span class="pre">QTRSensors.emittersOff()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.emittersOn"><code class="docutils literal notranslate"><span class="pre">QTRSensors.emittersOn()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.emittersSelect"><code class="docutils literal notranslate"><span class="pre">QTRSensors.emittersSelect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.evenEmitterPin"><code class="docutils literal notranslate"><span class="pre">QTRSensors.evenEmitterPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.oddEmitterPin"><code class="docutils literal notranslate"><span class="pre">QTRSensors.oddEmitterPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.read"><code class="docutils literal notranslate"><span class="pre">QTRSensors.read()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.readCalibrated"><code class="docutils literal notranslate"><span class="pre">QTRSensors.readCalibrated()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.readLineBlack"><code class="docutils literal notranslate"><span class="pre">QTRSensors.readLineBlack()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.readLineWhite"><code class="docutils literal notranslate"><span class="pre">QTRSensors.readLineWhite()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.resetCalibration"><code class="docutils literal notranslate"><span class="pre">QTRSensors.resetCalibration()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.sensorPins"><code class="docutils literal notranslate"><span class="pre">QTRSensors.sensorPins()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.setCalValues"><code class="docutils literal notranslate"><span class="pre">QTRSensors.setCalValues()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.setSamplesPerSensor"><code class="docutils literal notranslate"><span class="pre">QTRSensors.setSamplesPerSensor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.setTimeout"><code class="docutils literal notranslate"><span class="pre">QTRSensors.setTimeout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.setTypeAnalog"><code class="docutils literal notranslate"><span class="pre">QTRSensors.setTypeAnalog()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.setTypeRC"><code class="docutils literal notranslate"><span class="pre">QTRSensors.setTypeRC()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.timeout"><code class="docutils literal notranslate"><span class="pre">QTRSensors.timeout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors.values"><code class="docutils literal notranslate"><span class="pre">QTRSensors.values()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="QTRSensors.html#QTRSensors.READMODE_MANUAL"><code class="docutils literal notranslate"><span class="pre">READMODE_MANUAL</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="QTRSensors.html#QTRSensors.READMODE_ODD_EVEN"><code class="docutils literal notranslate"><span class="pre">READMODE_ODD_EVEN</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="QTRSensors.html#QTRSensors.READMODE_ODD_EVEN_AND_OFF"><code class="docutils literal notranslate"><span class="pre">READMODE_ODD_EVEN_AND_OFF</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="QTRSensors.html#QTRSensors.READMODE_OFF"><code class="docutils literal notranslate"><span class="pre">READMODE_OFF</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="QTRSensors.html#QTRSensors.READMODE_ON"><code class="docutils literal notranslate"><span class="pre">READMODE_ON</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="QTRSensors.html#QTRSensors.READMODE_ON_AND_OFF"><code class="docutils literal notranslate"><span class="pre">READMODE_ON_AND_OFF</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="QTRSensors.html#QTRSensors.TYPE_A"><code class="docutils literal notranslate"><span class="pre">TYPE_A</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="QTRSensors.html#QTRSensors.TYPE_RC"><code class="docutils literal notranslate"><span class="pre">TYPE_RC</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="QTRSensors_ReadlineCalibrate.html">QTRSensors_ReadlineCalibrate module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RomiCoder.html">RomiCoder module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="RomiCoder.html#RomiCoder.RomiCoder"><code class="docutils literal notranslate"><span class="pre">RomiCoder</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="RomiCoder.html#RomiCoder.RomiCoder.get_delta"><code class="docutils literal notranslate"><span class="pre">RomiCoder.get_delta()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="RomiCoder.html#RomiCoder.RomiCoder.get_position"><code class="docutils literal notranslate"><span class="pre">RomiCoder.get_position()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="RomiCoder.html#RomiCoder.RomiCoder.get_rate"><code class="docutils literal notranslate"><span class="pre">RomiCoder.get_rate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="RomiCoder.html#RomiCoder.RomiCoder.get_time"><code class="docutils literal notranslate"><span class="pre">RomiCoder.get_time()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="RomiCoder.html#RomiCoder.RomiCoder.get_timeDelta"><code class="docutils literal notranslate"><span class="pre">RomiCoder.get_timeDelta()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="RomiCoder.html#RomiCoder.RomiCoder.update"><code class="docutils literal notranslate"><span class="pre">RomiCoder.update()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="RomiCoder.html#RomiCoder.RomiCoder.zero"><code class="docutils literal notranslate"><span class="pre">RomiCoder.zero()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="RomiMotor.html">RomiMotor module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="RomiMotor.html#RomiMotor.RomiMotor"><code class="docutils literal notranslate"><span class="pre">RomiMotor</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="RomiMotor.html#RomiMotor.RomiMotor.disable"><code class="docutils literal notranslate"><span class="pre">RomiMotor.disable()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="RomiMotor.html#RomiMotor.RomiMotor.enable"><code class="docutils literal notranslate"><span class="pre">RomiMotor.enable()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="RomiMotor.html#RomiMotor.RomiMotor.set_duty"><code class="docutils literal notranslate"><span class="pre">RomiMotor.set_duty()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SMBus.html">SMBus module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SMBus.html#SMBus.SMBus"><code class="docutils literal notranslate"><span class="pre">SMBus</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SMBus.html#SMBus.SMBus.read_byte"><code class="docutils literal notranslate"><span class="pre">SMBus.read_byte()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="SMBus.html#SMBus.SMBus.read_byte_data"><code class="docutils literal notranslate"><span class="pre">SMBus.read_byte_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="SMBus.html#SMBus.SMBus.read_i2c_block_data"><code class="docutils literal notranslate"><span class="pre">SMBus.read_i2c_block_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="SMBus.html#SMBus.SMBus.read_word_data"><code class="docutils literal notranslate"><span class="pre">SMBus.read_word_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="SMBus.html#SMBus.SMBus.write_byte"><code class="docutils literal notranslate"><span class="pre">SMBus.write_byte()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="SMBus.html#SMBus.SMBus.write_byte_data"><code class="docutils literal notranslate"><span class="pre">SMBus.write_byte_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="SMBus.html#SMBus.SMBus.write_i2c_block_data"><code class="docutils literal notranslate"><span class="pre">SMBus.write_i2c_block_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="SMBus.html#SMBus.SMBus.write_word_data"><code class="docutils literal notranslate"><span class="pre">SMBus.write_word_data()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="UpdateIMU.html">UpdateIMU module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="UpdateIMU.html#UpdateIMU.UpdateIMU"><code class="docutils literal notranslate"><span class="pre">UpdateIMU</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="UpdateIMU.html#UpdateIMU.UpdateIMU.run"><code class="docutils literal notranslate"><span class="pre">UpdateIMU.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="UpdateMotor.html">UpdateMotor module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="UpdateMotor.html#UpdateMotor.UpdateMotor"><code class="docutils literal notranslate"><span class="pre">UpdateMotor</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="UpdateMotor.html#UpdateMotor.UpdateMotor.run"><code class="docutils literal notranslate"><span class="pre">UpdateMotor.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html#UpdateTOF.UpdateTOF"><code class="docutils literal notranslate"><span class="pre">UpdateTOF</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="UpdateTOF.html#UpdateTOF.UpdateTOF.run"><code class="docutils literal notranslate"><span class="pre">UpdateTOF.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html#adafruit-vl53l1x"><cite>adafruit_vl53l1x</cite></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="adafruit_vl53l1x.html#implementation-notes">Implementation Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html#adafruit_vl53l1x.VL53L1X"><code class="docutils literal notranslate"><span class="pre">VL53L1X</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="adafruit_vl53l1x.html#adafruit_vl53l1x.VL53L1X.clear_interrupt"><code class="docutils literal notranslate"><span class="pre">VL53L1X.clear_interrupt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="adafruit_vl53l1x.html#adafruit_vl53l1x.VL53L1X.data_ready"><code class="docutils literal notranslate"><span class="pre">VL53L1X.data_ready</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="adafruit_vl53l1x.html#adafruit_vl53l1x.VL53L1X.distance"><code class="docutils literal notranslate"><span class="pre">VL53L1X.distance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="adafruit_vl53l1x.html#adafruit_vl53l1x.VL53L1X.distance_mode"><code class="docutils literal notranslate"><span class="pre">VL53L1X.distance_mode</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="adafruit_vl53l1x.html#adafruit_vl53l1x.VL53L1X.model_info"><code class="docutils literal notranslate"><span class="pre">VL53L1X.model_info</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="adafruit_vl53l1x.html#adafruit_vl53l1x.VL53L1X.set_address"><code class="docutils literal notranslate"><span class="pre">VL53L1X.set_address()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="adafruit_vl53l1x.html#adafruit_vl53l1x.VL53L1X.start_ranging"><code class="docutils literal notranslate"><span class="pre">VL53L1X.start_ranging()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="adafruit_vl53l1x.html#adafruit_vl53l1x.VL53L1X.stop_ranging"><code class="docutils literal notranslate"><span class="pre">VL53L1X.stop_ranging()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="adafruit_vl53l1x.html#adafruit_vl53l1x.VL53L1X.timing_budget"><code class="docutils literal notranslate"><span class="pre">VL53L1X.timing_budget</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="boot.html">boot module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cotask.html">cotask module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cotask.html#cotask.Task"><code class="docutils literal notranslate"><span class="pre">Task</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cotask.html#cotask.Task.get_trace"><code class="docutils literal notranslate"><span class="pre">Task.get_trace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="cotask.html#cotask.Task.go"><code class="docutils literal notranslate"><span class="pre">Task.go()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="cotask.html#cotask.Task.ready"><code class="docutils literal notranslate"><span class="pre">Task.ready()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="cotask.html#cotask.Task.reset_profile"><code class="docutils literal notranslate"><span class="pre">Task.reset_profile()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="cotask.html#cotask.Task.schedule"><code class="docutils literal notranslate"><span class="pre">Task.schedule()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="cotask.html#cotask.Task.set_period"><code class="docutils literal notranslate"><span class="pre">Task.set_period()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cotask.html#cotask.TaskList"><code class="docutils literal notranslate"><span class="pre">TaskList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cotask.html#cotask.TaskList.append"><code class="docutils literal notranslate"><span class="pre">TaskList.append()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="cotask.html#cotask.TaskList.pri_sched"><code class="docutils literal notranslate"><span class="pre">TaskList.pri_sched()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="cotask.html#cotask.TaskList.rr_sched"><code class="docutils literal notranslate"><span class="pre">TaskList.rr_sched()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="machine.html">machine module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.ADC"><code class="docutils literal notranslate"><span class="pre">ADC</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.ADC.read_u16"><code class="docutils literal notranslate"><span class="pre">ADC.read_u16()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.DEEPSLEEP"><code class="docutils literal notranslate"><span class="pre">DEEPSLEEP</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.DEEPSLEEP_RESET"><code class="docutils literal notranslate"><span class="pre">DEEPSLEEP_RESET</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.HARD_RESET"><code class="docutils literal notranslate"><span class="pre">HARD_RESET</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.I2C"><code class="docutils literal notranslate"><span class="pre">I2C</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2C.deinit"><code class="docutils literal notranslate"><span class="pre">I2C.deinit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2C.init"><code class="docutils literal notranslate"><span class="pre">I2C.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2C.readfrom"><code class="docutils literal notranslate"><span class="pre">I2C.readfrom()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2C.readfrom_into"><code class="docutils literal notranslate"><span class="pre">I2C.readfrom_into()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2C.readfrom_mem"><code class="docutils literal notranslate"><span class="pre">I2C.readfrom_mem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2C.readfrom_mem_into"><code class="docutils literal notranslate"><span class="pre">I2C.readfrom_mem_into()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2C.readinto"><code class="docutils literal notranslate"><span class="pre">I2C.readinto()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2C.scan"><code class="docutils literal notranslate"><span class="pre">I2C.scan()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2C.start"><code class="docutils literal notranslate"><span class="pre">I2C.start()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2C.stop"><code class="docutils literal notranslate"><span class="pre">I2C.stop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2C.write"><code class="docutils literal notranslate"><span class="pre">I2C.write()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2C.writeto"><code class="docutils literal notranslate"><span class="pre">I2C.writeto()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2C.writeto_mem"><code class="docutils literal notranslate"><span class="pre">I2C.writeto_mem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2C.writevto"><code class="docutils literal notranslate"><span class="pre">I2C.writevto()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.I2S"><code class="docutils literal notranslate"><span class="pre">I2S</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2S.MONO"><code class="docutils literal notranslate"><span class="pre">I2S.MONO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2S.RX"><code class="docutils literal notranslate"><span class="pre">I2S.RX</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2S.STEREO"><code class="docutils literal notranslate"><span class="pre">I2S.STEREO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2S.TX"><code class="docutils literal notranslate"><span class="pre">I2S.TX</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2S.deinit"><code class="docutils literal notranslate"><span class="pre">I2S.deinit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2S.init"><code class="docutils literal notranslate"><span class="pre">I2S.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2S.irq"><code class="docutils literal notranslate"><span class="pre">I2S.irq()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2S.readinto"><code class="docutils literal notranslate"><span class="pre">I2S.readinto()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2S.shift"><code class="docutils literal notranslate"><span class="pre">I2S.shift()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.I2S.write"><code class="docutils literal notranslate"><span class="pre">I2S.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.IDLE"><code class="docutils literal notranslate"><span class="pre">IDLE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.PIN_WAKE"><code class="docutils literal notranslate"><span class="pre">PIN_WAKE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.PWM"><code class="docutils literal notranslate"><span class="pre">PWM</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.PWM.deinit"><code class="docutils literal notranslate"><span class="pre">PWM.deinit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.PWM.duty_ns"><code class="docutils literal notranslate"><span class="pre">PWM.duty_ns()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.PWM.duty_u16"><code class="docutils literal notranslate"><span class="pre">PWM.duty_u16()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.PWM.freq"><code class="docutils literal notranslate"><span class="pre">PWM.freq()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.PWM.init"><code class="docutils literal notranslate"><span class="pre">PWM.init()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.PWRON_RESET"><code class="docutils literal notranslate"><span class="pre">PWRON_RESET</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.Pin"><code class="docutils literal notranslate"><span class="pre">Pin</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.ALT"><code class="docutils literal notranslate"><span class="pre">Pin.ALT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.ALT_OPEN_DRAIN"><code class="docutils literal notranslate"><span class="pre">Pin.ALT_OPEN_DRAIN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.ANALOG"><code class="docutils literal notranslate"><span class="pre">Pin.ANALOG</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.HIGH_POWER"><code class="docutils literal notranslate"><span class="pre">Pin.HIGH_POWER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.IN"><code class="docutils literal notranslate"><span class="pre">Pin.IN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.IRQ_FALLING"><code class="docutils literal notranslate"><span class="pre">Pin.IRQ_FALLING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.IRQ_HIGH_LEVEL"><code class="docutils literal notranslate"><span class="pre">Pin.IRQ_HIGH_LEVEL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.IRQ_LOW_LEVEL"><code class="docutils literal notranslate"><span class="pre">Pin.IRQ_LOW_LEVEL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.IRQ_RISING"><code class="docutils literal notranslate"><span class="pre">Pin.IRQ_RISING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.LOW_POWER"><code class="docutils literal notranslate"><span class="pre">Pin.LOW_POWER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.MED_POWER"><code class="docutils literal notranslate"><span class="pre">Pin.MED_POWER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.OPEN_DRAIN"><code class="docutils literal notranslate"><span class="pre">Pin.OPEN_DRAIN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.OUT"><code class="docutils literal notranslate"><span class="pre">Pin.OUT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.PULL_DOWN"><code class="docutils literal notranslate"><span class="pre">Pin.PULL_DOWN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.PULL_HOLD"><code class="docutils literal notranslate"><span class="pre">Pin.PULL_HOLD</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.PULL_UP"><code class="docutils literal notranslate"><span class="pre">Pin.PULL_UP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.dive"><code class="docutils literal notranslate"><span class="pre">Pin.dive()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.drive"><code class="docutils literal notranslate"><span class="pre">Pin.drive()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.high"><code class="docutils literal notranslate"><span class="pre">Pin.high()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.init"><code class="docutils literal notranslate"><span class="pre">Pin.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.irq"><code class="docutils literal notranslate"><span class="pre">Pin.irq()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.low"><code class="docutils literal notranslate"><span class="pre">Pin.low()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.mode"><code class="docutils literal notranslate"><span class="pre">Pin.mode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.off"><code class="docutils literal notranslate"><span class="pre">Pin.off()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.on"><code class="docutils literal notranslate"><span class="pre">Pin.on()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.pull"><code class="docutils literal notranslate"><span class="pre">Pin.pull()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Pin.value"><code class="docutils literal notranslate"><span class="pre">Pin.value()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.RTC"><code class="docutils literal notranslate"><span class="pre">RTC</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.RTC.ALARM0"><code class="docutils literal notranslate"><span class="pre">RTC.ALARM0</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.RTC.alarm"><code class="docutils literal notranslate"><span class="pre">RTC.alarm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.RTC.alarm_left"><code class="docutils literal notranslate"><span class="pre">RTC.alarm_left()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.RTC.cancel"><code class="docutils literal notranslate"><span class="pre">RTC.cancel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.RTC.deinit"><code class="docutils literal notranslate"><span class="pre">RTC.deinit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.RTC.init"><code class="docutils literal notranslate"><span class="pre">RTC.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.RTC.irq"><code class="docutils literal notranslate"><span class="pre">RTC.irq()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.RTC.now"><code class="docutils literal notranslate"><span class="pre">RTC.now()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.RTC_WAKE"><code class="docutils literal notranslate"><span class="pre">RTC_WAKE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.SD"><code class="docutils literal notranslate"><span class="pre">SD</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.SD.deinit"><code class="docutils literal notranslate"><span class="pre">SD.deinit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.SD.init"><code class="docutils literal notranslate"><span class="pre">SD.init()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.SDCard"><code class="docutils literal notranslate"><span class="pre">SDCard</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.SLEEP"><code class="docutils literal notranslate"><span class="pre">SLEEP</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.SOFT_RESET"><code class="docutils literal notranslate"><span class="pre">SOFT_RESET</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.SPI"><code class="docutils literal notranslate"><span class="pre">SPI</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.SPI.CONTROLLER"><code class="docutils literal notranslate"><span class="pre">SPI.CONTROLLER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.SPI.LSB"><code class="docutils literal notranslate"><span class="pre">SPI.LSB</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.SPI.MSB"><code class="docutils literal notranslate"><span class="pre">SPI.MSB</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.SPI.deinit"><code class="docutils literal notranslate"><span class="pre">SPI.deinit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.SPI.init"><code class="docutils literal notranslate"><span class="pre">SPI.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.SPI.read"><code class="docutils literal notranslate"><span class="pre">SPI.read()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.SPI.readinto"><code class="docutils literal notranslate"><span class="pre">SPI.readinto()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.SPI.write"><code class="docutils literal notranslate"><span class="pre">SPI.write()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.SPI.write_readinto"><code class="docutils literal notranslate"><span class="pre">SPI.write_readinto()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.Signal"><code class="docutils literal notranslate"><span class="pre">Signal</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Signal.off"><code class="docutils literal notranslate"><span class="pre">Signal.off()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Signal.on"><code class="docutils literal notranslate"><span class="pre">Signal.on()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Signal.value"><code class="docutils literal notranslate"><span class="pre">Signal.value()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.Timer"><code class="docutils literal notranslate"><span class="pre">Timer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Timer.ONE_SHOT"><code class="docutils literal notranslate"><span class="pre">Timer.ONE_SHOT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Timer.PERIODIC"><code class="docutils literal notranslate"><span class="pre">Timer.PERIODIC</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Timer.deinit"><code class="docutils literal notranslate"><span class="pre">Timer.deinit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.Timer.init"><code class="docutils literal notranslate"><span class="pre">Timer.init()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.UART"><code class="docutils literal notranslate"><span class="pre">UART</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.UART.RX_ANY"><code class="docutils literal notranslate"><span class="pre">UART.RX_ANY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.UART.any"><code class="docutils literal notranslate"><span class="pre">UART.any()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.UART.deinit"><code class="docutils literal notranslate"><span class="pre">UART.deinit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.UART.init"><code class="docutils literal notranslate"><span class="pre">UART.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.UART.irq"><code class="docutils literal notranslate"><span class="pre">UART.irq()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.UART.read"><code class="docutils literal notranslate"><span class="pre">UART.read()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.UART.readinto"><code class="docutils literal notranslate"><span class="pre">UART.readinto()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.UART.readline"><code class="docutils literal notranslate"><span class="pre">UART.readline()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.UART.sendbreak"><code class="docutils literal notranslate"><span class="pre">UART.sendbreak()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.UART.write"><code class="docutils literal notranslate"><span class="pre">UART.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.WDT"><code class="docutils literal notranslate"><span class="pre">WDT</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="machine.html#machine.WDT.feed"><code class="docutils literal notranslate"><span class="pre">WDT.feed()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.WDT_RESET"><code class="docutils literal notranslate"><span class="pre">WDT_RESET</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.WLAN_WAKE"><code class="docutils literal notranslate"><span class="pre">WLAN_WAKE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.disable_irq"><code class="docutils literal notranslate"><span class="pre">disable_irq()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.enable_irq"><code class="docutils literal notranslate"><span class="pre">enable_irq()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.idle"><code class="docutils literal notranslate"><span class="pre">idle()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.reset"><code class="docutils literal notranslate"><span class="pre">reset()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.reset_cause"><code class="docutils literal notranslate"><span class="pre">reset_cause()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.rng"><code class="docutils literal notranslate"><span class="pre">rng()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.sleep"><code class="docutils literal notranslate"><span class="pre">sleep()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.soft_reset"><code class="docutils literal notranslate"><span class="pre">soft_reset()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.time_pulse_us"><code class="docutils literal notranslate"><span class="pre">time_pulse_us()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.unique_id"><code class="docutils literal notranslate"><span class="pre">unique_id()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html#machine.wake_reason"><code class="docutils literal notranslate"><span class="pre">wake_reason()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main_bno055_example.html">main_bno055_example module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main_lab3.html">main_lab3 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main_lab4.html">main_lab4 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main_lab5.html">main_lab5 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="task_share.html">task_share module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="task_share.html#task_share.BaseShare"><code class="docutils literal notranslate"><span class="pre">BaseShare</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_share.html#task_share.Queue"><code class="docutils literal notranslate"><span class="pre">Queue</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="task_share.html#task_share.Queue.any"><code class="docutils literal notranslate"><span class="pre">Queue.any()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="task_share.html#task_share.Queue.clear"><code class="docutils literal notranslate"><span class="pre">Queue.clear()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="task_share.html#task_share.Queue.empty"><code class="docutils literal notranslate"><span class="pre">Queue.empty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="task_share.html#task_share.Queue.full"><code class="docutils literal notranslate"><span class="pre">Queue.full()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="task_share.html#task_share.Queue.get"><code class="docutils literal notranslate"><span class="pre">Queue.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="task_share.html#task_share.Queue.num_in"><code class="docutils literal notranslate"><span class="pre">Queue.num_in()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="task_share.html#task_share.Queue.put"><code class="docutils literal notranslate"><span class="pre">Queue.put()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="task_share.html#task_share.Queue.ser_num"><code class="docutils literal notranslate"><span class="pre">Queue.ser_num</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="task_share.html#task_share.Share"><code class="docutils literal notranslate"><span class="pre">Share</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="task_share.html#task_share.Share.get"><code class="docutils literal notranslate"><span class="pre">Share.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="task_share.html#task_share.Share.put"><code class="docutils literal notranslate"><span class="pre">Share.put()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="task_share.html#task_share.Share.ser_num"><code class="docutils literal notranslate"><span class="pre">Share.ser_num</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="task_share.html#task_share.show_all"><code class="docutils literal notranslate"><span class="pre">show_all()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="time.html">time module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.asctime"><code class="docutils literal notranslate"><span class="pre">asctime()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.ctime"><code class="docutils literal notranslate"><span class="pre">ctime()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.get_clock_info"><code class="docutils literal notranslate"><span class="pre">get_clock_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.gmtime"><code class="docutils literal notranslate"><span class="pre">gmtime()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.localtime"><code class="docutils literal notranslate"><span class="pre">localtime()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.mktime"><code class="docutils literal notranslate"><span class="pre">mktime()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.monotonic"><code class="docutils literal notranslate"><span class="pre">monotonic()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.monotonic_ns"><code class="docutils literal notranslate"><span class="pre">monotonic_ns()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.perf_counter"><code class="docutils literal notranslate"><span class="pre">perf_counter()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.perf_counter_ns"><code class="docutils literal notranslate"><span class="pre">perf_counter_ns()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.process_time"><code class="docutils literal notranslate"><span class="pre">process_time()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.process_time_ns"><code class="docutils literal notranslate"><span class="pre">process_time_ns()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.sleep"><code class="docutils literal notranslate"><span class="pre">sleep()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.strftime"><code class="docutils literal notranslate"><span class="pre">strftime()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.strptime"><code class="docutils literal notranslate"><span class="pre">strptime()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.struct_time"><code class="docutils literal notranslate"><span class="pre">struct_time</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="time.html#time.struct_time.n_fields"><code class="docutils literal notranslate"><span class="pre">struct_time.n_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html#time.struct_time.n_sequence_fields"><code class="docutils literal notranslate"><span class="pre">struct_time.n_sequence_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html#time.struct_time.n_unnamed_fields"><code class="docutils literal notranslate"><span class="pre">struct_time.n_unnamed_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html#time.struct_time.tm_gmtoff"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_gmtoff</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html#time.struct_time.tm_hour"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_hour</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html#time.struct_time.tm_isdst"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_isdst</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html#time.struct_time.tm_mday"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_mday</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html#time.struct_time.tm_min"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_min</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html#time.struct_time.tm_mon"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_mon</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html#time.struct_time.tm_sec"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_sec</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html#time.struct_time.tm_wday"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_wday</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html#time.struct_time.tm_yday"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_yday</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html#time.struct_time.tm_year"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_year</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="time.html#time.struct_time.tm_zone"><code class="docutils literal notranslate"><span class="pre">struct_time.tm_zone</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.thread_time"><code class="docutils literal notranslate"><span class="pre">thread_time()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.thread_time_ns"><code class="docutils literal notranslate"><span class="pre">thread_time_ns()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.time"><code class="docutils literal notranslate"><span class="pre">time()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html#time.time_ns"><code class="docutils literal notranslate"><span class="pre">time_ns()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utime.html">utime module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utime.html#utime.gmtime"><code class="docutils literal notranslate"><span class="pre">gmtime()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html#utime.localtime"><code class="docutils literal notranslate"><span class="pre">localtime()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html#utime.mktime"><code class="docutils literal notranslate"><span class="pre">mktime()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html#utime.sleep"><code class="docutils literal notranslate"><span class="pre">sleep()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html#utime.sleep_ms"><code class="docutils literal notranslate"><span class="pre">sleep_ms()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html#utime.sleep_us"><code class="docutils literal notranslate"><span class="pre">sleep_us()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html#utime.ticks_add"><code class="docutils literal notranslate"><span class="pre">ticks_add()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html#utime.ticks_cpu"><code class="docutils literal notranslate"><span class="pre">ticks_cpu()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html#utime.ticks_diff"><code class="docutils literal notranslate"><span class="pre">ticks_diff()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html#utime.ticks_ms"><code class="docutils literal notranslate"><span class="pre">ticks_ms()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html#utime.ticks_us"><code class="docutils literal notranslate"><span class="pre">ticks_us()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html#utime.time"><code class="docutils literal notranslate"><span class="pre">time()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html#utime.time_ns"><code class="docutils literal notranslate"><span class="pre">time_ns()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vl53l1x_example.html">vl53l1x_example module</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Jack Miller &amp; Casey Pickett.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

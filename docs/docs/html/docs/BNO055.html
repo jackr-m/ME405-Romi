@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BNO055 module &mdash; ME405-Romi  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ME405-Romi
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">docs</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ME405-Romi</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">BNO055 module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/docs/BNO055.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-BNO055">
+<span id="bno055-module"></span><h1>BNO055 module<a class="headerlink" href="#module-BNO055" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="BNO055.BNO055">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">BNO055.</span></span><span class="sig-name descname"><span class="pre">BNO055</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i2c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensorId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.ACCEL_OFFSET_X_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">ACCEL_OFFSET_X_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">85</span></em><a class="headerlink" href="#BNO055.BNO055.ACCEL_OFFSET_X_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.ACCEL_OFFSET_X_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">ACCEL_OFFSET_X_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">86</span></em><a class="headerlink" href="#BNO055.BNO055.ACCEL_OFFSET_X_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.ACCEL_OFFSET_Y_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">ACCEL_OFFSET_Y_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">87</span></em><a class="headerlink" href="#BNO055.BNO055.ACCEL_OFFSET_Y_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.ACCEL_OFFSET_Y_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">ACCEL_OFFSET_Y_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">88</span></em><a class="headerlink" href="#BNO055.BNO055.ACCEL_OFFSET_Y_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.ACCEL_OFFSET_Z_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">ACCEL_OFFSET_Z_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">89</span></em><a class="headerlink" href="#BNO055.BNO055.ACCEL_OFFSET_Z_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.ACCEL_OFFSET_Z_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">ACCEL_OFFSET_Z_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">90</span></em><a class="headerlink" href="#BNO055.BNO055.ACCEL_OFFSET_Z_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.ACCEL_RADIUS_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">ACCEL_RADIUS_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">103</span></em><a class="headerlink" href="#BNO055.BNO055.ACCEL_RADIUS_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.ACCEL_RADIUS_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">ACCEL_RADIUS_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">104</span></em><a class="headerlink" href="#BNO055.BNO055.ACCEL_RADIUS_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.AXIS_REMAP_NEGATIVE">
+<span class="sig-name descname"><span class="pre">AXIS_REMAP_NEGATIVE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#BNO055.BNO055.AXIS_REMAP_NEGATIVE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.AXIS_REMAP_POSITIVE">
+<span class="sig-name descname"><span class="pre">AXIS_REMAP_POSITIVE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#BNO055.BNO055.AXIS_REMAP_POSITIVE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.AXIS_REMAP_X">
+<span class="sig-name descname"><span class="pre">AXIS_REMAP_X</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#BNO055.BNO055.AXIS_REMAP_X" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.AXIS_REMAP_Y">
+<span class="sig-name descname"><span class="pre">AXIS_REMAP_Y</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#BNO055.BNO055.AXIS_REMAP_Y" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.AXIS_REMAP_Z">
+<span class="sig-name descname"><span class="pre">AXIS_REMAP_Z</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#BNO055.BNO055.AXIS_REMAP_Z" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_ACCEL_DATA_X_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_ACCEL_DATA_X_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_ACCEL_DATA_X_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_ACCEL_DATA_X_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_ACCEL_DATA_X_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_ACCEL_DATA_X_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_ACCEL_DATA_Y_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_ACCEL_DATA_Y_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_ACCEL_DATA_Y_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_ACCEL_DATA_Y_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_ACCEL_DATA_Y_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_ACCEL_DATA_Y_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_ACCEL_DATA_Z_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_ACCEL_DATA_Z_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_ACCEL_DATA_Z_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_ACCEL_DATA_Z_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_ACCEL_DATA_Z_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_ACCEL_DATA_Z_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_ACCEL_REV_ID_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_ACCEL_REV_ID_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_ACCEL_REV_ID_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_ADDRESS_A">
+<span class="sig-name descname"><span class="pre">BNO055_ADDRESS_A</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_ADDRESS_A" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_ADDRESS_B">
+<span class="sig-name descname"><span class="pre">BNO055_ADDRESS_B</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">41</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_ADDRESS_B" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_AXIS_MAP_CONFIG_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_AXIS_MAP_CONFIG_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">65</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_AXIS_MAP_CONFIG_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_AXIS_MAP_SIGN_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_AXIS_MAP_SIGN_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">66</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_AXIS_MAP_SIGN_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_BL_REV_ID_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_BL_REV_ID_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_BL_REV_ID_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_CALIB_STAT_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_CALIB_STAT_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">53</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_CALIB_STAT_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_CHIP_ID_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_CHIP_ID_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_CHIP_ID_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_DATA_SELECT_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_DATA_SELECT_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">60</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_DATA_SELECT_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_EULER_H_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_EULER_H_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">26</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_EULER_H_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_EULER_H_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_EULER_H_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">27</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_EULER_H_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_EULER_P_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_EULER_P_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_EULER_P_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_EULER_P_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_EULER_P_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">31</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_EULER_P_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_EULER_R_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_EULER_R_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">28</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_EULER_R_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_EULER_R_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_EULER_R_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">29</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_EULER_R_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_GRAVITY_DATA_X_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_GRAVITY_DATA_X_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">46</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_GRAVITY_DATA_X_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_GRAVITY_DATA_X_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_GRAVITY_DATA_X_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">47</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_GRAVITY_DATA_X_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_GRAVITY_DATA_Y_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_GRAVITY_DATA_Y_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">48</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_GRAVITY_DATA_Y_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_GRAVITY_DATA_Y_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_GRAVITY_DATA_Y_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">49</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_GRAVITY_DATA_Y_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_GRAVITY_DATA_Z_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_GRAVITY_DATA_Z_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">50</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_GRAVITY_DATA_Z_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_GRAVITY_DATA_Z_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_GRAVITY_DATA_Z_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">51</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_GRAVITY_DATA_Z_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_GYRO_DATA_X_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_GYRO_DATA_X_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_GYRO_DATA_X_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_GYRO_DATA_X_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_GYRO_DATA_X_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">21</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_GYRO_DATA_X_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_GYRO_DATA_Y_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_GYRO_DATA_Y_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">22</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_GYRO_DATA_Y_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_GYRO_DATA_Y_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_GYRO_DATA_Y_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">23</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_GYRO_DATA_Y_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_GYRO_DATA_Z_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_GYRO_DATA_Z_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">24</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_GYRO_DATA_Z_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_GYRO_DATA_Z_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_GYRO_DATA_Z_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">25</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_GYRO_DATA_Z_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_GYRO_REV_ID_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_GYRO_REV_ID_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_GYRO_REV_ID_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_ID">
+<span class="sig-name descname"><span class="pre">BNO055_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">160</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_ID" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_INTR_STAT_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_INTR_STAT_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">55</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_INTR_STAT_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_LINEAR_ACCEL_DATA_X_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_LINEAR_ACCEL_DATA_X_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_LINEAR_ACCEL_DATA_X_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_LINEAR_ACCEL_DATA_X_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_LINEAR_ACCEL_DATA_X_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">41</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_LINEAR_ACCEL_DATA_X_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_LINEAR_ACCEL_DATA_Y_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_LINEAR_ACCEL_DATA_Y_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">42</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_LINEAR_ACCEL_DATA_Y_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_LINEAR_ACCEL_DATA_Y_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_LINEAR_ACCEL_DATA_Y_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">43</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_LINEAR_ACCEL_DATA_Y_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_LINEAR_ACCEL_DATA_Z_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_LINEAR_ACCEL_DATA_Z_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">44</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_LINEAR_ACCEL_DATA_Z_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_LINEAR_ACCEL_DATA_Z_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_LINEAR_ACCEL_DATA_Z_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">45</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_LINEAR_ACCEL_DATA_Z_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_MAG_DATA_X_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_MAG_DATA_X_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">14</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_MAG_DATA_X_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_MAG_DATA_X_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_MAG_DATA_X_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">15</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_MAG_DATA_X_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_MAG_DATA_Y_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_MAG_DATA_Y_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_MAG_DATA_Y_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_MAG_DATA_Y_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_MAG_DATA_Y_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">17</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_MAG_DATA_Y_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_MAG_DATA_Z_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_MAG_DATA_Z_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">18</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_MAG_DATA_Z_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_MAG_DATA_Z_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_MAG_DATA_Z_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">19</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_MAG_DATA_Z_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_MAG_REV_ID_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_MAG_REV_ID_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_MAG_REV_ID_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_OPR_MODE_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_OPR_MODE_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">61</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_OPR_MODE_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_PAGE_ID_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_PAGE_ID_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_PAGE_ID_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_PWR_MODE_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_PWR_MODE_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">62</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_PWR_MODE_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_QUATERNION_DATA_W_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_QUATERNION_DATA_W_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">32</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_QUATERNION_DATA_W_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_QUATERNION_DATA_W_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_QUATERNION_DATA_W_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">33</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_QUATERNION_DATA_W_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_QUATERNION_DATA_X_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_QUATERNION_DATA_X_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">34</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_QUATERNION_DATA_X_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_QUATERNION_DATA_X_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_QUATERNION_DATA_X_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">35</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_QUATERNION_DATA_X_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_QUATERNION_DATA_Y_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_QUATERNION_DATA_Y_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">36</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_QUATERNION_DATA_Y_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_QUATERNION_DATA_Y_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_QUATERNION_DATA_Y_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">37</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_QUATERNION_DATA_Y_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_QUATERNION_DATA_Z_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_QUATERNION_DATA_Z_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">38</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_QUATERNION_DATA_Z_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_QUATERNION_DATA_Z_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_QUATERNION_DATA_Z_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">39</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_QUATERNION_DATA_Z_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SELFTEST_RESULT_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SELFTEST_RESULT_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">54</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SELFTEST_RESULT_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SIC_MATRIX_0_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SIC_MATRIX_0_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">67</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SIC_MATRIX_0_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SIC_MATRIX_0_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SIC_MATRIX_0_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">68</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SIC_MATRIX_0_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SIC_MATRIX_1_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SIC_MATRIX_1_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">69</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SIC_MATRIX_1_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SIC_MATRIX_1_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SIC_MATRIX_1_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">70</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SIC_MATRIX_1_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SIC_MATRIX_2_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SIC_MATRIX_2_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">71</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SIC_MATRIX_2_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SIC_MATRIX_2_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SIC_MATRIX_2_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">72</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SIC_MATRIX_2_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SIC_MATRIX_3_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SIC_MATRIX_3_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">73</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SIC_MATRIX_3_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SIC_MATRIX_3_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SIC_MATRIX_3_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">74</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SIC_MATRIX_3_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SIC_MATRIX_4_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SIC_MATRIX_4_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">75</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SIC_MATRIX_4_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SIC_MATRIX_4_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SIC_MATRIX_4_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">76</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SIC_MATRIX_4_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SIC_MATRIX_5_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SIC_MATRIX_5_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">77</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SIC_MATRIX_5_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SIC_MATRIX_5_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SIC_MATRIX_5_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">78</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SIC_MATRIX_5_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SIC_MATRIX_6_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SIC_MATRIX_6_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">79</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SIC_MATRIX_6_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SIC_MATRIX_6_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SIC_MATRIX_6_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">80</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SIC_MATRIX_6_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SIC_MATRIX_7_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SIC_MATRIX_7_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">81</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SIC_MATRIX_7_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SIC_MATRIX_7_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SIC_MATRIX_7_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">82</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SIC_MATRIX_7_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SIC_MATRIX_8_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SIC_MATRIX_8_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">83</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SIC_MATRIX_8_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SIC_MATRIX_8_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SIC_MATRIX_8_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">84</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SIC_MATRIX_8_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SW_REV_ID_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SW_REV_ID_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SW_REV_ID_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SW_REV_ID_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SW_REV_ID_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SW_REV_ID_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SYS_CLK_STAT_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SYS_CLK_STAT_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">56</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SYS_CLK_STAT_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SYS_ERR_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SYS_ERR_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">58</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SYS_ERR_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SYS_STAT_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SYS_STAT_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">57</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SYS_STAT_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_SYS_TRIGGER_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_SYS_TRIGGER_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">63</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_SYS_TRIGGER_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_TEMP_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_TEMP_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">52</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_TEMP_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_TEMP_SOURCE_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_TEMP_SOURCE_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">64</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_TEMP_SOURCE_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.BNO055_UNIT_SEL_ADDR">
+<span class="sig-name descname"><span class="pre">BNO055_UNIT_SEL_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">59</span></em><a class="headerlink" href="#BNO055.BNO055.BNO055_UNIT_SEL_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.GYRO_OFFSET_X_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">GYRO_OFFSET_X_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">97</span></em><a class="headerlink" href="#BNO055.BNO055.GYRO_OFFSET_X_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.GYRO_OFFSET_X_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">GYRO_OFFSET_X_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">98</span></em><a class="headerlink" href="#BNO055.BNO055.GYRO_OFFSET_X_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.GYRO_OFFSET_Y_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">GYRO_OFFSET_Y_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">99</span></em><a class="headerlink" href="#BNO055.BNO055.GYRO_OFFSET_Y_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.GYRO_OFFSET_Y_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">GYRO_OFFSET_Y_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">100</span></em><a class="headerlink" href="#BNO055.BNO055.GYRO_OFFSET_Y_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.GYRO_OFFSET_Z_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">GYRO_OFFSET_Z_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">101</span></em><a class="headerlink" href="#BNO055.BNO055.GYRO_OFFSET_Z_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.GYRO_OFFSET_Z_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">GYRO_OFFSET_Z_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">102</span></em><a class="headerlink" href="#BNO055.BNO055.GYRO_OFFSET_Z_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.MAG_OFFSET_X_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">MAG_OFFSET_X_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">91</span></em><a class="headerlink" href="#BNO055.BNO055.MAG_OFFSET_X_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.MAG_OFFSET_X_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">MAG_OFFSET_X_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">92</span></em><a class="headerlink" href="#BNO055.BNO055.MAG_OFFSET_X_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.MAG_OFFSET_Y_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">MAG_OFFSET_Y_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">93</span></em><a class="headerlink" href="#BNO055.BNO055.MAG_OFFSET_Y_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.MAG_OFFSET_Y_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">MAG_OFFSET_Y_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">94</span></em><a class="headerlink" href="#BNO055.BNO055.MAG_OFFSET_Y_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.MAG_OFFSET_Z_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">MAG_OFFSET_Z_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">95</span></em><a class="headerlink" href="#BNO055.BNO055.MAG_OFFSET_Z_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.MAG_OFFSET_Z_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">MAG_OFFSET_Z_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">96</span></em><a class="headerlink" href="#BNO055.BNO055.MAG_OFFSET_Z_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.MAG_RADIUS_LSB_ADDR">
+<span class="sig-name descname"><span class="pre">MAG_RADIUS_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">105</span></em><a class="headerlink" href="#BNO055.BNO055.MAG_RADIUS_LSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.MAG_RADIUS_MSB_ADDR">
+<span class="sig-name descname"><span class="pre">MAG_RADIUS_MSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">106</span></em><a class="headerlink" href="#BNO055.BNO055.MAG_RADIUS_MSB_ADDR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.OPERATION_MODE_ACCGYRO">
+<span class="sig-name descname"><span class="pre">OPERATION_MODE_ACCGYRO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#BNO055.BNO055.OPERATION_MODE_ACCGYRO" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.OPERATION_MODE_ACCMAG">
+<span class="sig-name descname"><span class="pre">OPERATION_MODE_ACCMAG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#BNO055.BNO055.OPERATION_MODE_ACCMAG" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.OPERATION_MODE_ACCONLY">
+<span class="sig-name descname"><span class="pre">OPERATION_MODE_ACCONLY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#BNO055.BNO055.OPERATION_MODE_ACCONLY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.OPERATION_MODE_AMG">
+<span class="sig-name descname"><span class="pre">OPERATION_MODE_AMG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#BNO055.BNO055.OPERATION_MODE_AMG" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.OPERATION_MODE_COMPASS">
+<span class="sig-name descname"><span class="pre">OPERATION_MODE_COMPASS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#BNO055.BNO055.OPERATION_MODE_COMPASS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.OPERATION_MODE_CONFIG">
+<span class="sig-name descname"><span class="pre">OPERATION_MODE_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#BNO055.BNO055.OPERATION_MODE_CONFIG" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.OPERATION_MODE_GYRONLY">
+<span class="sig-name descname"><span class="pre">OPERATION_MODE_GYRONLY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#BNO055.BNO055.OPERATION_MODE_GYRONLY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.OPERATION_MODE_IMUPLUS">
+<span class="sig-name descname"><span class="pre">OPERATION_MODE_IMUPLUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#BNO055.BNO055.OPERATION_MODE_IMUPLUS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.OPERATION_MODE_M4G">
+<span class="sig-name descname"><span class="pre">OPERATION_MODE_M4G</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#BNO055.BNO055.OPERATION_MODE_M4G" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.OPERATION_MODE_MAGGYRO">
+<span class="sig-name descname"><span class="pre">OPERATION_MODE_MAGGYRO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#BNO055.BNO055.OPERATION_MODE_MAGGYRO" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.OPERATION_MODE_MAGONLY">
+<span class="sig-name descname"><span class="pre">OPERATION_MODE_MAGONLY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#BNO055.BNO055.OPERATION_MODE_MAGONLY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.OPERATION_MODE_NDOF">
+<span class="sig-name descname"><span class="pre">OPERATION_MODE_NDOF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#BNO055.BNO055.OPERATION_MODE_NDOF" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.OPERATION_MODE_NDOF_FMC_OFF">
+<span class="sig-name descname"><span class="pre">OPERATION_MODE_NDOF_FMC_OFF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#BNO055.BNO055.OPERATION_MODE_NDOF_FMC_OFF" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.POWER_MODE_LOWPOWER">
+<span class="sig-name descname"><span class="pre">POWER_MODE_LOWPOWER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#BNO055.BNO055.POWER_MODE_LOWPOWER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.POWER_MODE_NORMAL">
+<span class="sig-name descname"><span class="pre">POWER_MODE_NORMAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#BNO055.BNO055.POWER_MODE_NORMAL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.POWER_MODE_SUSPEND">
+<span class="sig-name descname"><span class="pre">POWER_MODE_SUSPEND</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#BNO055.BNO055.POWER_MODE_SUSPEND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.VECTOR_ACCELEROMETER">
+<span class="sig-name descname"><span class="pre">VECTOR_ACCELEROMETER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#BNO055.BNO055.VECTOR_ACCELEROMETER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.VECTOR_EULER">
+<span class="sig-name descname"><span class="pre">VECTOR_EULER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">26</span></em><a class="headerlink" href="#BNO055.BNO055.VECTOR_EULER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.VECTOR_GRAVITY">
+<span class="sig-name descname"><span class="pre">VECTOR_GRAVITY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">46</span></em><a class="headerlink" href="#BNO055.BNO055.VECTOR_GRAVITY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.VECTOR_GYROSCOPE">
+<span class="sig-name descname"><span class="pre">VECTOR_GYROSCOPE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#BNO055.BNO055.VECTOR_GYROSCOPE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.VECTOR_LINEARACCEL">
+<span class="sig-name descname"><span class="pre">VECTOR_LINEARACCEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#BNO055.BNO055.VECTOR_LINEARACCEL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BNO055.BNO055.VECTOR_MAGNETOMETER">
+<span class="sig-name descname"><span class="pre">VECTOR_MAGNETOMETER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">14</span></em><a class="headerlink" href="#BNO055.BNO055.VECTOR_MAGNETOMETER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BNO055.BNO055.begin">
+<span class="sig-name descname"><span class="pre">begin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.begin" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BNO055.BNO055.getAxisRemap">
+<span class="sig-name descname"><span class="pre">getAxisRemap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.getAxisRemap" title="Link to this definition"></a></dt>
+<dd><p>Return a tuple with the axis remap register values.  This will return
+6 values with the following meaning:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>X axis remap (a value of AXIS_REMAP_X, AXIS_REMAP_Y, or AXIS_REMAP_Z.</dt><dd><p>which indicates that the physical X axis of the chip
+is remapped to a different axis)</p>
+</dd>
+</dl>
+</li>
+<li><p>Y axis remap (see above)</p></li>
+<li><p>Z axis remap (see above)</p></li>
+<li><dl class="simple">
+<dt>X axis sign (a value of AXIS_REMAP_POSITIVE or AXIS_REMAP_NEGATIVE</dt><dd><p>which indicates if the X axis values should be positive/
+normal or negative/inverted.  The default is positive.)</p>
+</dd>
+</dl>
+</li>
+<li><p>Y axis sign (see above)</p></li>
+<li><p>Z axis sign (see above)</p></li>
+</ul>
+</div></blockquote>
+<p>Note that by default the axis orientation of the BNO chip looks like
+the following (taken from section 3.4, page 24 of the datasheet).  Notice
+the dot in the corner that corresponds to the dot on the BNO chip:</p>
+<blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><div class="line-block">
+<div class="line">Z axis</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">/ X axis</div>
+</div>
+</div>
+</div></blockquote>
+<p>____|__/____</p>
+</div></blockquote>
+<p>Y axis     / *   | /    /|
+_________ /______|/    //</p>
+<blockquote>
+<div><blockquote>
+<div><p>/___________ //</p>
+</div></blockquote>
+<p><a href="#id1"><span class="problematic" id="id2">|____________|</span></a>/</p>
+</div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BNO055.BNO055.getCalibrationData">
+<span class="sig-name descname"><span class="pre">getCalibrationData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.getCalibrationData" title="Link to this definition"></a></dt>
+<dd><p>Return the sensor’s calibration data and return it as an array of
+22 bytes. Can be saved and then reloaded with the setCalibration function
+to quickly calibrate from a previously calculated set of calibration data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BNO055.BNO055.getCalibrationStatus">
+<span class="sig-name descname"><span class="pre">getCalibrationStatus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.getCalibrationStatus" title="Link to this definition"></a></dt>
+<dd><p>Read the calibration status of the sensors and return a 4 tuple with
+calibration status as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>System, 3=fully calibrated, 0=not calibrated</p></li>
+<li><p>Gyroscope, 3=fully calibrated, 0=not calibrated</p></li>
+<li><p>Accelerometer, 3=fully calibrated, 0=not calibrated</p></li>
+<li><p>Magnetometer, 3=fully calibrated, 0=not calibrated</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BNO055.BNO055.getQuat">
+<span class="sig-name descname"><span class="pre">getQuat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.getQuat" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BNO055.BNO055.getRevInfo">
+<span class="sig-name descname"><span class="pre">getRevInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.getRevInfo" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BNO055.BNO055.getSystemStatus">
+<span class="sig-name descname"><span class="pre">getSystemStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_self_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.getSystemStatus" title="Link to this definition"></a></dt>
+<dd><dl>
+<dt>Return a tuple with status information.  Three values will be returned:</dt><dd><ul>
+<li><dl class="simple">
+<dt>System status register value with the following meaning:</dt><dd><p>0 = Idle
+1 = System Error
+2 = Initializing Peripherals
+3 = System Initialization
+4 = Executing Self-Test
+5 = Sensor fusion algorithm running
+6 = System running without fusion algorithms</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Self test result register value with the following meaning:</dt><dd><p>Bit value: 1 = test passed, 0 = test failed
+Bit 0 = Accelerometer self test
+Bit 1 = Magnetometer self test
+Bit 2 = Gyroscope self test
+Bit 3 = MCU self test
+Value of 0x0F = all good!</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>System error register value with the following meaning:</dt><dd><blockquote>
+<div><p>0 = No error
+1 = Peripheral initialization error
+2 = System initialization error
+3 = Self test result failed
+4 = Register map value out of range
+5 = Register map address out of range
+6 = Register map write error
+7 = BNO low power mode not available for selected operation mode
+8 = Accelerometer power mode not available
+9 = Fusion algorithm configuration error</p>
+</div></blockquote>
+<p>10 = Sensor configuration error</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<p>If run_self_test is passed in as False then no self test is performed and
+None will be returned for the self test result.  Note that running a
+self test requires going into config mode which will stop the fusion
+engine from running.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BNO055.BNO055.getTemp">
+<span class="sig-name descname"><span class="pre">getTemp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.getTemp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BNO055.BNO055.getVector">
+<span class="sig-name descname"><span class="pre">getVector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vectorType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.getVector" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BNO055.BNO055.readBytes">
+<span class="sig-name descname"><span class="pre">readBytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">register</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numBytes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.readBytes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BNO055.BNO055.setCalibrationData">
+<span class="sig-name descname"><span class="pre">setCalibrationData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.setCalibrationData" title="Link to this definition"></a></dt>
+<dd><p>Set the sensor’s calibration data using a list of 22 bytes that
+represent the sensor offsets and calibration data.  This data should be
+a value that was previously retrieved with get_calibration (and then
+perhaps persisted to disk or other location until needed again).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BNO055.BNO055.setExternalCrystalUse">
+<span class="sig-name descname"><span class="pre">setExternalCrystalUse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">useExternalCrystal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.setExternalCrystalUse" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BNO055.BNO055.setMode">
+<span class="sig-name descname"><span class="pre">setMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.setMode" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BNO055.BNO055.set_axis_remap">
+<span class="sig-name descname"><span class="pre">set_axis_remap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_sign</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_sign</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z_sign</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.set_axis_remap" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BNO055.BNO055.writeBytes">
+<span class="sig-name descname"><span class="pre">writeBytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">register</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">byteVals</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.writeBytes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Jack Miller &amp; Casey Pickett.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

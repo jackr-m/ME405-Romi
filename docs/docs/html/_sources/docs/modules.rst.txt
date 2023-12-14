@@ -1,0 +1,33 @@
+Lab 06
+======
+
+.. toctree::
+   :maxdepth: 4
+
+   BNO055
+   ClosedLoop
+   Control
+   GarbageCollector
+   LineFollower
+   PID
+   QTRSensors
+   QTRSensors_ReadlineCalibrate
+   RomiCoder
+   RomiMotor
+   SMBus
+   UpdateIMU
+   UpdateMotor
+   UpdateTOF
+   adafruit_vl53l1x
+   boot
+   cotask
+   machine
+   main
+   main_bno055_example
+   main_lab3
+   main_lab4
+   main_lab5
+   task_share
+   time
+   utime
+   vl53l1x_example

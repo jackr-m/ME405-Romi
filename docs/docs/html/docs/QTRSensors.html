@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QTRSensors module &mdash; ME405-Romi  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ME405-Romi
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">docs</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ME405-Romi</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">QTRSensors module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/docs/QTRSensors.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-QTRSensors">
+<span id="qtrsensors-module"></span><h1>QTRSensors module<a class="headerlink" href="#module-QTRSensors" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="QTRSensors.CalibrationData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">QTRSensors.</span></span><span class="sig-name descname"><span class="pre">CalibrationData</span></span><a class="headerlink" href="#QTRSensors.CalibrationData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.CalibrationData.as_json">
+<span class="sig-name descname"><span class="pre">as_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.CalibrationData.as_json" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.CalibrationData.load_json">
+<span class="sig-name descname"><span class="pre">load_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.CalibrationData.load_json" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">QTRSensors.</span></span><span class="sig-name descname"><span class="pre">QTRSensors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="machine.html#machine.Pin" title="machine.Pin"><span class="pre">Pin</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emitterPin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="machine.html#machine.Pin" title="machine.Pin"><span class="pre">Pin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">evenEmitterPin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="machine.html#machine.Pin" title="machine.Pin"><span class="pre">Pin</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxValue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4095</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">micropython.const</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.calibrate">
+<span class="sig-name descname"><span class="pre">calibrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">micropython.const</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.calibrate" title="Link to this definition"></a></dt>
+<dd><p>Read the sensor for calibration.</p>
+<p>READMODE_MANUAL is not supported</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mode</strong> (<em>optional</em>) – Indicates the emitter behavior during the calibration. Defaults to READMODE_ON.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.dimmable">
+<span class="sig-name descname"><span class="pre">dimmable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.dimmable" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.dimmingLevel">
+<span class="sig-name descname"><span class="pre">dimmingLevel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.dimmingLevel" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.emitterPin">
+<span class="sig-name descname"><span class="pre">emitterPin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.emitterPin" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.emitterPinCount">
+<span class="sig-name descname"><span class="pre">emitterPinCount</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.emitterPinCount" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.emittersOff">
+<span class="sig-name descname"><span class="pre">emittersOff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">emitters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">micropython.const</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.emittersOff" title="Link to this definition"></a></dt>
+<dd><p>Turns the IR LEDs off.
+This function is mainly for use by the read() method. Since read()
+normally turns the emitters on and off automatically for each reading,
+calling this function yourself will not affect the readings unless the
+read mode is READMODE_MANUAL, which tells read() to leave the
+emitters alone.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>emitters</strong> (<em>optional</em>) – Which emitters to turn off. Defaults to EMITTERS_ALL.</p></li>
+<li><p><strong>wait</strong> (<em>bool</em><em>, </em><em>optional</em>) – If true, this function delays to give the sensors time to turn off before returning. Otherwise, it returns immediately. Defaults to True.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.emittersOn">
+<span class="sig-name descname"><span class="pre">emittersOn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">emitters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">micropython.const</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.emittersOn" title="Link to this definition"></a></dt>
+<dd><p>Turns the IR LEDs on.</p>
+<p>If the sensors are dimmable and a dimming level is set, this function
+will apply the dimming level after turning the emitters on.</p>
+<p>This function is mainly for use by the read() method. Since read()
+normally turns the emitters on and off automatically for each reading,
+calling this function yourself will not affect the readings unless the
+read mode is READMODE_MANUAL, which tells read() to leave the
+emitters alone.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>emitters</strong> (<em>optional</em>) – Which emitters to turn off. Defaults to EMITTERS_ALL.</p></li>
+<li><p><strong>wait</strong> (<em>bool</em><em>, </em><em>optional</em>) – If true, this function delays to give the sensors time to turn off before returning. Otherwise, it returns immediately. Defaults to True.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.emittersSelect">
+<span class="sig-name descname"><span class="pre">emittersSelect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">emitters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.emittersSelect" title="Link to this definition"></a></dt>
+<dd><p>Turn on selected emitters and turns off the other emitters</p>
+<p>This function turns on the selected emitters while it waits for the
+other emitters to turn off. For example,
+<cite>emittersSelect(EMITTERS_ODD)</cite> turns on the odd-numbered emitters
+while turning off the even-numbered emitters. Using this method avoids
+unnecessary delays compared to calling emittersOff() and emittersOn()
+separately, but it still waits for all emitters to be in the right
+states before returning.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>emitters</strong> (<em>optional</em>) – Which emitters to turn off. Defaults to EMITTERS_ALL.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.evenEmitterPin">
+<span class="sig-name descname"><span class="pre">evenEmitterPin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.evenEmitterPin" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.oddEmitterPin">
+<span class="sig-name descname"><span class="pre">oddEmitterPin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.oddEmitterPin" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">micropython.const</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.read" title="Link to this definition"></a></dt>
+<dd><p>Reads the raw sensor values.</p>
+<p>READMODE_MANUAL is not supported.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mode</strong> (<em>optional</em>) – Indicates the emitter behavior during the calibration. Defaults to READMODE_ON.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.readCalibrated">
+<span class="sig-name descname"><span class="pre">readCalibrated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">micropython.const</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.readCalibrated" title="Link to this definition"></a></dt>
+<dd><p>Reads the sensors and provides calibrated values between 0 and 1000.</p>
+<p>READMODE_MANUAL is not supported.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mode</strong> (<em>optional</em>) – Indicates the emitter behavior during the calibration. Defaults to READMODE_ON.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.readLineBlack">
+<span class="sig-name descname"><span class="pre">readLineBlack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">micropython.const</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.readLineBlack" title="Link to this definition"></a></dt>
+<dd><p>Reads the sensors, provides calibrated values, and returns an
+estimated black line position.</p>
+<p>The estimate is made using a weighted average of the sensor indices
+multiplied by 1000, so that a return value of 0 indicates that the line
+is directly below sensor 0, a return value of 1000 indicates that the
+line is directly below sensor 1, 2000 indicates that it’s below sensor
+2000, etc. Intermediate values indicate that the line is between two
+sensors. The formula is (where v_0 represents the value from the
+first sensor):</p>
+<p>((0*v_0) + (1000*v_1) + (2000*v_2) + …) / (v_0 + v_1 + v_2 + …)</p>
+<p>As long as your sensors aren’t spaced too far apart relative to the
+line, this returned value is designed to be monotonic, which makes it
+great for use in closed-loop PID control. Additionally, this method
+remembers where it last saw the line, so if you ever lose the line to
+the left or the right, its line position will continue to indicate the
+direction you need to go to reacquire the line. For example, if sensor
+4 is your rightmost sensor and you end up completely off the line to
+the left, this function will continue to return 4000.</p>
+<p>This function is intended to detect a black (or dark-colored) line on a
+white (or light-colored) background. For a white line, see
+readLineWhite().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mode</strong> (<em>optional</em>) – Indicates the emitter behavior during the calibration. Defaults to READMODE_ON.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An estimate of the position of a black line under the sensors.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.readLineWhite">
+<span class="sig-name descname"><span class="pre">readLineWhite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">micropython.const</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.readLineWhite" title="Link to this definition"></a></dt>
+<dd><p>Reads the sensors, provides calibrated values, and returns an
+estimated white line position.</p>
+<p>The estimate is made using a weighted average of the sensor indices
+multiplied by 1000, so that a return value of 0 indicates that the line
+is directly below sensor 0, a return value of 1000 indicates that the
+line is directly below sensor 1, 2000 indicates that it’s below sensor
+2000, etc. Intermediate values indicate that the line is between two
+sensors. The formula is (where v_0 represents the value from the
+first sensor):</p>
+<p>((0*v_0) + (1000*v_1) + (2000*v_2) + …) / (v_0 + v_1 + v_2 + …)</p>
+<p>As long as your sensors aren’t spaced too far apart relative to the
+line, this returned value is designed to be monotonic, which makes it
+great for use in closed-loop PID control. Additionally, this method
+remembers where it last saw the line, so if you ever lose the line to
+the left or the right, its line position will continue to indicate the
+direction you need to go to reacquire the line. For example, if sensor
+4 is your rightmost sensor and you end up completely off the line to
+the left, this function will continue to return 4000.</p>
+<p>This function is intended to detect a white (or light-colored) line on a
+black (or dark-colored) background. For a black line, see
+readLineBlack().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mode</strong> (<em>optional</em>) – Indicates the emitter behavior during the calibration. Defaults to READMODE_ON.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An estimate of the position of a black line under the sensors.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.resetCalibration">
+<span class="sig-name descname"><span class="pre">resetCalibration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.resetCalibration" title="Link to this definition"></a></dt>
+<dd><p>Resets all calibration that has been done.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.sensorPins">
+<span class="sig-name descname"><span class="pre">sensorPins</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.sensorPins" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.setCalValues">
+<span class="sig-name descname"><span class="pre">setCalValues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minList</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxList</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calibrationInitialized</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CalOn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.setCalValues" title="Link to this definition"></a></dt>
+<dd><p>Sets calibration values to user-supplied presets
+minList: list of minimum values per sensor
+maxList: list of maximum values per sensor
+calibrationInitialized: boolean, should always be true
+CalOn: boolean, signifies that calibration was performed with the lights on, not off.
+Returns: nothing</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.setSamplesPerSensor">
+<span class="sig-name descname"><span class="pre">setSamplesPerSensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.setSamplesPerSensor" title="Link to this definition"></a></dt>
+<dd><p>Set the samples per sensor for analog sensors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>samples</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of samples to be taken per read per sensor. Defaults to DEFAULT_SAMPLES_PER_SENSOR (4).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.setTimeout">
+<span class="sig-name descname"><span class="pre">setTimeout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2500</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.setTimeout" title="Link to this definition"></a></dt>
+<dd><p>Set the timeout value for RC (digital) sensors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>timeout</strong> (<em>int</em><em>, </em><em>optional</em>) – Timeout value in microseconds. Defaults to DEFAULT_TIMEOUT (2500).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.setTypeAnalog">
+<span class="sig-name descname"><span class="pre">setTypeAnalog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maxValue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4095</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.setTypeAnalog" title="Link to this definition"></a></dt>
+<dd><p>Set the sensor type to analog.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>maxValue</strong> (<em>int</em><em>, </em><em>optional</em>) – _description_. Defaults to MAX_VALUE (4095).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.setTypeRC">
+<span class="sig-name descname"><span class="pre">setTypeRC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2500</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.setTypeRC" title="Link to this definition"></a></dt>
+<dd><p>Set the sensor type to RC (digital).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>timeout</strong> (<em>int</em><em>, </em><em>optional</em>) – Timeout value in microseconds. Defaults to DEFAULT_TIMEOUT (2500).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.timeout">
+<span class="sig-name descname"><span class="pre">timeout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.timeout" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QTRSensors.QTRSensors.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#QTRSensors.QTRSensors.values" title="Link to this definition"></a></dt>
+<dd><p>Get the last read sensor values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Raw or calibrated (depending if the most recently done read was <cite>read()</cite> or <cite>readCalibrated()</cite> ) sensor values.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>array[float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="QTRSensors.READMODE_MANUAL">
+<span class="sig-prename descclassname"><span class="pre">QTRSensors.</span></span><span class="sig-name descname"><span class="pre">READMODE_MANUAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#QTRSensors.READMODE_MANUAL" title="Link to this definition"></a></dt>
+<dd><p>Calling read() with this mode prevents it from automatically controlling
+the emitters: they are left in their existing states, which allows manual
+control of the emitters for testing and advanced use. Calibrating and
+obtaining calibrated readings are not supported with this mode.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="QTRSensors.READMODE_ODD_EVEN">
+<span class="sig-prename descclassname"><span class="pre">QTRSensors.</span></span><span class="sig-name descname"><span class="pre">READMODE_ODD_EVEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#QTRSensors.READMODE_ODD_EVEN" title="Link to this definition"></a></dt>
+<dd><p>The odd-numbered sensors are read with the odd-numbered emitters on, then
+the even-numbered sensors are read with the even-numbered emitters on.
+This mode can reduce interference between adjacent sensors, especially on
+QTRX sensor boards. It is only usable with second-generation QTR and QTRX
+sensor arrays that have two emitter control pins.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="QTRSensors.READMODE_ODD_EVEN_AND_OFF">
+<span class="sig-prename descclassname"><span class="pre">QTRSensors.</span></span><span class="sig-name descname"><span class="pre">READMODE_ODD_EVEN_AND_OFF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#QTRSensors.READMODE_ODD_EVEN_AND_OFF" title="Link to this definition"></a></dt>
+<dd><p>The odd and even sensors are read separately with the respective emitters
+on, then all sensors are read with emitters off and <strong>on + max &amp;minus;
+off</strong> is returned. (In other words, this mode combines OddEven and
+OnAndOff.)</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="QTRSensors.READMODE_OFF">
+<span class="sig-prename descclassname"><span class="pre">QTRSensors.</span></span><span class="sig-name descname"><span class="pre">READMODE_OFF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#QTRSensors.READMODE_OFF" title="Link to this definition"></a></dt>
+<dd><p>Each reading is made without turning on the infrared (IR) emitters. The reading represents ambient light levels near the sensor.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="QTRSensors.READMODE_ON">
+<span class="sig-prename descclassname"><span class="pre">QTRSensors.</span></span><span class="sig-name descname"><span class="pre">READMODE_ON</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#QTRSensors.READMODE_ON" title="Link to this definition"></a></dt>
+<dd><p>Each reading is made with the emitters on. The reading is a measure of reflectance.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="QTRSensors.READMODE_ON_AND_OFF">
+<span class="sig-prename descclassname"><span class="pre">QTRSensors.</span></span><span class="sig-name descname"><span class="pre">READMODE_ON_AND_OFF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#QTRSensors.READMODE_ON_AND_OFF" title="Link to this definition"></a></dt>
+<dd><p>For each sensor, a reading is made in both the on and off states. The
+value returned is <strong>on + max &amp;minus; off</strong>, where <strong>on</strong> and <strong>off</strong> are
+the reading with the emitters on and off, respectively, and <strong>max</strong> is
+the maximum possible sensor reading. This mode can reduce the amount of
+interference from uneven ambient lighting.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="QTRSensors.TYPE_A">
+<span class="sig-prename descclassname"><span class="pre">QTRSensors.</span></span><span class="sig-name descname"><span class="pre">TYPE_A</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#QTRSensors.TYPE_A" title="Link to this definition"></a></dt>
+<dd><p>Analog Sensor Type</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="QTRSensors.TYPE_RC">
+<span class="sig-prename descclassname"><span class="pre">QTRSensors.</span></span><span class="sig-name descname"><span class="pre">TYPE_RC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#QTRSensors.TYPE_RC" title="Link to this definition"></a></dt>
+<dd><p>RC (Digital) Sensor Type</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Jack Miller &amp; Casey Pickett.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

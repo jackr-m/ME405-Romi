@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>task_share module &mdash; ME405-Romi  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ME405-Romi
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">docs</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ME405-Romi</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">task_share module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/docs/task_share.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-task_share">
+<span id="task-share-module"></span><h1>task_share module<a class="headerlink" href="#module-task_share" title="Link to this heading"></a></h1>
+<p>This file contains classes which allow tasks to share data without the risk
+of data corruption by interrupts.</p>
+<p>Author: JR Ridgely
+Changelog:</p>
+<blockquote>
+<div><p>2017-Jan-01 JRR Approximate date of creation of file
+2021-Dec-18 JRR Docstrings changed to work without DoxyPyPy
+2023-Dec-31 Jack Miller changed docstrings to google format for use with Sphinx</p>
+</div></blockquote>
+<p>Copyright: This program is copyright (c) 2017-2021 by JR Ridgely and released
+under the GNU Public License, version 3.0.</p>
+<p>It is intended for educational use only, but its use is not limited thereto.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="task_share.BaseShare">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">task_share.</span></span><span class="sig-name descname"><span class="pre">BaseShare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thread_protect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#task_share.BaseShare" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>!
+Base class for queues and shares which exchange data between tasks.</p>
+<p>One should never create an object from this class; it doesn’t do anything
+useful. It exists to implement things which are common between its child
+classes <a class="reference internal" href="#task_share.Queue" title="task_share.Queue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Queue</span></code></a> and <a class="reference internal" href="#task_share.Share" title="task_share.Share"><code class="xref py py-class docutils literal notranslate"><span class="pre">Share</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="task_share.Queue">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">task_share.</span></span><span class="sig-name descname"><span class="pre">Queue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thread_protect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#task_share.Queue" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#task_share.BaseShare" title="task_share.BaseShare"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseShare</span></code></a></p>
+<p>!
+A queue which is used to transfer data from one task to another.</p>
+<p>If parameter ‘thread_protect’ is &#64;c True when a queue is created, transfers
+of data will be protected from corruption in the case that one task might
+interrupt another due to use in a pre-emptive multithreading environment or
+due to one task being run as an interrupt service routine.</p>
+<p>An example of the creation and use of a queue is as follows:</p>
+<p>&#64;code
+import task_share</p>
+<p># This queue holds unsigned short (16-bit) integers
+my_queue = task_share.Queue (‘H’, 100, name=”My Queue”)</p>
+<p># Somewhere in one task, put data into the queue
+my_queue.put (some_data)</p>
+<p># In another task, read data from the queue
+something = my_queue.get ()
+&#64;endcode</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="task_share.Queue.any">
+<span class="sig-name descname"><span class="pre">any</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#task_share.Queue.any" title="Link to this definition"></a></dt>
+<dd><p>!
+Check if there are any items in the queue.</p>
+<p>Returns &#64;c True if there are any items in the queue and &#64;c False
+if the queue is empty.
+&#64;return &#64;c True if items are in the queue, &#64;c False if not</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="task_share.Queue.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#task_share.Queue.clear" title="Link to this definition"></a></dt>
+<dd><p>!
+Remove all contents from the queue.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="task_share.Queue.empty">
+<span class="sig-name descname"><span class="pre">empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#task_share.Queue.empty" title="Link to this definition"></a></dt>
+<dd><p>!
+Check if the queue is empty.</p>
+<p>Returns &#64;c True if there are no items in the queue and &#64;c False if
+there are any items therein.
+&#64;return &#64;c True if queue is empty, &#64;c False if it’s not empty</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="task_share.Queue.full">
+<span class="sig-name descname"><span class="pre">full</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#task_share.Queue.full" title="Link to this definition"></a></dt>
+<dd><p>!
+Check if the queue is full.</p>
+<p>This method returns &#64;c True if the queue is already full and there
+is no room for more data without overwriting existing data.
+&#64;return &#64;c True if the queue is full</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="task_share.Queue.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_ISR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#task_share.Queue.get" title="Link to this definition"></a></dt>
+<dd><p>!
+Read an item from the queue.</p>
+<p>If there isn’t anything in there, wait (blocking the calling process)
+until something becomes available. If non-blocking reads are needed,
+one should call &#64;c any() to check for items before attempting to read
+from the queue. This is usually done in a low priority task:
+&#64;code
+|   def some_task ():
+|       # Setup
+|       while True:
+|           if my_queue.any ():
+|               something = my_queue.get ()
+|               do_something_with (something)
+|           # More loop stuff
+|           yield 0
+&#64;endcode
+&#64;param in_ISR Set this to &#64;c True if calling from within an ISR</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="task_share.Queue.num_in">
+<span class="sig-name descname"><span class="pre">num_in</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#task_share.Queue.num_in" title="Link to this definition"></a></dt>
+<dd><p>!
+Check how many items are in the queue.</p>
+<p>This method returns the number of items which are currently in the
+queue.
+&#64;return The number of items in the queue</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="task_share.Queue.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_ISR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#task_share.Queue.put" title="Link to this definition"></a></dt>
+<dd><p>!
+Put an item into the queue.</p>
+<p>If there isn’t room for the item, wait (blocking the calling process)
+until room becomes available, unless the &#64;c overwrite constructor
+parameter was set to &#64;c True to allow old data to be clobbered. If
+non-blocking behavior without overwriting is needed, one should call
+&#64;c full() to ensure that the queue is not full before putting data
+into it:
+&#64;code
+|   def some_task ():
+|       # Setup
+|       while True:
+|           if not my_queue.full ():
+|               my_queue.put (create_something_to_put ())
+|           yield 0
+&#64;endcode
+&#64;param item The item to be placed into the queue
+&#64;param in_ISR Set this to &#64;c True if calling from within an ISR</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="task_share.Queue.ser_num">
+<span class="sig-name descname"><span class="pre">ser_num</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#task_share.Queue.ser_num" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="task_share.Share">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">task_share.</span></span><span class="sig-name descname"><span class="pre">Share</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thread_protect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#task_share.Share" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#task_share.BaseShare" title="task_share.BaseShare"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseShare</span></code></a></p>
+<p>!
+An item which holds data to be shared between tasks.
+This class implements a shared data item which can be protected against
+data corruption by pre-emptive multithreading. Multithreading which can
+corrupt shared data includes the use of ordinary interrupts as well as the
+use of pre-emptive multithreading such as by a Real-Time Operating System
+(RTOS).</p>
+<p>An example of the creation and use of a share is as follows:
+&#64;code
+import task_share</p>
+<p># This share holds a signed short (16-bit) integer
+my_share = task_share.Queue (‘h’, name=”My Share”)</p>
+<p># Somewhere in one task, put data into the share
+my_share.put (some_data)</p>
+<p># In another task, read data from the share
+something = my_share.get ()
+&#64;endcode</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="task_share.Share.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_ISR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#task_share.Share.get" title="Link to this definition"></a></dt>
+<dd><p>!
+Read an item of data from the share.</p>
+<p>If thread protection is enabled, interrupts are disabled during the time
+that the data is being read so as to prevent data corruption by changes
+in the data as it is being read.
+&#64;param in_ISR Set this to True if calling from within an ISR</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="task_share.Share.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_ISR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#task_share.Share.put" title="Link to this definition"></a></dt>
+<dd><p>!
+Write an item of data into the share.</p>
+<p>This method puts data into the share; any old data is overwritten.
+This code disables interrupts during the writing so as to prevent
+data corrupting by an interrupt service routine which might access
+the same data.
+&#64;param data The data to be put into this share
+&#64;param in_ISR Set this to True if calling from within an ISR</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="task_share.Share.ser_num">
+<span class="sig-name descname"><span class="pre">ser_num</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#task_share.Share.ser_num" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="task_share.show_all">
+<span class="sig-prename descclassname"><span class="pre">task_share.</span></span><span class="sig-name descname"><span class="pre">show_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#task_share.show_all" title="Link to this definition"></a></dt>
+<dd><p>!
+Create a string holding a diagnostic printout showing the status of
+each queue and share in the system.
+&#64;return A string containing information about each queue and share</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Jack Miller &amp; Casey Pickett.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

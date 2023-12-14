@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RomiCoder module &mdash; ME405-Romi  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ME405-Romi
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">docs</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ME405-Romi</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">RomiCoder module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/docs/RomiCoder.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-RomiCoder">
+<span id="romicoder-module"></span><h1>RomiCoder module<a class="headerlink" href="#module-RomiCoder" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="mailto:!&#37;&#52;&#48;file">!<span>&#64;</span>file</a>
+&#64;brief Encoder class with test functionality
+&#64;details contains encoder class and test code that runs when file is named main
+&#64;author Casey Pickett and Jack Miller
+&#64;date 10/16/23</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="RomiCoder.RomiCoder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RomiCoder.</span></span><span class="sig-name descname"><span class="pre">RomiCoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoderChannelAPin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoderChannelBPin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoderTimerNumber</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RomiCoder.RomiCoder" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>!
+&#64;brief encoder.py
+&#64;details class for quadrature encoders. Each instance of an encoder takes two timers to operate
+one timer is already determined by the pins used for the particular encoder.
+This timer is set up in the constructor. The second timer is used to set an interrupt
+for the encoder to recalculate its positon.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="RomiCoder.RomiCoder.get_delta">
+<span class="sig-name descname"><span class="pre">get_delta</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RomiCoder.RomiCoder.get_delta" title="Link to this definition"></a></dt>
+<dd><p>!
+&#64;brief This returns a delta not a rate.
+&#64;details takes the encoder delta between the previous true
+encoder reading and the most recent one
+&#64;return trueDelta integer delta value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RomiCoder.RomiCoder.get_position">
+<span class="sig-name descname"><span class="pre">get_position</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RomiCoder.RomiCoder.get_position" title="Link to this definition"></a></dt>
+<dd><p>!
+&#64;brief returns most recently updated true encoder position
+&#64;details the encoder will be updating at the rate specified by the
+frequency of the timer input when an encoder instance is created.
+&#64;return encoderPosition integer position value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RomiCoder.RomiCoder.get_rate">
+<span class="sig-name descname"><span class="pre">get_rate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RomiCoder.RomiCoder.get_rate" title="Link to this definition"></a></dt>
+<dd><p>!
+&#64;brief This returns a rate per milliseconds.
+&#64;details takes the encoder delta between the previous true
+encoder reading and the most recent one, divides it by
+the difference between current time and previous time
+&#64;return rate float unit/ms value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RomiCoder.RomiCoder.get_time">
+<span class="sig-name descname"><span class="pre">get_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RomiCoder.RomiCoder.get_time" title="Link to this definition"></a></dt>
+<dd><p>!
+&#64;brief This returns the last update() time.
+&#64;details takes the time_ms of the most recent
+.update() call
+&#64;return newTime float millisecond time</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RomiCoder.RomiCoder.get_timeDelta">
+<span class="sig-name descname"><span class="pre">get_timeDelta</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RomiCoder.RomiCoder.get_timeDelta" title="Link to this definition"></a></dt>
+<dd><p>!
+&#64;brief This returns a delta of time.
+&#64;details takes the time_ms of the most recent
+.update() call, ticks_diff() from previous .update() call
+&#64;return timeDelta float millisecond time</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RomiCoder.RomiCoder.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RomiCoder.RomiCoder.update" title="Link to this definition"></a></dt>
+<dd><p>!
+&#64;brief updates true known encoder positon.
+&#64;details This is different from the raw encoder position, since that value overflows according to the
+auto-reload value. takes difference between current and prior raw encoder
+values, then determines based on the delta whether to count that as an overflow or not
+This means that the sample rate for calling this function needs to be
+sufficiently fast to avoid mis-classifying deltas as overflowed when they are not.
+This does not return any position</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RomiCoder.RomiCoder.zero">
+<span class="sig-name descname"><span class="pre">zero</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RomiCoder.RomiCoder.zero" title="Link to this definition"></a></dt>
+<dd><p>!
+&#64;brief This sets the encoder position back to 0
+&#64;details this does not reset the delta values. Raw readings stay intact</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Jack Miller &amp; Casey Pickett.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -20,9 +20,7 @@
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="task_share module" href="task_share.html" />
-    <link rel="prev" title="cotask module" href="cotask.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,47 +43,8 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Lab 06</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="BNO055.html">BNO055 module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ClosedLoop.html">ClosedLoop module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="PID.html">PID module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="QTRSensors.html">QTRSensors module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RomiCoder.html">RomiCoder module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RomiMotor.html">RomiMotor module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SMBus.html">SMBus module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">main module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#main.Control"><code class="docutils literal notranslate"><span class="pre">Control</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#main.Control.run"><code class="docutils literal notranslate"><span class="pre">Control.run()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#main.GarbageCollector"><code class="docutils literal notranslate"><span class="pre">GarbageCollector</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#main.GarbageCollector.run"><code class="docutils literal notranslate"><span class="pre">GarbageCollector.run()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#main.LineFollower"><code class="docutils literal notranslate"><span class="pre">LineFollower</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#main.LineFollower.run"><code class="docutils literal notranslate"><span class="pre">LineFollower.run()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#main.UpdateIMU"><code class="docutils literal notranslate"><span class="pre">UpdateIMU</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#main.UpdateIMU.run"><code class="docutils literal notranslate"><span class="pre">UpdateIMU.run()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#main.UpdateMotor"><code class="docutils literal notranslate"><span class="pre">UpdateMotor</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#main.UpdateMotor.run"><code class="docutils literal notranslate"><span class="pre">UpdateMotor.run()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#main.UpdateTOF"><code class="docutils literal notranslate"><span class="pre">UpdateTOF</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#main.UpdateTOF.run"><code class="docutils literal notranslate"><span class="pre">UpdateTOF.run()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="task_share.html">task_share module</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">docs</a></li>
 </ul>
 
         </div>
@@ -102,7 +61,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">Lab 06</a></li>
       <li class="breadcrumb-item active">main module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/main.rst.txt" rel="nofollow"> View page source</a>
@@ -120,91 +78,12 @@
 &#64;details runs DC motor PID feedback from quadrature encoder and reflectance sensors
 &#64;author Casey Pickett and Jack Miller
 &#64;date 11/07/23</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="main.Control">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">Control</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">motor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_kp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_ki</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_kd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">feedbackOn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_timeDelta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_velocity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.Control" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>! A class to control a DC motor</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="main.Control.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.Control.run" title="Link to this definition"></a></dt>
-<dd><p><a class="reference external" href="mailto:!&#37;&#52;&#48;brief">!<span>&#64;</span>brief</a>          The task implementation as a generator function</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="main.GarbageCollector">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">GarbageCollector</span></span><a class="headerlink" href="#main.GarbageCollector" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="main.GarbageCollector.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.GarbageCollector.run" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="main.LineFollower">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">LineFollower</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qtrPos_front</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">qtrPos_rear</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">e1_targetSpeed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">e2_targetSpeed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_timeDelta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">e1FeedbackOn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">e2FeedbackOn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">leftDistanceTraveled</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rightDistanceTraveled</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">heading</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_tofdistance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">linePosTarget_front</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linePosTarget_rear</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centerSpeed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.LineFollower" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>this is a line follower, it follows lines</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="main.LineFollower.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.LineFollower.run" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="main.UpdateIMU">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">UpdateIMU</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s_field_heading</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.UpdateIMU" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>!
-Class for task to update a IMU euler angle heading</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="main.UpdateIMU.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.UpdateIMU.run" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="main.UpdateMotor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">UpdateMotor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">motor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_positions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Queue" title="task_share.Queue"><span class="pre">Queue</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_timeDelta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_velocity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_velocities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Queue" title="task_share.Queue"><span class="pre">Queue</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_times</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Queue" title="task_share.Queue"><span class="pre">Queue</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">resetRequest</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">printList</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Queue" title="task_share.Queue"><span class="pre">Queue</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">collectOLData</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">collectStepData</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">qtrfront</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors" title="QTRSensors.QTRSensors"><span class="pre">QTRSensors</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">qtrrear</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors" title="QTRSensors.QTRSensors"><span class="pre">QTRSensors</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_qtrPositionfront</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_qtrPositionrear</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.UpdateMotor" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>!
-Class for task to update an encoder position at a different frequency compared to the
-respective motor control loop</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="main.UpdateMotor.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.UpdateMotor.run" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="main.UpdateTOF">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">UpdateTOF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s_tofdistance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="task_share.html#task_share.Share" title="task_share.Share"><span class="pre">Share</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.UpdateTOF" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>!
-Class for task to update a Time of Flight sensor position</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="main.UpdateTOF.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.UpdateTOF.run" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="cotask.html" class="btn btn-neutral float-left" title="cotask module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="task_share.html" class="btn btn-neutral float-right" title="task_share module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
