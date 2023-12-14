@@ -1,11 +1,16 @@
 """ Provides an SMBus class for use on micropython """
 
 import gc
-from machine import I2C
-gc.collect()
+
+try:
+    from machine import I2C
+    gc.collect()
+except ImportError:
+    raise ImportError("Can't find the micropython machine.I2C class: "
+                      "perhaps you don't need this adapter?")
 
 
-class SMBus(I2C):
+class SMBus():
     """ Provides an 'SMBus' module which supports some of the py-smbus
         i2c methods, as well as being a subclass of machine.I2C
 
@@ -21,29 +26,32 @@ class SMBus(I2C):
             ... etc
 	"""
 
+    def __init__(self, i2c):
+        self._i2c = i2c
+
     def read_byte_data(self, addr, register):
         """ Read a single byte from register of device at addr
             Returns a single byte """
-        return self.readfrom_mem(addr, register, 1)[0]
+        return self._i2c.readfrom_mem(addr, register, 1)[0]
 
     def read_i2c_block_data(self, addr, register, length):
         """ Read a block of length from register of device at addr
             Returns a bytes object filled with whatever was read """
-        return self.readfrom_mem(addr, register, length)
+        return self._i2c.readfrom_mem(addr, register, length)
 
     def write_byte_data(self, addr, register, data):
         """ Write a single byte from buffer `data` to register of device at addr
             Returns None """
         # writeto_mem() expects something it can treat as a buffer
         data = bytearray(data)
-        return self.writeto_mem(addr, register, data)
+        return self._i2c.writeto_mem(addr, register, data)
 
     def write_i2c_block_data(self, addr, register, data):
         """ Write multiple bytes of data to register of device at addr
             Returns None """
         # writeto_mem() expects something it can treat as a buffer
         data = bytearray(data)
-        return self.writeto_mem(addr, register, data)
+        return self._i2c.writeto_mem(addr, register, data)
 
     # The follwing haven't been implemented, but could be.
     def read_byte(self, *args, **kwargs):
