@@ -15,9 +15,12 @@ class Control:
     """
 
     def __init__(self, motor, s_speed: Share, s_kp: Share, s_ki: Share, s_kd: Share, feedbackOn: Share, s_timeDelta: Share, s_velocity: Share):
-        '''!@brief          Initializes a data transfer task object
-            @param motor    A motor driver object to send commands to
-        '''
+        """Initializes the instance given a motor, PID gains, and additional shares that will hold time updating deltas and velocities.
+        
+        Args:
+            motor: 
+
+        """
         self._desiredSpeed = s_speed
         self._kp = s_kp
         self._ki = s_ki
