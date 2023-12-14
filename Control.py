@@ -1,3 +1,7 @@
+"""Houses the Control task class.
+
+"""
+
 from RomiMotor import RomiMotor
 from pyb import Timer, Pin
 from task_share import Share
@@ -5,8 +9,10 @@ from ClosedLoop import ClosedLoop
 from PID import PID
 
 class Control:
-    '''! A class to control a DC motor
-    '''
+    """Controls a DC romi motor using a PID loop
+    
+    encoder velocity and the time delta since the task last ran is provided as task_share.Share objects. PID gains are set when an instance of the class is created. Motor duty cycle is set according to the PID efforts.
+    """
 
     def __init__(self, motor, s_speed: Share, s_kp: Share, s_ki: Share, s_kd: Share, feedbackOn: Share, s_timeDelta: Share, s_velocity: Share):
         '''!@brief          Initializes a data transfer task object
