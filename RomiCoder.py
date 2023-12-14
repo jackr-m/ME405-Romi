@@ -7,7 +7,7 @@
 '''
 
 from pyb import Timer
-from time import ticks_ms, ticks_diff
+from utime import ticks_ms, ticks_diff
 from math import pi
 
 
