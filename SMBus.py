@@ -1,4 +1,4 @@
-""" Provides an SMBus class for use on micropython """
+"""Provides an SMBus wrapper for use with Micropython machine.I2C"""
 
 import gc
 

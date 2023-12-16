@@ -23,4 +23,3 @@ Lab 06
    cotask
    machine
    main
-   task_share
