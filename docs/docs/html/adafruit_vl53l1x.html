@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="cotask module" href="cotask.html" />
-    <link rel="prev" title="SMBus module" href="SMBus.html" /> 
+    <link rel="prev" title="UpdateTOF module" href="UpdateTOF.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,11 +49,19 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Lab 06</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="BNO055.html">BNO055 module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ClosedLoop.html">ClosedLoop module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Control.html">Control module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlBothMotors.html">ControlBothMotors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GarbageCollector.html">GarbageCollector module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LineFollower.html">LineFollower module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PID.html">PID module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="QTRSensors.html">QTRSensors module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RomiCoder.html">RomiCoder module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RomiMotor.html">RomiMotor module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SMBus.html">SMBus module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateIMU.html">UpdateIMU module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateMotor.html">UpdateMotor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateQTRs.html">UpdateQTRs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">adafruit_vl53l1x module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#adafruit-vl53l1x"><cite>adafruit_vl53l1x</cite></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#implementation-notes">Implementation Notes</a></li>
@@ -74,8 +82,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="task_share.html">task_share module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">time module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime module</a></li>
 </ul>
 </li>
 </ul>
@@ -131,7 +142,6 @@
 <dt class="sig sig-object py" id="adafruit_vl53l1x.VL53L1X">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adafruit_vl53l1x.</span></span><span class="sig-name descname"><span class="pre">VL53L1X</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i2c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">41</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adafruit_vl53l1x.VL53L1X" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Driver for the VL53L1X distance sensor.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="adafruit_vl53l1x.VL53L1X.clear_interrupt">
 <span class="sig-name descname"><span class="pre">clear_interrupt</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#adafruit_vl53l1x.VL53L1X.clear_interrupt" title="Link to this definition"></a></dt>
@@ -188,7 +198,8 @@
 <dl class="py property">
 <dt class="sig sig-object py" id="adafruit_vl53l1x.VL53L1X.timing_budget">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timing_budget</span></span><a class="headerlink" href="#adafruit_vl53l1x.VL53L1X.timing_budget" title="Link to this definition"></a></dt>
-<dd><p>Ranging duration in milliseconds. Increasing the timing budget
+<dd><p>Ranging duration in milliseconds.</p>
+<p>Increasing the timing budget
 increases the maximum distance the device can range and improves
 the repeatability error. However, average power consumption augments
 accordingly. ms = 15 (short mode only), 20, 33, 50, 100, 200, 500.
@@ -203,7 +214,7 @@ Defaults to 50.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="SMBus.html" class="btn btn-neutral float-left" title="SMBus module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="UpdateTOF.html" class="btn btn-neutral float-left" title="UpdateTOF module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="cotask.html" class="btn btn-neutral float-right" title="cotask module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

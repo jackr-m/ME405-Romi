@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="QTRSensors module" href="QTRSensors.html" />
-    <link rel="prev" title="ClosedLoop module" href="ClosedLoop.html" /> 
+    <link rel="prev" title="LineFollower module" href="LineFollower.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,6 +49,10 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Lab 06</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="BNO055.html">BNO055 module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ClosedLoop.html">ClosedLoop module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Control.html">Control module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlBothMotors.html">ControlBothMotors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GarbageCollector.html">GarbageCollector module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LineFollower.html">LineFollower module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">PID module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#PID.PID"><code class="docutils literal notranslate"><span class="pre">PID</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#PID.PID.auto_mode"><code class="docutils literal notranslate"><span class="pre">PID.auto_mode</span></code></a></li>
@@ -65,10 +69,17 @@
 <li class="toctree-l2"><a class="reference internal" href="RomiCoder.html">RomiCoder module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RomiMotor.html">RomiMotor module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SMBus.html">SMBus module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateIMU.html">UpdateIMU module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateMotor.html">UpdateMotor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateQTRs.html">UpdateQTRs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="task_share.html">task_share module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">time module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime module</a></li>
 </ul>
 </li>
 </ul>
@@ -100,11 +111,11 @@
              
   <section id="module-PID">
 <span id="pid-module"></span><h1>PID module<a class="headerlink" href="#module-PID" title="Link to this heading"></a></h1>
+<p>Houses PID control class used only in constant period loops.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="PID.PID">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PID.</span></span><span class="sig-name descname"><span class="pre">PID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Kp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ki</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[None,</span> <span class="pre">None]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proportional_on_measurement</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PID.PID" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A simple PID controller.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="PID.PID.auto_mode">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">auto_mode</span></span><a class="headerlink" href="#PID.PID.auto_mode" title="Link to this definition"></a></dt>
@@ -177,7 +188,7 @@ auto mode.</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ClosedLoop.html" class="btn btn-neutral float-left" title="ClosedLoop module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="LineFollower.html" class="btn btn-neutral float-left" title="LineFollower module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="QTRSensors.html" class="btn btn-neutral float-right" title="QTRSensors module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -1,30 +1,32 @@
-# See qtrsensors.py by MCHobby on Github
+"""Houses QTRSensors class and associated Calibraton Data/CalibrationData class.
 
-#
-# The MIT License (MIT)
-#
-# Copyright (c) 2019 Meurisse D. for MC Hobby
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-# THE SOFTWARE.
+See qtrsensors.py by MCHobby on Github
 
 
-# See qrt-sensors-arduino by Pololu on Github (MIT License)
+The MIT License (MIT)
+
+Copyright (c) 2019 Meurisse D. for MC Hobby
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+See qrt-sensors-arduino by Pololu on Github (MIT License)
+"""
 
 from micropython import const
 from machine import Pin
@@ -612,7 +614,7 @@ class QTRSensors():
             raise ValueError('Invalid sensor type')
 
     def __readLinePrivate( self, mode, invertReadings): # returns uint16_t, uint16_t * sensorValues, QTRReadMode mode, bool invertReadings
-        onLine = [False] # Sensor is on the line
+        onLine = False # Sensor is on the line
         avg = 0 # this is for the weighted total
         sum = 0 # this is for the denominator, which is <= 64000
 
@@ -628,24 +630,25 @@ class QTRSensors():
                 value = 1000 - value
 
             # keep track of whether we see the line at all
-            if value > 300:
+            if value > 500: # default 200
                 onLine = True
 
             # only average in values that are above a noise threshold
-            if value > 50:
+            if value > 50: # default 50
                 avg += int(value * i * 1000)
                 sum += value
 
         if not onLine:
             # If it last read to the left of center, return 0.
             if self._lastPosition < (self._sensorCount - 1) * 1000 / 2:
-                return 0
+                return (onLine, int(0))
             # If it last read to the right of center, return the max.
             else:
-                return (self._sensorCount - 1) * 1000
-
-        self._lastPosition = int(avg / sum)
-        return self._lastPosition
+                return (onLine, int((self._sensorCount - 1) * 1000))
+        
+        else:
+            self._lastPosition = int(avg / sum)
+            return (onLine, self._lastPosition)
 
     def read(self, mode=READMODE_ON):
         """Reads the raw sensor values.

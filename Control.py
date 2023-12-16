@@ -8,14 +8,12 @@ from ClosedLoop import ClosedLoop
 from PID import PID
 
 class Control:
-    """Controls a DC romi motor using a PID loop
-    
-    encoder velocity and the time delta since the task last ran is provided as task_share.Share objects. PID gains are set when an instance of the class is created. Motor duty cycle is set according to the PID efforts. Since this function is made specifically for the Romi chassis, only two motors can be controlled in total by instances of this class. The choice between controlling the left and right motor is made when entering an 'A' or 'B' string as the motor input
-    """
 
     def __init__(self, motor, s_speed: Share, s_kp: Share, s_ki: Share, s_kd: Share, feedbackOn: Share, s_timeDelta: Share, s_velocity: Share):
-        """Initializes the instance given a motor, PID gains, and additional shares that will hold time updating deltas and velocities.
+        """Controls a DC romi motor using a PID loop
         
+        encoder velocity and the time delta since the task last ran is provided as task_share.Share objects. PID gains are set when an instance of the class is created. Motor duty cycle is set according to the PID efforts. Since this function is made specifically for the Romi chassis, only two motors can be controlled in total by instances of this class. The choice between controlling the left and right motor is made when entering an 'A' or 'B' string as the motor input
+
         Args:
             motor: a string, only 'A' or 'B' to effectively request which motor of the two choices on the chassis be initialized in the constructor. 
             s_speed: a task_share.Share object containing the requested motor speed for the control loop. This value is repeatedly re-evaluated.

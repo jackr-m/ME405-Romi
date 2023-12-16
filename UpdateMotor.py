@@ -69,6 +69,9 @@ class UpdateMotor:
             raise ValueError("Invalid motor")
 
     def run(self):
+        
+
+
         while True:
             #immediately go to run state after qtr initialization
             if self._state == 0:

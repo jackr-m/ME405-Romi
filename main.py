@@ -1,9 +1,10 @@
-'''!@file
-    @brief Main file that runs ME405 Lab 0x04
-    @details runs DC motor PID feedback from quadrature encoder and reflectance sensors
-    @author Casey Pickett and Jack Miller
-    @date 11/07/23
-'''
+"""Main Program. 
+
+    Implements generator "run function" for all tasks. Sets motor power to 0 when a KeyboardInterrupt occurs. The romi chassis follows a line until it gets in range of an obstacle, which it will circumnavigate to get back on the line. It goes until its coordinates indicate it is at the finish, then turns around and goes to the start.
+    Motor control task handles both encoders and both motors in one instance
+    QTR Update task handles both QTR sensors at once and returns just a composite position (s_pos = pos)
+
+"""
 
 import gc
 from pyb import Timer, Pin, UART, repl_uart, USB_VCP
@@ -14,14 +15,11 @@ import cotask
 #from nb_input import NB_Input
 from utime import ticks_ms, ticks_diff, sleep_ms
 from math import pi, cos, sin
+gc.collect()
 
-gc.collect()
-gc.collect()
 import QTRSensors
 gc.collect()
 
-gc.collect()
-gc.collect()
 
 
 # The Task Classes
@@ -29,9 +27,9 @@ from UpdateIMU import UpdateIMU
 gc.collect()
 from UpdateTOF import UpdateTOF
 gc.collect()
-from Control import Control
+from UpdateQTRs import UpdateQTRs
 gc.collect()
-from UpdateMotor import UpdateMotor
+from ControlBothMotors import ControlBothMotors
 gc.collect()
 from LineFollower import LineFollower
 gc.collect()
@@ -49,73 +47,20 @@ if __name__ == "__main__":
     # Get full error messages
     micropython.alloc_emergency_exception_buf(300)
     
-    s_e1_kp: Share           = Share('f')
-    s_e1_ki: Share           = Share('f')
-    s_e1_kd: Share           = Share('f')
-    s_e1_speed: Share        = Share('f')
-    s_m1_feedbackOn: Share   = Share('b')
+    motorKp = 2.7
+    motorKi = 100
+    motorKd = 0.01
 
-    s_e2_kp: Share           = Share('f')
-    s_e2_ki: Share           = Share('f')
-    s_e2_kd: Share           = Share('f')
-    s_e2_speed: Share        = Share('f')
-    s_m2_feedbackOn: Share   = Share('b')
+    leftRequestedSpeed: Share = Share('f')
+    rightRequestedSpeed: Share = Share('f')
 
-    # Size of all of the queues
-    q_size = 10
-
-    q_e1_positions:   Queue = Queue('f', q_size)
-    s_e1_timeDeltas:  Share = Share('f')
-    q_e1_times:       Queue = Queue('f', q_size)
-    q_e1_deltas:      Queue = Queue('f', q_size)
-    s_e1_velocities:  Share = Share('f')
-    q_e1_velocities:  Queue = Queue('f', q_size)
-
-    q_e2_positions:   Queue = Queue('f', q_size)
-    s_e2_timeDeltas:  Share = Share('f')
-    q_e2_times:       Queue = Queue('f', q_size) 
-    q_e2_deltas:      Queue = Queue('f', q_size)
-    s_e2_velocities:  Share = Share('f')
-    q_e2_velocities:  Queue = Queue('f', q_size)
-
-    #1 means reset requested, 0 means reset complete
-    q_e1_resetEncoder: Share = Share('b')
-    q_e1_resetEncoder.put(0)
-
-    q_e2_resetEncoder: Share = Share('b')
-    q_e2_resetEncoder.put(0)
-
-    #These closed loop params wont get used in open loop
-    s_e1_kp.put(2.7) # 2, 100, 0.01
-    s_e1_ki.put(100)
-    s_e1_kd.put(0.01)
-
-    s_e2_kp.put(2.7)
-    s_e2_ki.put(100)
-    s_e2_kd.put(0.01)
-
-    s_e1_velocities.put(0)
-    s_e2_velocities.put(0)
-
-    s_e1_speed.put(0)
-    s_e2_speed.put(0)
+    leftRequestedSpeed.put(0)
+    rightRequestedSpeed.put(0)
 
     # initialize uart
     uart2 = UART(2, 115200)
     uart2.init(115200, bits=8, parity=None, stop=1)
 
-    #flag to request collection of OL data for 30s
-    s_m1_collect_OL_Data: Share = Share('b')
-    s_m2_collect_OL_Data: Share = Share('b')
-
-    s_m1_collect_step_data: Share = Share('b')
-    s_m2_collect_step_data: Share = Share('b')
-
-    m1_printList: Queue = Queue('b', 10)
-    m2_printList: Queue = Queue('b', 10)
-
-    s_m1_feedbackOn.put(0)
-    s_m2_feedbackOn.put(0)
 
     sensor_pins_front = (Pin.cpu.C0, Pin.cpu.C1, Pin.cpu.B0, Pin.cpu.A4, Pin.cpu.A1, Pin.cpu.A0, Pin.cpu.C3)
     emitter_pin_front = Pin.cpu.C2
@@ -123,58 +68,53 @@ if __name__ == "__main__":
     sensor_pins_rear = (Pin.cpu.C5, Pin.cpu.A5, Pin.cpu.A6, Pin.cpu.A7, Pin.cpu.B1)
     emitter_pin_rear = Pin.cpu.A11
     qtr_rear = QTRSensors.QTRSensors(sensor_pins_rear, emitter_pin_rear, type=QTRSensors.TYPE_A)
-    s_qtrPos_front: Share = Share('i')
-    s_qtrPos_rear: Share = Share('i')
 
     lineCenterPosition_front = 3000
     lineCenterPosition_rear = 2000
     
-    baseSpeed = 1.0 # rad/s
+    baseSpeed = 0.9 # rad/s
 
-    s_leftWheelPosition:    Share = Share('d')
-    s_rightWheelPosition:   Share = Share('d')
+    s_xcoord: Share = Share('d')
+    s_ycoord: Share = Share('d')
 
-    period_all = 36 # ms
+    period_all = 30 # ms
+    lineFollowerPeriod = period_all
 
     s_field_heading: Share = Share('d')
     
     s_TOF_Distance: Share = Share('h')
 
+    s_pos: Share = Share('i')
+
     i2c1 = I2C(1, freq=400_000)
 
-    e1_update_obj = UpdateMotor("A", q_e1_positions, s_e1_timeDeltas, s_e1_velocities, q_e1_velocities, q_e1_times, q_e1_resetEncoder, m1_printList, s_m1_collect_OL_Data, s_m1_collect_step_data, qtrfront=qtr_front, qtrrear=qtr_rear, s_qtrPositionfront=s_qtrPos_front, s_qtrPositionrear=s_qtrPos_rear, s_position=s_leftWheelPosition)
-    m1_control_obj = Control("A", s_speed = s_e1_speed, s_kp=s_e1_kp, s_ki=s_e1_ki, s_kd=s_e1_kd, feedbackOn= s_m1_feedbackOn, s_timeDelta=s_e1_timeDeltas, s_velocity=s_e1_velocities)
+    motor_control_obj = ControlBothMotors(motorKp, motorKi, motorKd, leftRequestedSpeed, rightRequestedSpeed, s_xCoord=s_xcoord, s_yCoord=s_ycoord, s_heading=s_field_heading)
 
-    e2_update_obj = UpdateMotor("B", q_e2_positions, s_e2_timeDeltas, s_e2_velocities, q_e2_velocities, q_e2_times, q_e2_resetEncoder, m2_printList, s_m2_collect_OL_Data, s_m2_collect_step_data, qtrfront=qtr_front, qtrrear=qtr_rear, s_qtrPositionfront=s_qtrPos_front, s_qtrPositionrear=s_qtrPos_rear, s_position=s_rightWheelPosition)
-    m2_control_obj = Control("B", s_speed = s_e2_speed, s_kp=s_e2_kp, s_ki=s_e2_ki, s_kd=s_e2_kd, feedbackOn= s_m2_feedbackOn, s_timeDelta=s_e2_timeDeltas, s_velocity=s_e2_velocities)
-
-    line_follower_obj = LineFollower(qtrPos_front=s_qtrPos_front, qtrPos_rear=s_qtrPos_rear, e1_targetSpeed=s_e1_speed, e2_targetSpeed=s_e2_speed, linePosTarget_front=lineCenterPosition_front, linePosTarget_rear=lineCenterPosition_rear, s_timeDelta=s_e1_timeDeltas, centerSpeed=baseSpeed, e1FeedbackOn=s_m1_feedbackOn, e2FeedbackOn=s_m2_feedbackOn, leftDistanceTraveled=s_leftWheelPosition, rightDistanceTraveled=s_rightWheelPosition, heading=s_field_heading, s_tofdistance=s_TOF_Distance, time_scale=period_all, motor_1_object = m1_control_obj, motor_2_object= m2_control_obj)
+    line_follower_obj = LineFollower(s_pos=s_pos, leftTargetSpeed=leftRequestedSpeed, rightTargetSpeed=rightRequestedSpeed, s_xCoord=s_xcoord, s_yCoord=s_ycoord, heading=s_field_heading, s_tofdistance=s_TOF_Distance, linePosTarget_front=lineCenterPosition_front, linePosTarget_rear=lineCenterPosition_rear, centerSpeed=baseSpeed)
     
     tof_updater_obj = UpdateTOF(s_tofdistance=s_TOF_Distance, i2c=i2c1)
     
     imu_updater_obj = UpdateIMU(s_field_heading=s_field_heading, i2c=i2c1)
 
+    qtr_updater_obj = UpdateQTRs(qtrfront=qtr_front, qtrrear=qtr_rear, s_pos=s_pos, linePosTarget_front=lineCenterPosition_front, linePosTarget_rear=lineCenterPosition_rear)
+
     #garbage_collector_obj = GarbageCollector()
 
+    profiling = False
 
-    update1 = cotask.Task(e1_update_obj.run, name = "Encoder 1", priority = 1, period = period_all*1.0, profile=True)
-    update2 = cotask.Task(e2_update_obj.run, name = "Encoder 2", priority = 1, period = period_all*1.0, profile=True)
-    control1 = cotask.Task(m1_control_obj.run, name = "Motor 1", priority = 1, period = period_all*1.0, profile=True)
-    control2 = cotask.Task(m2_control_obj.run, name = "Motor 2", priority = 1, period = period_all*1.0, profile=True)
-    tofUpdate = cotask.Task(tof_updater_obj.run, name = "ToF", priority = 1, period = period_all*1.0, profile=True)
-    imuUpdate = cotask.Task(imu_updater_obj.run, name = "IMU", priority = 1, period = period_all*1.0, profile=True)
-
-    lineFollower_task = cotask.Task(line_follower_obj.run, name="Line Follow", priority=1, period=period_all*1.0, profile=True)
+    motorControl = cotask.Task(motor_control_obj.run, name = "Motors", priority = 1, period = period_all*1.0, profile = profiling)
+    tofUpdate = cotask.Task(tof_updater_obj.run, name = "ToF", priority = 1, period = period_all*1.0, profile=profiling)
+    imuUpdate = cotask.Task(imu_updater_obj.run, name = "IMU", priority = 1, period = period_all*1.0, profile=profiling)
+    qtrUpdate = cotask.Task(qtr_updater_obj.run, name = "QTRs", priority = 1, period = period_all*1.0, profile=profiling)
+    lineFollower_task = cotask.Task(line_follower_obj.run, name="Line Follow", priority=1, period=period_all*1.0, profile=profiling)
     
     #garbageCollector = cotask.Task(garbage_collector_obj.run, name="Garbage Collector", priority=1, period=2*period_all)
 
-    cotask.task_list.append(update1)
-    cotask.task_list.append(update2)
-    cotask.task_list.append(control1)
-    cotask.task_list.append(control2)
+    cotask.task_list.append(motorControl)
     cotask.task_list.append(lineFollower_task)
     cotask.task_list.append(tofUpdate)
     cotask.task_list.append(imuUpdate)
+    cotask.task_list.append(qtrUpdate)
     #cotask.task_list.append(garbageCollector)
 
     runNumber = 0
@@ -190,7 +130,7 @@ if __name__ == "__main__":
 
     # turn motors off on Ctrl-C
     except KeyboardInterrupt:
-        s_e1_speed.put(0)
-        s_e2_speed.put(0)
-        m1_control_obj._motor.set_duty(0)
-        m2_control_obj._motor.set_duty(0)
+        leftRequestedSpeed.put(0)
+        rightRequestedSpeed.put(0)
+        motor_control_obj._leftMotor.set_duty(0)
+        motor_control_obj._rightMotor.set_duty(0)

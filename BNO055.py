@@ -1,11 +1,10 @@
-"""
-
+"""Houses BOSCH BNO055IMU python library and test program.
 """
 
 import gc
 from SMBus import SMBus
 gc.collect()
-import utime
+import utime as time
 gc.collect()
 import struct
 gc.collect()
@@ -202,6 +201,14 @@ class BNO055:
 
 
     def __init__(self, i2c, sensorId=-1, address=0x28):
+        """Controls BNO055 IMU.
+
+        Args:
+            i2c (machine.I2C): Preconfigured IMU I2C channel.
+            sensorId (int, optional): Sensor ID. Defaults to -1.
+            address (hexadecimal, optional): Hex sensor I2C address. Defaults to 0x28.
+        """        
+
         self._sensorId = sensorId
         self._address = address
         self._mode = BNO055.OPERATION_MODE_NDOF
@@ -209,6 +216,15 @@ class BNO055:
 
 
     def begin(self, mode=None):
+        """Starts IMU functions.
+
+        Args:
+            mode (hex, optional): IMU Mode. Defaults to None.
+
+        Returns:
+            _type_: _description_
+        """
+
         if mode is None: mode = BNO055.OPERATION_MODE_NDOF
         # Open I2C bus
         #self._bus = SMBus(1)
@@ -245,11 +261,23 @@ class BNO055:
         return True
 
     def setMode(self, mode):
+        """sets IMU Mode
+
+        Args:
+            mode (hex): mode
+        """
+
         self._mode = mode
         self.writeBytes(BNO055.BNO055_OPR_MODE_ADDR, [self._mode])
         time.sleep(0.03)
 
     def setExternalCrystalUse(self, useExternalCrystal = True):
+        """sets external use on or off for timing.
+
+        Args:
+            useExternalCrystal (bool, optional): True sets to external crystal use. Defaults to True.
+        """
+
         prevMode = self._mode
         self.setMode(BNO055.OPERATION_MODE_CONFIG)
         time.sleep(0.025)
@@ -293,6 +321,12 @@ class BNO055:
         None will be returned for the self test result.  Note that running a
         self test requires going into config mode which will stop the fusion
         engine from running.
+
+        Args:
+            run_self_test (bool): See description.
+
+        Returns:
+            tuple : Contains status information. See description.
         """
         
         self_test = None
@@ -317,6 +351,12 @@ class BNO055:
         return (sys_stat, self_test, sys_err)
 
     def getRevInfo(self):
+        """Returns revision info
+
+        Returns:
+            tuple: accel_rev, mag_rev, gyro_rev, sw_rev, bl_rev
+        """        
+
         (accel_rev, mag_rev, gyro_rev) = self.readBytes(BNO055.BNO055_ACCEL_REV_ID_ADDR, 3)
         sw_rev = self.readBytes(BNO055.BNO055_SW_REV_ID_LSB_ADDR, 2)
         sw_rev = sw_rev[0] | sw_rev[1] << 8
@@ -324,21 +364,28 @@ class BNO055:
         return (accel_rev, mag_rev, gyro_rev, sw_rev, bl_rev)
 
     def getCalibrationStatus(self):
-        """Read the calibration status of the sensors and return a 4 tuple with
-        calibration status as follows:
+        """Read the calibration status of the sensors and return a 4 tuple with calibration status as follows:
+
           - System, 3=fully calibrated, 0=not calibrated
           - Gyroscope, 3=fully calibrated, 0=not calibrated
           - Accelerometer, 3=fully calibrated, 0=not calibrated
           - Magnetometer, 3=fully calibrated, 0=not calibrated
+
+          Returns:
+            tuple: Cal values in respective order as above.
         """
+
         calData = self.readBytes(BNO055.BNO055_CALIB_STAT_ADDR)[0]
         return (calData >> 6 & 0x03, calData >> 4 & 0x03, calData >> 2 & 0x03, calData & 0x03)
     
     def getCalibrationData(self):
-        """Return the sensor's calibration data and return it as an array of
-        22 bytes. Can be saved and then reloaded with the setCalibration function
-        to quickly calibrate from a previously calculated set of calibration data.
-        """
+        """Return the sensor's calibration data and return it as an array of 22 bytes. 
+        
+        Can be saved and then reloaded with the setCalibration function to quickly calibrate from a previously calculated set of calibration data.
+        
+        Returns:
+            list: 22 byte cal data list.
+        """        
         prevMode = self._mode
         # Switch to configuration mode, as mentioned in section 3.10.4 of datasheet.
         self.setMode(BNO055.OPERATION_MODE_CONFIG)
@@ -350,10 +397,9 @@ class BNO055:
         return cal_data
     
     def setCalibrationData(self, data: list[int]=None):
-        """Set the sensor's calibration data using a list of 22 bytes that
-        represent the sensor offsets and calibration data.  This data should be
-        a value that was previously retrieved with get_calibration (and then
-        perhaps persisted to disk or other location until needed again).
+        """Set the sensor's calibration data using a list of 22 bytes that represent the sensor offsets and calibration data.  
+        
+        This data should be a value that was previously retrieved with get_calibration (and then perhaps persisted to disk or other location until needed again).
         """
         # Check that 22 bytes were passed in with calibration data.
         if data is None or len(data) != 22:
@@ -441,12 +487,25 @@ class BNO055:
         # Go back to normal operation mode.
         self.setMode(prevMode)
 
-
-
     def getTemp(self):
+        """Returns temperature
+
+        Returns:
+            hex: Temperature.
+        """        
+        
         return self.readBytes(BNO055.BNO055_TEMP_ADDR)[0]
 
     def getVector(self, vectorType):
+        """Returns IMU vector based on requested register
+
+        Args:
+            vectorType (hexidecimal): Requested register.
+
+        Returns:
+            tuple: Vector, with type according to requested register.
+        """        
+
         buf = self.readBytes(vectorType, 6)
         xyz = struct.unpack('hhh', struct.pack('BBBBBB', buf[0], buf[1], buf[2], buf[3], buf[4], buf[5]))
         if vectorType == BNO055.VECTOR_MAGNETOMETER:    scalingFactor = 16.0
@@ -457,14 +516,40 @@ class BNO055:
         return tuple([i/scalingFactor for i in xyz])
 
     def getQuat(self):
+        """return Quaternions
+
+        Returns:
+            tuple: Quaternions
+        """
+
         buf = self.readBytes(BNO055.BNO055_QUATERNION_DATA_W_LSB_ADDR, 8)
         wxyz = struct.unpack('hhhh', struct.pack('BBBBBBBB', buf[0], buf[1], buf[2], buf[3], buf[4], buf[5], buf[6], buf[7]))
         return tuple([i * (1.0 / (1 << 14)) for i in wxyz])
 
     def readBytes(self, register, numBytes=1):
+        """Read bytes through I2C
+
+        Args:
+            register (hex): Register containing desired data
+            numBytes (int, optional): Number of requested bytes. Defaults to 1.
+
+        Returns:
+            bytes: Requested bytes.
+        """
+
         return self._bus.read_i2c_block_data(self._address, register, numBytes)
 
     def writeBytes(self, register, byteVals):
+        """Writes bytes in specified register.
+
+        Args:
+            register (hex): Destination register
+            byteVals (bytes): Data to write.
+
+        Returns:
+            None
+        """
+
         return self._bus.write_i2c_block_data(self._address, register, byteVals)
 
 

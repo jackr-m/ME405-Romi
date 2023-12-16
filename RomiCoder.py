@@ -1,29 +1,21 @@
-
-'''!@file
-    @brief Encoder class with test functionality
-    @details contains encoder class and test code that runs when file is named main
-    @author Casey Pickett and Jack Miller
-    @date 10/16/23
-'''
-
+"""Houses RomiCoder class and test code.
+"""
 from pyb import Timer
 from utime import ticks_ms, ticks_diff
 from math import pi
 
 
 class RomiCoder: 
-    '''!
-        @brief encoder.py
-        @details class for quadrature encoders. Each instance of an encoder takes two timers to operate
-        one timer is already determined by the pins used for the particular encoder.
-        This timer is set up in the constructor. The second timer is used to set an interrupt
-        for the encoder to recalculate its positon.
-    '''
+    
     def __init__(self, encoderChannelAPin, encoderChannelBPin, AR, PS, encoderTimerNumber): 
-        '''!
-            @brief encoder.py
-            A driver for reading from Quadrature Encoders
-            First Last
+        """Controls quadrature encoder.
+
+        Each instance of an encoder takes two timers to operate.
+        one timer is already determined by the pins used for the particular encoder.
+        This timer is set up in the constructor. The second timer is used to set an interrupt.
+        for the encoder to recalculate its positon.
+
+        First Last
             January 1, 1970
             Interface with quadrature encoders
             Constructs an encoder object
@@ -31,19 +23,14 @@ class RomiCoder:
             Gets the most recent encoder position
             Gets the most recent encoder delta
             Resets the encoder position to zero
-                    @details The timer used to drive the encoder itsself will be set up
-                    in the constructor. Only pins and rate parameters will need to be 
-                    input. The second timer, being the one that prompts the instance 
-                    of the encoder to update its position, is input by the user.
-                    @param encoderChannelAPin (pyb.Pin) is the pin that corresponds to channel 1 of the
-                    encoder timer
-                    @param encoderChannelBPin (pyb.Pin) is the the pin that corresponds to channel 2 of the
-                    encoder timer
-                    @param AR is the auto reload value of the encoder timer.
-                    @param PS is the timer prescaler. 
-                    @encoderTimerNumber is the number of the timer that is to 
-                    be used for the encoder (eg TIM1)
-        '''
+
+        Args:
+            encoderChannelAPin (pyb.Pin): Corresponds to channel 1 of the encoder timer.
+            encoderChannelBPin (pyb.Pin): Corresponds to channel 2 of the encoder timer.
+            AR (int): The auto reload value of the encoder timer.
+            PS (int): The timer prescaler.
+            encoderTimerNumber (int): The number of the timer that is to be used for the encoder (eg TIM1).
+        """        
         
         self.halfAR = int((AR+1)/2)
         self.AR = AR
@@ -69,23 +56,25 @@ class RomiCoder:
         self.totalEncPos = 0
 
         # Scaling
-        #counts_per_revolution = 1440
-        counts_per_revolution = 256
-        gear_ratio = 16 # ignore, using Pololu adjusted CPR
+        # was using 256 CPR, 16x gear ratio for old motor
+        counts_per_revolution = 1440
+        gear_ratio = 1 # ignore, using Pololu adjusted CPR
         self.position_scale = (2 * pi)/(counts_per_revolution * gear_ratio)
     
-    
-    
+
     def update(self): 
-        '''!
-            @brief updates true known encoder positon.
-            @details This is different from the raw encoder position, since that value overflows according to the
-            auto-reload value. takes difference between current and prior raw encoder 
-            values, then determines based on the delta whether to count that as an overflow or not
-            This means that the sample rate for calling this function needs to be
-            sufficiently fast to avoid mis-classifying deltas as overflowed when they are not.
-            This does not return any position
-        '''
+        """Updates true known encoder position
+
+        This is different from the raw encoder position, since that value overflows according to the
+        auto-reload value. takes difference between current and prior raw encoder 
+        values, then determines based on the delta whether to count that as an overflow or not
+        This means that the sample rate for calling this function needs to be
+        sufficiently fast to avoid mis-classifying deltas as overflowed when they are not.
+        This does not return any position
+
+        Returns:
+            None
+        """
         
         # get the current time
         self.newTime = ticks_ms()
@@ -111,7 +100,7 @@ class RomiCoder:
         # update the encoder positon variable    
         self.encoderPosition += self.trueDelta
     
-        # get position in terms of revolutions
+        # get position in terms of radians
         self.encoderPosition *= self.position_scale
 
         self.totalEncPos += self.encoderPosition
@@ -126,26 +115,39 @@ class RomiCoder:
             self.rate = self.trueDelta/self.timeDelta
     
     def get_position(self): 
-        '''!
-            @brief returns most recently updated true encoder position
-            @details the encoder will be updating at the rate specified by the
-            frequency of the timer input when an encoder instance is created.
-            @return encoderPosition integer position value
-        '''
+        """returns total encoder position
+
+        the encoder will be updating at the rate specified by the
+        frequency of the timer input when an encoder instance is created. This function only needs to be called when a position is desired.
+
+        Returns:
+            int: total encoder position
+        """        
+       
         return self.totalEncPos
         
     
     def get_delta(self): 
-        '''!
-            @brief This returns a delta not a rate.
-            @details takes the encoder delta between the previous true 
-            encoder reading and the most recent one
-            @return trueDelta integer delta value
-        '''
+        """This returns a delta not a rate.
+
+        Takes the encoder delta between the previous true encoder reading and the most recent one.
+
+        Returns:
+            int: True delta value
+        """
 
         return self.trueDelta
     
     def get_time(self):
+        """Returns the last update() time.
+
+        Takes the time_ms of the most recent update() call.
+
+        Returns:
+            float: Time in ms.
+        """
+        
+        
         '''!
             @brief This returns the last update() time.
             @details takes the time_ms of the most recent
@@ -156,32 +158,38 @@ class RomiCoder:
         return self.newTime
 
     def get_timeDelta(self):
-        '''!
-            @brief This returns a delta of time.
-            @details takes the time_ms of the most recent
-            .update() call, ticks_diff() from previous .update() call
-            @return timeDelta float millisecond time
-        '''
+        """Returns a delta of time.
+
+        Takes the time_ms of the most recent .update() call, ticks_diff() from previous .update() call.
+
+        Returns:
+            float: Time delta in ms.
+        """
+        
         return self.timeDelta
 
     def get_rate(self):
-        '''!
-            @brief This returns a rate per milliseconds.
-            @details takes the encoder delta between the previous true 
-            encoder reading and the most recent one, divides it by
-            the difference between current time and previous time
-            @return rate float unit/ms value
-        '''
+        """Returns a rate per milliseconds.
+
+        Takes the encoder delta between the previous true encoder reading and the most recent one, divides it by the difference between current time and previous time.
+
+        Returns:
+            float: Rate unit/ms value.
+        """
 
         # divide by 1000 for ms to s conversion
         return  (self.rate)
         
 
     def zero(self): 
-        '''!
-            @brief This sets the encoder position back to 0
-            @details this does not reset the delta values. Raw readings stay intact
-        '''
+        """Sets the encoder position back to 0
+
+        This does not reset the delta values. Raw readings stay intact
+
+        Returns:
+            None
+        """
+        
         self.encoderPosition = 0
         self.totalEncPos = 0
     

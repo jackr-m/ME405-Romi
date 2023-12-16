@@ -206,15 +206,26 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ClosedLoop.html">ClosedLoop module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Control.html">Control module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlBothMotors.html">ControlBothMotors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GarbageCollector.html">GarbageCollector module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LineFollower.html">LineFollower module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PID.html">PID module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="QTRSensors.html">QTRSensors module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RomiCoder.html">RomiCoder module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RomiMotor.html">RomiMotor module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SMBus.html">SMBus module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateIMU.html">UpdateIMU module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateMotor.html">UpdateMotor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateQTRs.html">UpdateQTRs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="task_share.html">task_share module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">time module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime module</a></li>
 </ul>
 </li>
 </ul>
@@ -246,6 +257,7 @@
              
   <section id="module-BNO055">
 <span id="bno055-module"></span><h1>BNO055 module<a class="headerlink" href="#module-BNO055" title="Link to this heading"></a></h1>
+<p>Houses BOSCH BNO055IMU python library and test program.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="BNO055.BNO055">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">BNO055.</span></span><span class="sig-name descname"><span class="pre">BNO055</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i2c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensorId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055" title="Link to this definition"></a></dt>
@@ -938,7 +950,19 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="BNO055.BNO055.begin">
 <span class="sig-name descname"><span class="pre">begin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.begin" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Starts IMU functions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mode</strong> (<em>hex</em><em>, </em><em>optional</em>) – IMU Mode. Defaults to None.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>_type_</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BNO055.BNO055.getAxisRemap">
@@ -995,35 +1019,65 @@ _________ /______|/    //</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="BNO055.BNO055.getCalibrationData">
 <span class="sig-name descname"><span class="pre">getCalibrationData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.getCalibrationData" title="Link to this definition"></a></dt>
-<dd><p>Return the sensor’s calibration data and return it as an array of
-22 bytes. Can be saved and then reloaded with the setCalibration function
-to quickly calibrate from a previously calculated set of calibration data.</p>
+<dd><p>Return the sensor’s calibration data and return it as an array of 22 bytes.</p>
+<p>Can be saved and then reloaded with the setCalibration function to quickly calibrate from a previously calculated set of calibration data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>22 byte cal data list.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BNO055.BNO055.getCalibrationStatus">
 <span class="sig-name descname"><span class="pre">getCalibrationStatus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.getCalibrationStatus" title="Link to this definition"></a></dt>
-<dd><p>Read the calibration status of the sensors and return a 4 tuple with
-calibration status as follows:</p>
-<blockquote>
-<div><ul class="simple">
+<dd><p>Read the calibration status of the sensors and return a 4 tuple with calibration status as follows:</p>
+<ul class="simple">
 <li><p>System, 3=fully calibrated, 0=not calibrated</p></li>
 <li><p>Gyroscope, 3=fully calibrated, 0=not calibrated</p></li>
 <li><p>Accelerometer, 3=fully calibrated, 0=not calibrated</p></li>
 <li><p>Magnetometer, 3=fully calibrated, 0=not calibrated</p></li>
 </ul>
-</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Cal values in respective order as above.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BNO055.BNO055.getQuat">
 <span class="sig-name descname"><span class="pre">getQuat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.getQuat" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>return Quaternions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Quaternions</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BNO055.BNO055.getRevInfo">
 <span class="sig-name descname"><span class="pre">getRevInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.getRevInfo" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns revision info</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>accel_rev, mag_rev, gyro_rev, sw_rev, bl_rev</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BNO055.BNO055.getSystemStatus">
@@ -1075,41 +1129,98 @@ Value of 0x0F = all good!</p>
 None will be returned for the self test result.  Note that running a
 self test requires going into config mode which will stop the fusion
 engine from running.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>run_self_test</strong> (<em>bool</em>) – See description.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Contains status information. See description.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BNO055.BNO055.getTemp">
 <span class="sig-name descname"><span class="pre">getTemp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.getTemp" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns temperature</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Temperature.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>hex</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BNO055.BNO055.getVector">
 <span class="sig-name descname"><span class="pre">getVector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vectorType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.getVector" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns IMU vector based on requested register</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vectorType</strong> (<em>hexidecimal</em>) – Requested register.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Vector, with type according to requested register.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BNO055.BNO055.readBytes">
 <span class="sig-name descname"><span class="pre">readBytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">register</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numBytes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.readBytes" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Read bytes through I2C</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>register</strong> (<em>hex</em>) – Register containing desired data</p></li>
+<li><p><strong>numBytes</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of requested bytes. Defaults to 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Requested bytes.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BNO055.BNO055.setCalibrationData">
 <span class="sig-name descname"><span class="pre">setCalibrationData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.setCalibrationData" title="Link to this definition"></a></dt>
-<dd><p>Set the sensor’s calibration data using a list of 22 bytes that
-represent the sensor offsets and calibration data.  This data should be
-a value that was previously retrieved with get_calibration (and then
-perhaps persisted to disk or other location until needed again).</p>
+<dd><p>Set the sensor’s calibration data using a list of 22 bytes that represent the sensor offsets and calibration data.</p>
+<p>This data should be a value that was previously retrieved with get_calibration (and then perhaps persisted to disk or other location until needed again).</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BNO055.BNO055.setExternalCrystalUse">
 <span class="sig-name descname"><span class="pre">setExternalCrystalUse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">useExternalCrystal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.setExternalCrystalUse" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>sets external use on or off for timing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>useExternalCrystal</strong> (<em>bool</em><em>, </em><em>optional</em>) – True sets to external crystal use. Defaults to True.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BNO055.BNO055.setMode">
 <span class="sig-name descname"><span class="pre">setMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.setMode" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>sets IMU Mode</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mode</strong> (<em>hex</em>) – mode</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BNO055.BNO055.set_axis_remap">
@@ -1119,7 +1230,19 @@ perhaps persisted to disk or other location until needed again).</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="BNO055.BNO055.writeBytes">
 <span class="sig-name descname"><span class="pre">writeBytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">register</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">byteVals</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055.writeBytes" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Writes bytes in specified register.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>register</strong> (<em>hex</em>) – Destination register</p></li>
+<li><p><strong>byteVals</strong> (<em>bytes</em>) – Data to write.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

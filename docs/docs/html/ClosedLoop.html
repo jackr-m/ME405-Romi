@@ -21,7 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="PID module" href="PID.html" />
+    <link rel="next" title="Control module" href="Control.html" />
     <link rel="prev" title="BNO055 module" href="BNO055.html" /> 
 </head>
 
@@ -64,15 +64,26 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="Control.html">Control module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlBothMotors.html">ControlBothMotors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GarbageCollector.html">GarbageCollector module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LineFollower.html">LineFollower module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PID.html">PID module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="QTRSensors.html">QTRSensors module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RomiCoder.html">RomiCoder module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RomiMotor.html">RomiMotor module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SMBus.html">SMBus module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateIMU.html">UpdateIMU module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateMotor.html">UpdateMotor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateQTRs.html">UpdateQTRs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="task_share.html">task_share module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">time module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime module</a></li>
 </ul>
 </li>
 </ul>
@@ -104,79 +115,128 @@
              
   <section id="module-ClosedLoop">
 <span id="closedloop-module"></span><h1>ClosedLoop module<a class="headerlink" href="#module-ClosedLoop" title="Link to this heading"></a></h1>
+<p>Houses ClosedLoop Module</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="ClosedLoop.ClosedLoop">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ClosedLoop.</span></span><span class="sig-name descname"><span class="pre">ClosedLoop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Kp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ki</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lowerSatLimit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upperSatLimit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ClosedLoop.ClosedLoop" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>!
-&#64;brief ClosedLoop.py
-&#64;details class for PID control.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="ClosedLoop.ClosedLoop.calculateEfforts">
 <span class="sig-name descname"><span class="pre">calculateEfforts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">currentValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msTimePassed</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ClosedLoop.ClosedLoop.calculateEfforts" title="Link to this definition"></a></dt>
-<dd><p>!
-&#64;brief calculates P, I, D efforts
-&#64;details saturated according to set saturation bounds. Use this in an interrupt
-routiene that is called at the same period according to samplePeriod
-&#64;param currentValue is the current value of the sensor element used to control the loop.
-This should have the same units as the target value.
-&#64;param msTimePassed is the time passed in milliseconds since the last sample.
-&#64;return [self.P_effort, self.I_effort, self.D_effort] (list) of all efforts.
-The effort itself is not saturated.</p>
+<dd><p>Calculates P, I, D efforts</p>
+<p>Saturated according to set saturation bounds. Use this in an interrupt routiene that is called at the same period according to samplePeriod.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>currentValue</strong> (<em>float</em>) – Current “actual” value used to calculate error.</p></li>
+<li><p><strong>msTimePassed</strong> (<em>float</em>) – Time passed in ms since function last called. Used to calculate I and D efforts.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>[P effort, I effort, D effort]. The effort itself is not saturated.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ClosedLoop.ClosedLoop.clearIntegral">
 <span class="sig-name descname"><span class="pre">clearIntegral</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ClosedLoop.ClosedLoop.clearIntegral" title="Link to this definition"></a></dt>
-<dd><p>!
-&#64;brief sets integrated error to 0 but does not turn I path off
-&#64;details to disable the I path, use SetKi to change the I gain to 0</p>
+<dd><p>Sets integrated error to 0 but does not turn I path off</p>
+<p>To disable the I path, use SetKi to change the I gain to 0</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ClosedLoop.ClosedLoop.getError">
 <span class="sig-name descname"><span class="pre">getError</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ClosedLoop.ClosedLoop.getError" title="Link to this definition"></a></dt>
-<dd><p>!
-&#64;brief returns error
-&#64;return [self.currentError, self.integratedError, self.rateOfError] list of errors according to path</p>
+<dd><p>Returns list of errors used to caluclate P, I, and D efforts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[currentError, integratedError, rateOfError] list of errors according to each path.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of floats</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ClosedLoop.ClosedLoop.getTarget">
 <span class="sig-name descname"><span class="pre">getTarget</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ClosedLoop.ClosedLoop.getTarget" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns target value in-use by PID</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Target value</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ClosedLoop.ClosedLoop.setKd">
 <span class="sig-name descname"><span class="pre">setKd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Kd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ClosedLoop.ClosedLoop.setKd" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Sets D gain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Kd</strong> (<em>float</em>) – D gain.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ClosedLoop.ClosedLoop.setKi">
 <span class="sig-name descname"><span class="pre">setKi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Ki</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ClosedLoop.ClosedLoop.setKi" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Sets I gain.</p>
+<p>Does not affect integrated error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Ki</strong> (<em>float</em>) – I gain.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ClosedLoop.ClosedLoop.setKp">
 <span class="sig-name descname"><span class="pre">setKp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Kp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ClosedLoop.ClosedLoop.setKp" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Sets P gain</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Kp</strong> (<em>float</em>) – P gain</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ClosedLoop.ClosedLoop.setSatLower">
 <span class="sig-name descname"><span class="pre">setSatLower</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lowerSatLimit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ClosedLoop.ClosedLoop.setSatLower" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Sets the lower saturation limit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>lowerSatLimit</strong> (<em>float</em>) – lower saturation limit for integral error. Not a limit on the magnitude of the I effort.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ClosedLoop.ClosedLoop.setSatUpper">
 <span class="sig-name descname"><span class="pre">setSatUpper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upperSatLimit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ClosedLoop.ClosedLoop.setSatUpper" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Sets the upper saturation limit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>upperSatLimit</strong> (<em>float</em>) – upper saturation limit for integral error. Not a limit on the magnitude of the I effort.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ClosedLoop.ClosedLoop.setTarget">
 <span class="sig-name descname"><span class="pre">setTarget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ClosedLoop.ClosedLoop.setTarget" title="Link to this definition"></a></dt>
-<dd><p>!
-&#64;brief change target value
-&#64;details does not change I path.</p>
+<dd><p>Changes target value.</p>
+<p>Does not change I path.</p>
 </dd></dl>
 
 </dd></dl>
@@ -188,7 +248,7 @@ The effort itself is not saturated.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="BNO055.html" class="btn btn-neutral float-left" title="BNO055 module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="PID.html" class="btn btn-neutral float-right" title="PID module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Control.html" class="btn btn-neutral float-right" title="Control module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -1,18 +1,18 @@
+"""Houses the UpdateTOF task class.
+"""
+
 from task_share import Share
 import adafruit_vl53l1x
 from machine import I2C
 
 class UpdateTOF:
-    '''!
-        Class for task to update a Time of Flight sensor position
-    '''
-
+   
     def __init__(self, s_tofdistance: Share, i2c):
-        """Time of Flight Distance Sensor
+        """Updates an dafruit_vl53l1x Time of Flight sensor position.
 
         Args:
-            s_tofposition (Share): Time of Flight position, reported in millimeters.
-
+            s_tofposition (task_share.Share): Conveys the Time of Flight position, reported in millimeters.
+            i2c (machine.I2C): Pre-initialized I2C object, designating the i2c bus used.
         """
 
         self._tofdistance = s_tofdistance
@@ -24,12 +24,18 @@ class UpdateTOF:
         self.vl53 = adafruit_vl53l1x.VL53L1X(self._i2c)
 
         self.vl53.distance_mode = 1 # short range = 1, long range = 2
-        self.vl53.timing_budget = 33 # ms
+        self.vl53.timing_budget = 20 # ms
 
         #init state
         self._state = 0
 
     def run(self):
+        """Implementation as a generator function.
+
+        Yields:
+            int: Machine state.
+        """
+
         while True:
             # immediately go to run state after tof initialization
             if self._state == 0:

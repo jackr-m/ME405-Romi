@@ -26,7 +26,7 @@ Implementation Notes
 * Adafruit's Bus Device library: https://github.com/adafruit/Adafruit_CircuitPython_BusDevice
 """
 
-import utime
+import utime as time
 import struct
 from machine import I2C
 from micropython import const
@@ -75,9 +75,18 @@ TB_LONG_DIST = {
 
 
 class VL53L1X:
-    """Driver for the VL53L1X distance sensor."""
 
     def __init__(self, i2c, address=41):
+        """Driver for the VL53L1X distance sensor.
+
+        Args:
+            i2c (machine.I2C): I2C bus corresponding to TOF.
+            address (int, optional): I2C address of TOF. Defaults to 41.
+
+        Raises:
+            RuntimeError: Detected model/serial number doesn't match requirements for use in driver.
+        """
+        
         self.i2c_device_address = address
         self._i2c = i2c
         model_id, module_type, mask_rev = self.model_info
@@ -88,6 +97,10 @@ class VL53L1X:
         self.timing_budget = 50
 
     def _sensor_init(self):
+        """Initializes sensor.
+        """
+
+
         # pylint: disable=line-too-long
         init_seq = bytes(
             [  # value    addr : description
@@ -234,7 +247,9 @@ class VL53L1X:
 
     @property
     def timing_budget(self):
-        """Ranging duration in milliseconds. Increasing the timing budget
+        """Ranging duration in milliseconds. 
+        
+        Increasing the timing budget
         increases the maximum distance the device can range and improves
         the repeatability error. However, average power consumption augments
         accordingly. ms = 15 (short mode only), 20, 33, 50, 100, 200, 500.

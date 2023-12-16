@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="adafruit_vl53l1x module" href="adafruit_vl53l1x.html" />
-    <link rel="prev" title="UpdateMotor module" href="UpdateMotor.html" /> 
+    <link rel="prev" title="UpdateQTRs module" href="UpdateQTRs.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="BNO055.html">BNO055 module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ClosedLoop.html">ClosedLoop module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Control.html">Control module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlBothMotors.html">ControlBothMotors module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GarbageCollector.html">GarbageCollector module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="LineFollower.html">LineFollower module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PID.html">PID module</a></li>
@@ -59,6 +60,7 @@
 <li class="toctree-l2"><a class="reference internal" href="SMBus.html">SMBus module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UpdateIMU.html">UpdateIMU module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UpdateMotor.html">UpdateMotor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateQTRs.html">UpdateQTRs module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">UpdateTOF module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#UpdateTOF.UpdateTOF"><code class="docutils literal notranslate"><span class="pre">UpdateTOF</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#UpdateTOF.UpdateTOF.run"><code class="docutils literal notranslate"><span class="pre">UpdateTOF.run()</span></code></a></li>
@@ -104,16 +106,21 @@
              
   <section id="module-UpdateTOF">
 <span id="updatetof-module"></span><h1>UpdateTOF module<a class="headerlink" href="#module-UpdateTOF" title="Link to this heading"></a></h1>
+<p>Houses the UpdateTOF task class.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="UpdateTOF.UpdateTOF">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UpdateTOF.</span></span><span class="sig-name descname"><span class="pre">UpdateTOF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s_tofdistance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i2c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UpdateTOF.UpdateTOF" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>!
-Class for task to update a Time of Flight sensor position</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="UpdateTOF.UpdateTOF.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UpdateTOF.UpdateTOF.run" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Implementation as a generator function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>int</em> – Machine state.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -123,7 +130,7 @@ Class for task to update a Time of Flight sensor position</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="UpdateMotor.html" class="btn btn-neutral float-left" title="UpdateMotor module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="UpdateQTRs.html" class="btn btn-neutral float-left" title="UpdateQTRs module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="adafruit_vl53l1x.html" class="btn btn-neutral float-right" title="adafruit_vl53l1x module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

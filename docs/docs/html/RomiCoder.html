@@ -49,6 +49,10 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Lab 06</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="BNO055.html">BNO055 module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ClosedLoop.html">ClosedLoop module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Control.html">Control module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlBothMotors.html">ControlBothMotors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GarbageCollector.html">GarbageCollector module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LineFollower.html">LineFollower module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PID.html">PID module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="QTRSensors.html">QTRSensors module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">RomiCoder module</a><ul>
@@ -66,10 +70,17 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="RomiMotor.html">RomiMotor module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SMBus.html">SMBus module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateIMU.html">UpdateIMU module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateMotor.html">UpdateMotor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateQTRs.html">UpdateQTRs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="task_share.html">task_share module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">time module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime module</a></li>
 </ul>
 </li>
 </ul>
@@ -101,91 +112,114 @@
              
   <section id="module-RomiCoder">
 <span id="romicoder-module"></span><h1>RomiCoder module<a class="headerlink" href="#module-RomiCoder" title="Link to this heading"></a></h1>
-<p><a class="reference external" href="mailto:!&#37;&#52;&#48;file">!<span>&#64;</span>file</a>
-&#64;brief Encoder class with test functionality
-&#64;details contains encoder class and test code that runs when file is named main
-&#64;author Casey Pickett and Jack Miller
-&#64;date 10/16/23</p>
+<p>Houses RomiCoder class and test code.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="RomiCoder.RomiCoder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RomiCoder.</span></span><span class="sig-name descname"><span class="pre">RomiCoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoderChannelAPin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoderChannelBPin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoderTimerNumber</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RomiCoder.RomiCoder" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>!
-&#64;brief encoder.py
-&#64;details class for quadrature encoders. Each instance of an encoder takes two timers to operate
-one timer is already determined by the pins used for the particular encoder.
-This timer is set up in the constructor. The second timer is used to set an interrupt
-for the encoder to recalculate its positon.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="RomiCoder.RomiCoder.get_delta">
 <span class="sig-name descname"><span class="pre">get_delta</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RomiCoder.RomiCoder.get_delta" title="Link to this definition"></a></dt>
-<dd><p>!
-&#64;brief This returns a delta not a rate.
-&#64;details takes the encoder delta between the previous true
-encoder reading and the most recent one
-&#64;return trueDelta integer delta value</p>
+<dd><p>This returns a delta not a rate.</p>
+<p>Takes the encoder delta between the previous true encoder reading and the most recent one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True delta value</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="RomiCoder.RomiCoder.get_position">
 <span class="sig-name descname"><span class="pre">get_position</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RomiCoder.RomiCoder.get_position" title="Link to this definition"></a></dt>
-<dd><p>!
-&#64;brief returns most recently updated true encoder position
-&#64;details the encoder will be updating at the rate specified by the
-frequency of the timer input when an encoder instance is created.
-&#64;return encoderPosition integer position value</p>
+<dd><p>returns total encoder position</p>
+<p>the encoder will be updating at the rate specified by the
+frequency of the timer input when an encoder instance is created. This function only needs to be called when a position is desired.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>total encoder position</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="RomiCoder.RomiCoder.get_rate">
 <span class="sig-name descname"><span class="pre">get_rate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RomiCoder.RomiCoder.get_rate" title="Link to this definition"></a></dt>
-<dd><p>!
-&#64;brief This returns a rate per milliseconds.
-&#64;details takes the encoder delta between the previous true
-encoder reading and the most recent one, divides it by
-the difference between current time and previous time
-&#64;return rate float unit/ms value</p>
+<dd><p>Returns a rate per milliseconds.</p>
+<p>Takes the encoder delta between the previous true encoder reading and the most recent one, divides it by the difference between current time and previous time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Rate unit/ms value.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="RomiCoder.RomiCoder.get_time">
 <span class="sig-name descname"><span class="pre">get_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RomiCoder.RomiCoder.get_time" title="Link to this definition"></a></dt>
-<dd><p>!
-&#64;brief This returns the last update() time.
-&#64;details takes the time_ms of the most recent
-.update() call
-&#64;return newTime float millisecond time</p>
+<dd><p>Returns the last update() time.</p>
+<p>Takes the time_ms of the most recent update() call.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Time in ms.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="RomiCoder.RomiCoder.get_timeDelta">
 <span class="sig-name descname"><span class="pre">get_timeDelta</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RomiCoder.RomiCoder.get_timeDelta" title="Link to this definition"></a></dt>
-<dd><p>!
-&#64;brief This returns a delta of time.
-&#64;details takes the time_ms of the most recent
-.update() call, ticks_diff() from previous .update() call
-&#64;return timeDelta float millisecond time</p>
+<dd><p>Returns a delta of time.</p>
+<p>Takes the time_ms of the most recent .update() call, ticks_diff() from previous .update() call.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Time delta in ms.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="RomiCoder.RomiCoder.update">
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RomiCoder.RomiCoder.update" title="Link to this definition"></a></dt>
-<dd><p>!
-&#64;brief updates true known encoder positon.
-&#64;details This is different from the raw encoder position, since that value overflows according to the
+<dd><p>Updates true known encoder position</p>
+<p>This is different from the raw encoder position, since that value overflows according to the
 auto-reload value. takes difference between current and prior raw encoder
 values, then determines based on the delta whether to count that as an overflow or not
 This means that the sample rate for calling this function needs to be
 sufficiently fast to avoid mis-classifying deltas as overflowed when they are not.
 This does not return any position</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="RomiCoder.RomiCoder.zero">
 <span class="sig-name descname"><span class="pre">zero</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RomiCoder.RomiCoder.zero" title="Link to this definition"></a></dt>
-<dd><p>!
-&#64;brief This sets the encoder position back to 0
-&#64;details this does not reset the delta values. Raw readings stay intact</p>
+<dd><p>Sets the encoder position back to 0</p>
+<p>This does not reset the delta values. Raw readings stay intact</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

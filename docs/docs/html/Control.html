@@ -21,7 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="GarbageCollector module" href="GarbageCollector.html" />
+    <link rel="next" title="ControlBothMotors module" href="ControlBothMotors.html" />
     <link rel="prev" title="ClosedLoop module" href="ClosedLoop.html" /> 
 </head>
 
@@ -56,6 +56,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="ControlBothMotors.html">ControlBothMotors module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GarbageCollector.html">GarbageCollector module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="LineFollower.html">LineFollower module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PID.html">PID module</a></li>
@@ -65,12 +66,14 @@
 <li class="toctree-l2"><a class="reference internal" href="SMBus.html">SMBus module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UpdateIMU.html">UpdateIMU module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UpdateMotor.html">UpdateMotor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateQTRs.html">UpdateQTRs module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="task_share.html">task_share module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">time module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="utime.html">utime module</a></li>
 </ul>
 </li>
@@ -108,8 +111,6 @@
 <dt class="sig sig-object py" id="Control.Control">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Control.</span></span><span class="sig-name descname"><span class="pre">Control</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">motor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_kp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_ki</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_kd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feedbackOn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_timeDelta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_velocity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Control.Control" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Controls a DC romi motor using a PID loop</p>
-<p>encoder velocity and the time delta since the task last ran is provided as task_share.Share objects. PID gains are set when an instance of the class is created. Motor duty cycle is set according to the PID efforts. Since this function is made specifically for the Romi chassis, only two motors can be controlled in total by instances of this class. The choice between controlling the left and right motor is made when entering an ‘A’ or ‘B’ string as the motor input</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="Control.Control.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Control.Control.run" title="Link to this definition"></a></dt>
@@ -125,7 +126,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="ClosedLoop.html" class="btn btn-neutral float-left" title="ClosedLoop module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="GarbageCollector.html" class="btn btn-neutral float-right" title="GarbageCollector module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ControlBothMotors.html" class="btn btn-neutral float-right" title="ControlBothMotors module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

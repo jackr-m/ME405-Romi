@@ -11,8 +11,9 @@ except ImportError:
 
 
 class SMBus():
-    """ Provides an 'SMBus' module which supports some of the py-smbus
-        i2c methods, as well as being a subclass of machine.I2C
+
+    def __init__(self, i2c):
+        """Provides an 'SMBus' module which supports some of the py-smbus i2c methods, as well as being a subclass of machine.I2C.
 
         Hopefully this will allow you to run code that was targeted at
         py-smbus unmodified on micropython.
@@ -24,9 +25,11 @@ class SMBus():
             bus = SMBus(1, pins=('G15','G10'), baudrate=100000)
             bus.read_byte_data(addr, register)
             ... etc
+
+        Args:
+            i2c (machine.I2C): I2C Channel.
 	"""
 
-    def __init__(self, i2c):
         self._i2c = i2c
 
     def read_byte_data(self, addr, register):

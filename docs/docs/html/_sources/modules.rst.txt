@@ -7,6 +7,7 @@ Lab 06
    BNO055
    ClosedLoop
    Control
+   ControlBothMotors
    GarbageCollector
    LineFollower
    PID
@@ -16,10 +17,12 @@ Lab 06
    SMBus
    UpdateIMU
    UpdateMotor
+   UpdateQTRs
    UpdateTOF
    adafruit_vl53l1x
    cotask
    machine
    main
    task_share
+   time
    utime

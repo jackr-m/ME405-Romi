@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="BNO055.html">BNO055 module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ClosedLoop.html">ClosedLoop module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Control.html">Control module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlBothMotors.html">ControlBothMotors module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GarbageCollector.html">GarbageCollector module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="LineFollower.html">LineFollower module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PID.html">PID module</a></li>
@@ -59,12 +60,14 @@
 <li class="toctree-l2"><a class="reference internal" href="SMBus.html">SMBus module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UpdateIMU.html">UpdateIMU module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UpdateMotor.html">UpdateMotor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateQTRs.html">UpdateQTRs module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">main module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="task_share.html">task_share module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">time module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="utime.html">utime module</a></li>
 </ul>
 </li>
@@ -97,11 +100,10 @@
              
   <section id="module-main">
 <span id="main-module"></span><h1>main module<a class="headerlink" href="#module-main" title="Link to this heading"></a></h1>
-<p><a class="reference external" href="mailto:!&#37;&#52;&#48;file">!<span>&#64;</span>file</a>
-&#64;brief Main file that runs ME405 Lab 0x04
-&#64;details runs DC motor PID feedback from quadrature encoder and reflectance sensors
-&#64;author Casey Pickett and Jack Miller
-&#64;date 11/07/23</p>
+<p>Main Program.</p>
+<p>Implements generator “run function” for all tasks. Sets motor power to 0 when a KeyboardInterrupt occurs. The romi chassis follows a line until it gets in range of an obstacle, which it will circumnavigate to get back on the line. It goes until its coordinates indicate it is at the finish, then turns around and goes to the start.
+Motor control task handles both encoders and both motors in one instance
+QTR Update task handles both QTR sensors at once and returns just a composite position (s_pos = pos)</p>
 </section>
 
 

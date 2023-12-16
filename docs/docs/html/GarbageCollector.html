@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="LineFollower module" href="LineFollower.html" />
-    <link rel="prev" title="Control module" href="Control.html" /> 
+    <link rel="prev" title="ControlBothMotors module" href="ControlBothMotors.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="BNO055.html">BNO055 module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ClosedLoop.html">ClosedLoop module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Control.html">Control module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlBothMotors.html">ControlBothMotors module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">GarbageCollector module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#GarbageCollector.GarbageCollector"><code class="docutils literal notranslate"><span class="pre">GarbageCollector</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#GarbageCollector.GarbageCollector.run"><code class="docutils literal notranslate"><span class="pre">GarbageCollector.run()</span></code></a></li>
@@ -65,6 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="SMBus.html">SMBus module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UpdateIMU.html">UpdateIMU module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UpdateMotor.html">UpdateMotor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateQTRs.html">UpdateQTRs module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
@@ -104,6 +106,7 @@
              
   <section id="module-GarbageCollector">
 <span id="garbagecollector-module"></span><h1>GarbageCollector module<a class="headerlink" href="#module-GarbageCollector" title="Link to this heading"></a></h1>
+<p>Houses the GarbageCollector task class.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="GarbageCollector.GarbageCollector">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GarbageCollector.</span></span><span class="sig-name descname"><span class="pre">GarbageCollector</span></span><a class="headerlink" href="#GarbageCollector.GarbageCollector" title="Link to this definition"></a></dt>
@@ -111,7 +114,16 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="GarbageCollector.GarbageCollector.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GarbageCollector.GarbageCollector.run" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Implementation as a generator function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – Invalid state is reached within the machine.</p>
+</dd>
+<dt class="field-even">Yields<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>int</em> – state. Always 0.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -121,7 +133,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Control.html" class="btn btn-neutral float-left" title="Control module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ControlBothMotors.html" class="btn btn-neutral float-left" title="ControlBothMotors module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="LineFollower.html" class="btn btn-neutral float-right" title="LineFollower module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -1,16 +1,19 @@
+"""Houses the UpdateIMU task Class.
+"""
+
 from task_share import Share
 from BNO055 import BNO055
 
 class UpdateIMU:
-    '''!
-        Class for task to update a IMU euler angle heading
-    '''
+   
     def __init__(self, s_field_heading: Share, i2c):
-        """IMU Heading Reader
+        """Task to update a IMU euler angle heading relative to game field.
+
+        The IMU must be a BNO055 IMU from BOSCH. 
 
         Args:
-            s_field_heading (Share): Time of Flight position, reported in millimeters.
-
+            s_field_heading (task_share.Share): Used to convey the romi chassis heading in field-space accorning to the IMU.
+            i2c (machine.I2C): Preinitialized I2C object to designate the correct communication bus.
         """
 
         self._heading = s_field_heading
@@ -28,6 +31,15 @@ class UpdateIMU:
         self._state = 0
 
     def run(self):
+        """Implementation as a generator function.
+
+        Raises:
+            ValueError: invalid state.
+
+        Yields:
+            int: Machine state.
+        """
+
         while True:
             # get the position and put it in the share
             if self._state == 0:

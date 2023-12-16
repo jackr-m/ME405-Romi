@@ -49,6 +49,10 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Lab 06</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="BNO055.html">BNO055 module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ClosedLoop.html">ClosedLoop module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Control.html">Control module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlBothMotors.html">ControlBothMotors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GarbageCollector.html">GarbageCollector module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LineFollower.html">LineFollower module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PID.html">PID module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="QTRSensors.html">QTRSensors module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RomiCoder.html">RomiCoder module</a></li>
@@ -62,10 +66,17 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="SMBus.html">SMBus module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateIMU.html">UpdateIMU module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateMotor.html">UpdateMotor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateQTRs.html">UpdateQTRs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="task_share.html">task_share module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">time module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime module</a></li>
 </ul>
 </li>
 </ul>
@@ -97,32 +108,41 @@
              
   <section id="module-RomiMotor">
 <span id="romimotor-module"></span><h1>RomiMotor module<a class="headerlink" href="#module-RomiMotor" title="Link to this heading"></a></h1>
+<p>Houses RomiMotor class</p>
+<dl>
+<dt>Adopted from ME405 Lab 0x04</dt><dd><p>Jack Miller and Casey Pickett
+7 November 2023</p>
+<p>TI DRV8838 motor driver</p>
+</dd>
+</dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="RomiMotor.RomiMotor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RomiMotor.</span></span><span class="sig-name descname"><span class="pre">RomiMotor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">PWM_tim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SLP_pin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PH_pin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PH_channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DIR_pin</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RomiMotor.RomiMotor" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A driver class for one channel of the L6206</p>
-<p>Objects of this class can e used to apply PWM to a given DC motor on one channel of the L6206 from ST Microelectronics</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="RomiMotor.RomiMotor.disable">
 <span class="sig-name descname"><span class="pre">disable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RomiMotor.RomiMotor.disable" title="Link to this definition"></a></dt>
-<dd><p>Enable one channel of the L6206</p>
-<p>This method sets the enable pin associated with one channel of the L6206 high in order to enable that channel of the motor driver</p>
+<dd><p>Enable one channel of the L6206.</p>
+<p>Sets the enable pin associated with one channel of the L6206 high in order to enable that channel of the motor driver</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="RomiMotor.RomiMotor.enable">
 <span class="sig-name descname"><span class="pre">enable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RomiMotor.RomiMotor.enable" title="Link to this definition"></a></dt>
-<dd><p>Enable one channel of the L6206</p>
-<p>This method sets the enable pin associated with one channel of the L6206 high in order to enable that channel of the motor driver</p>
+<dd><p>Enable one channel of the L6206.</p>
+<p>Sets the enable pin associated with one channel of the L6206 high in order to enable that channel of the motor driver</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="RomiMotor.RomiMotor.set_duty">
 <span class="sig-name descname"><span class="pre">set_duty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duty</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RomiMotor.RomiMotor.set_duty" title="Link to this definition"></a></dt>
 <dd><p>Set the PWM duty cycle for the DC motor.</p>
-<p>This method sets the duty cycle to be sent to the L6206 to a given level. Positive values cause effort in one direction, negative values in the opposite direction.
-&#64;duty: A signed number holding the duty cycle of the PWM signal sent to the L6206</p>
+<p>This method sets the duty cycle to be sent to the L6206 to a given level. Positive values cause effort in one direction, negative values in the opposite direction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>duty</strong> (<em>int</em>) – Duty cycle from -100 to 100%.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

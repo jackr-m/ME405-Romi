@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="BNO055.html">BNO055 module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ClosedLoop.html">ClosedLoop module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Control.html">Control module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlBothMotors.html">ControlBothMotors module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GarbageCollector.html">GarbageCollector module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="LineFollower.html">LineFollower module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PID.html">PID module</a></li>
@@ -65,6 +66,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="UpdateMotor.html">UpdateMotor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UpdateQTRs.html">UpdateQTRs module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
@@ -104,16 +106,24 @@
              
   <section id="module-UpdateIMU">
 <span id="updateimu-module"></span><h1>UpdateIMU module<a class="headerlink" href="#module-UpdateIMU" title="Link to this heading"></a></h1>
+<p>Houses the UpdateIMU task Class.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="UpdateIMU.UpdateIMU">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UpdateIMU.</span></span><span class="sig-name descname"><span class="pre">UpdateIMU</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s_field_heading</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i2c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UpdateIMU.UpdateIMU" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>!
-Class for task to update a IMU euler angle heading</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="UpdateIMU.UpdateIMU.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UpdateIMU.UpdateIMU.run" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Implementation as a generator function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – invalid state.</p>
+</dd>
+<dt class="field-even">Yields<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>int</em> – Machine state.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

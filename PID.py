@@ -1,3 +1,6 @@
+"""Houses PID control class used only in constant period loops.
+"""
+
 import utime
 
 def _clamp(value, limits):
@@ -11,8 +14,7 @@ def _clamp(value, limits):
     return value
 
 class PID(object):
-    """A simple PID controller."""
-
+    
     def __init__(
         self,
         Kp=1.0,
@@ -26,31 +28,31 @@ class PID(object):
         proportional_on_measurement=False,
         error_map=None
     ):
-        """
-        Initialize a new PID controller.
+        """A simple PID controller.
 
-        :param Kp: The value for the proportional gain Kp
-        :param Ki: The value for the integral gain Ki
-        :param Kd: The value for the derivative gain Kd
-        :param setpoint: The initial setpoint that the PID will try to achieve
-        :param sample_time: The interval in the setted scale which the controller should wait before generating
-            a new output value. The PID works best when it is constantly called (eg. during a
-            loop), but with a sample time set so that the time difference between each update is
-            (close to) constant. If set to None, the PID will compute a new output value every time
-            it is called, keep None to use param dt for timestep.
-        :param scale: Set the scale of the controller, accepted values are 's' for seconds, 'ms' for
-            miliseconds, 'us' for microseconds, 'ns' for nanoscondas and 'cpu' for the highest precision
-            at cpu clock. On default and on error set to seconds.
-        :param output_limits: The initial output limits to use, given as an iterable with 2
-            elements, for example: (lower, upper). The output will never go below the lower limit
-            or above the upper limit. Either of the limits can also be set to None to have no limit
-            in that direction. Setting output limits also avoids integral windup, since the
-            integral term will never be allowed to grow outside of the limits.
-        :param auto_mode: Whether the controller should be enabled (auto mode) or not (manual mode)
-        :param proportional_on_measurement: Whether the proportional term should be calculated on
-            the input directly rather than on the error (which is the traditional way). Using
-            proportional-on-measurement avoids overshoot for some types of systems.
-        :param error_map: Function to transform the error value in another constrained value.
+        Args:
+            :param Kp: The value for the proportional gain Kp
+            :param Ki: The value for the integral gain Ki
+            :param Kd: The value for the derivative gain Kd
+            :param setpoint: The initial setpoint that the PID will try to achieve
+            :param sample_time: The interval in the setted scale which the controller should wait before generating
+                a new output value. The PID works best when it is constantly called (eg. during a
+                loop), but with a sample time set so that the time difference between each update is
+                (close to) constant. If set to None, the PID will compute a new output value every time
+                it is called, keep None to use param dt for timestep.
+            :param scale: Set the scale of the controller, accepted values are 's' for seconds, 'ms' for
+                miliseconds, 'us' for microseconds, 'ns' for nanoscondas and 'cpu' for the highest precision
+                at cpu clock. On default and on error set to seconds.
+            :param output_limits: The initial output limits to use, given as an iterable with 2
+                elements, for example: (lower, upper). The output will never go below the lower limit
+                or above the upper limit. Either of the limits can also be set to None to have no limit
+                in that direction. Setting output limits also avoids integral windup, since the
+                integral term will never be allowed to grow outside of the limits.
+            :param auto_mode: Whether the controller should be enabled (auto mode) or not (manual mode)
+            :param proportional_on_measurement: Whether the proportional term should be calculated on
+                the input directly rather than on the error (which is the traditional way). Using
+                proportional-on-measurement avoids overshoot for some types of systems.
+            :param error_map: Function to transform the error value in another constrained value.
         """
         self.Kp, self.Ki, self.Kd = Kp, Ki, Kd
         self.setpoint = setpoint
