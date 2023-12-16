@@ -23,7 +23,24 @@ It is being used in conjuction with a Shoe of Brian (`<https://spluttflob.github
 
 Sensors
 *******
-We are also using the rotary encoder kit for the chassis (`<https://www.pololu.com/product/3542>`_) for our positional feedback.
+We are using the rotary encoder kit for the chassis (`<https://www.pololu.com/product/3542>`_) for our positional feedback.
+In combination with a Bosch BNO055 Inertial Measurement Unit (IMU), we can get a relatively accurate (+/-1mm/minute) position using dead-reckoning of encoder distance traveled in the current IMU heading.
+
+For line following, we are using Pololu QTR infrared reflectance sensors (`<https://www.pololu.com/category/123/pololu-qtr-reflectance-sensors>`_).
+Specifically, we are using one QTR-MD-07A and QTR-MD-05A.  They are aligned (see Bottom view photo below) horizontally respect to the Y axis, but placed spaced out in X at a distance such that one of the sensor arrays will always be on a dashed line.  The mount for this is 3D printed from PLA, and is viewable on the CAD file link below.
+
+To avoid the wall in the middle of the photo, we are using a ST Microelectronics VL53L1X time-of-flight sensor on a carrier board from Pololu (`<https://www.pololu.com/product/3415>`_).  This is attached to the front of the robot.
+
+Wiring/Pinouts
+**************
+Here is a diagram and table that explains how each of the sensors are connected to the Nucleo development board.
+
+.. image:: photos/Pin_Labels.jpg
+
+
+And this explains the pin labels:
+
+.. image:: photos/Pin_Descriptions.jpg
 
 Coordinate System
 *****************
@@ -33,9 +50,28 @@ Here is a descriptive photo of the coordinate system of the track:
 .. image:: photos/Field_Coordinates.svg
     :alt: Field Coordinates
 
+CAD
+***
+For CAD reference (ex. reflectance sensor mount), please use the Onshape link:
+
+`Onshape <https://cad.onshape.com/documents/fe4992c9b8e7b4310ed844c4/w/868ce3460770ffc11594e3ba/e/b2cd443f6a4a955c885b54f9?renderMode=0&uiState=657d1e90ccc43861a4264aac>`_
+
 Photos
 ******
-Insert here
+
+.. image:: photos/DSC02064.jpg
+    :alt: Isometric view
+
+.. image:: photos/DSC02069.jpg
+    :alt: Top view
+
+.. image:: photos/DSC02067.jpg
+    :alt: Bottom view
+
+    
+.. image:: photos/DSC02070.jpg
+    :alt: Top view in starting position
+
 
 Indices and tables
 ==================

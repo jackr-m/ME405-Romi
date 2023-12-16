@@ -50,7 +50,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#base-chassis">Base Chassis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#processor">Processor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sensors">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wiring-pinouts">Wiring/Pinouts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#coordinate-system">Coordinate System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cad">CAD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#photos">Photos</a></li>
 </ul>
 </li>
@@ -92,8 +94,10 @@
 <li><p><a class="reference internal" href="#base-chassis" id="id1">Base Chassis</a></p></li>
 <li><p><a class="reference internal" href="#processor" id="id2">Processor</a></p></li>
 <li><p><a class="reference internal" href="#sensors" id="id3">Sensors</a></p></li>
-<li><p><a class="reference internal" href="#coordinate-system" id="id4">Coordinate System</a></p></li>
-<li><p><a class="reference internal" href="#photos" id="id5">Photos</a></p></li>
+<li><p><a class="reference internal" href="#wiring-pinouts" id="id4">Wiring/Pinouts</a></p></li>
+<li><p><a class="reference internal" href="#coordinate-system" id="id5">Coordinate System</a></p></li>
+<li><p><a class="reference internal" href="#cad" id="id6">CAD</a></p></li>
+<li><p><a class="reference internal" href="#photos" id="id7">Photos</a></p></li>
 </ul>
 </nav>
 <section id="base-chassis">
@@ -109,16 +113,35 @@ It is being used in conjuction with a Shoe of Brian (<a class="reference externa
 </section>
 <section id="sensors">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">Sensors</a><a class="headerlink" href="#sensors" title="Link to this heading"></a></h2>
-<p>We are also using the rotary encoder kit for the chassis (<a class="reference external" href="https://www.pololu.com/product/3542">https://www.pololu.com/product/3542</a>) for our positional feedback.</p>
+<p>We are using the rotary encoder kit for the chassis (<a class="reference external" href="https://www.pololu.com/product/3542">https://www.pololu.com/product/3542</a>) for our positional feedback.
+In combination with a Bosch BNO055 Inertial Measurement Unit (IMU), we can get a relatively accurate (+/-1mm/minute) position using dead-reckoning of encoder distance traveled in the current IMU heading.</p>
+<p>For line following, we are using Pololu QTR infrared reflectance sensors (<a class="reference external" href="https://www.pololu.com/category/123/pololu-qtr-reflectance-sensors">https://www.pololu.com/category/123/pololu-qtr-reflectance-sensors</a>).
+Specifically, we are using one QTR-MD-07A and QTR-MD-05A.  They are aligned (see Bottom view photo below) horizontally respect to the Y axis, but placed spaced out in X at a distance such that one of the sensor arrays will always be on a dashed line.  The mount for this is 3D printed from PLA, and is viewable on the CAD file link below.</p>
+<p>To avoid the wall in the middle of the photo, we are using a ST Microelectronics VL53L1X time-of-flight sensor on a carrier board from Pololu (<a class="reference external" href="https://www.pololu.com/product/3415">https://www.pololu.com/product/3415</a>).  This is attached to the front of the robot.</p>
+</section>
+<section id="wiring-pinouts">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Wiring/Pinouts</a><a class="headerlink" href="#wiring-pinouts" title="Link to this heading"></a></h2>
+<p>Here is a diagram and table that explains how each of the sensors are connected to the Nucleo development board.</p>
+<img alt="_images/Pin_Labels.jpg" src="_images/Pin_Labels.jpg" />
+<p>And this explains the pin labels:</p>
+<img alt="_images/Pin_Descriptions.jpg" src="_images/Pin_Descriptions.jpg" />
 </section>
 <section id="coordinate-system">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Coordinate System</a><a class="headerlink" href="#coordinate-system" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Coordinate System</a><a class="headerlink" href="#coordinate-system" title="Link to this heading"></a></h2>
 <p>We are using a standard 3-axis coordinate system, where the front of the robot points in the positive X direction, and the central pivot axis is the positive Z axis.
 Here is a descriptive photo of the coordinate system of the track:</p>
 <img alt="Field Coordinates" src="_images/Field_Coordinates.svg" /></section>
+<section id="cad">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">CAD</a><a class="headerlink" href="#cad" title="Link to this heading"></a></h2>
+<p>For CAD reference (ex. reflectance sensor mount), please use the Onshape link:</p>
+<p><a class="reference external" href="https://cad.onshape.com/documents/fe4992c9b8e7b4310ed844c4/w/868ce3460770ffc11594e3ba/e/b2cd443f6a4a955c885b54f9?renderMode=0&amp;uiState=657d1e90ccc43861a4264aac">Onshape</a></p>
+</section>
 <section id="photos">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Photos</a><a class="headerlink" href="#photos" title="Link to this heading"></a></h2>
-<p>Insert here</p>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Photos</a><a class="headerlink" href="#photos" title="Link to this heading"></a></h2>
+<img alt="Isometric view" src="_images/DSC02064.jpg" />
+<img alt="Top view" src="_images/DSC02069.jpg" />
+<img alt="Bottom view" src="_images/DSC02067.jpg" />
+<img alt="Top view in starting position" src="_images/DSC02070.jpg" />
 </section>
 </section>
 <section id="indices-and-tables">
