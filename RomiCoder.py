@@ -13,16 +13,7 @@ class RomiCoder:
         Each instance of an encoder takes two timers to operate.
         one timer is already determined by the pins used for the particular encoder.
         This timer is set up in the constructor. The second timer is used to set an interrupt.
-        for the encoder to recalculate its positon.
-
-        First Last
-            January 1, 1970
-            Interface with quadrature encoders
-            Constructs an encoder object
-            Updates encoder position and delta
-            Gets the most recent encoder position
-            Gets the most recent encoder delta
-            Resets the encoder position to zero
+        for the encoder to recalculate its position.
 
         Args:
             encoderChannelAPin (pyb.Pin): Corresponds to channel 1 of the encoder timer.
