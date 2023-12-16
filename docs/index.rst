@@ -14,6 +14,7 @@ Welcome to ME405-Romi's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   Hardware
    modules
 
 

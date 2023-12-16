@@ -1,5 +1,5 @@
-Lab 06
-======
+Modules
+=======
 
 .. toctree::
    :maxdepth: 4
