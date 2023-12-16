@@ -27,6 +27,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.napoleon',
     'sphinx.ext.autodoc',
+    'sphinxcontrib.youtube'
 ]
 
 templates_path = ['_templates']
