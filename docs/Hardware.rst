@@ -13,6 +13,7 @@ The chassis is a Pololu Romi (`<https://www.pololu.com/category/202/romi-chassis
 We are using the Motor Driver and Power Distribution Board for the Romi Chassis (`<https://www.pololu.com/product/3543>`_) to get regulated voltage from 6xLR6 batteries, and drive the 2 DC motors with the included TI DRV8838 motor drivers.
 
 .. image:: https://a.pololu-files.com/picture/0J7351.1200.jpg
+    :alt: Romi chassis with motor driver/power distribution board and encoders
 
 Processor
 *********
