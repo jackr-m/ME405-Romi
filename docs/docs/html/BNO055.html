@@ -220,7 +220,6 @@
 <li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 </ul>
 </li>
@@ -258,6 +257,16 @@
 <dt class="sig sig-object py" id="BNO055.BNO055">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">BNO055.</span></span><span class="sig-name descname"><span class="pre">BNO055</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i2c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensorId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BNO055.BNO055" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Controls BNO055 IMU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i2c</strong> (<em>machine.I2C</em>) – Preconfigured IMU I2C channel.</p></li>
+<li><p><strong>sensorId</strong> (<em>int</em><em>, </em><em>optional</em>) – Sensor ID. Defaults to -1.</p></li>
+<li><p><strong>address</strong> (<em>hexadecimal</em><em>, </em><em>optional</em>) – Hex sensor I2C address. Defaults to 0x28.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="BNO055.BNO055.ACCEL_OFFSET_X_LSB_ADDR">
 <span class="sig-name descname"><span class="pre">ACCEL_OFFSET_X_LSB_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">85</span></em><a class="headerlink" href="#BNO055.BNO055.ACCEL_OFFSET_X_LSB_ADDR" title="Link to this definition"></a></dt>

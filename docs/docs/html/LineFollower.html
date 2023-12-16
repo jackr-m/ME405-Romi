@@ -69,7 +69,6 @@
 <li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 </ul>
 </li>
@@ -107,6 +106,27 @@
 <dt class="sig sig-object py" id="LineFollower.LineFollower">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">LineFollower.</span></span><span class="sig-name descname"><span class="pre">LineFollower</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leftTargetSpeed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rightTargetSpeed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_xCoord</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_yCoord</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heading</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_tofdistance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linePosTarget_front</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linePosTarget_rear</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centerSpeed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taskperiod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LineFollower.LineFollower" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>this is a line follower, it follows lines.</p>
+<p>Takes sensor data from 3 adjacent tasks: QTRs, IMU, and TOF
+Also takes distance traveled data from the now singular motor task and combines that with the IMU data to integrate position
+Commands motor task through requested speed shares</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s_pos</strong> – Share object holding composite QTR position values</p></li>
+<li><p><strong>leftTargetSpeed</strong> – Share object conveying desired left motor speed</p></li>
+<li><p><strong>rightTargetSpeed</strong> – Share object conveying desired right motor speed</p></li>
+<li><p><strong>s_xCoord</strong> (<em>Share</em>) – Share object conveying mm left wheel NET distance traveled</p></li>
+<li><p><strong>s_yCoord</strong> (<em>Share</em>) – Share object conveying mm right wheel NET distance traveled</p></li>
+<li><p><strong>heading</strong> – Share object conveying IMU heading</p></li>
+<li><p><strong>s_tofdistance</strong> – Share object conveying TOF distance for wall detection</p></li>
+<li><p><strong>linePosTarget_front</strong> – integer QTR position target for front sensor</p></li>
+<li><p><strong>linePosTarget_rear</strong> – integer QTR position target for rear sensor</p></li>
+<li><p><strong>centerSpeed</strong> (<em>float</em>) – sets the desired base speed for the motors, determines how fast romi travels (rad/s)</p></li>
+<li><p><strong>taskperiod</strong> (<em>int</em>) – period the task runs at (milliseconds)</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="LineFollower.LineFollower.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LineFollower.LineFollower.run" title="Link to this definition"></a></dt>

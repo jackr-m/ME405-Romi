@@ -69,7 +69,6 @@
 <li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 </ul>
 </li>
@@ -107,6 +106,22 @@
 <dt class="sig sig-object py" id="ControlBothMotors.ControlBothMotors">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ControlBothMotors.</span></span><span class="sig-name descname"><span class="pre">ControlBothMotors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ki</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_leftRequestedSpeed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_rightRequestedSpeed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_xCoord</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_yCoord</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_heading</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ControlBothMotors.ControlBothMotors" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Controls both motor speeds in closed loop, taking data straight from their encoders.</p>
+<p>Also updates a running XY position given IMU heading</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kp</strong> (<em>float</em>) – Proportional gain.</p></li>
+<li><p><strong>ki</strong> (<em>float</em>) – Integral gain.</p></li>
+<li><p><strong>kd</strong> (<em>float</em>) – Derivative gain.</p></li>
+<li><p><strong>s_leftRequestedSpeed</strong> (<em>Share</em>) – Conveys speed requested by LineFollower to left motor control loop.</p></li>
+<li><p><strong>s_rightRequestedSpeed</strong> (<em>Share</em>) – Conveys speed requested by LineFollower to right motor control loop.</p></li>
+<li><p><strong>s_xCoord</strong> (<em>Share</em>) – Romi field x coordinate.</p></li>
+<li><p><strong>s_yCoord</strong> (<em>Share</em>) – Romi field y coordinate.</p></li>
+<li><p><strong>s_heading</strong> (<em>Share</em>) – Romi field heading.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="ControlBothMotors.ControlBothMotors.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ControlBothMotors.ControlBothMotors.run" title="Link to this definition"></a></dt>

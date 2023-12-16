@@ -75,7 +75,6 @@
 <li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 </ul>
 </li>
@@ -113,6 +112,32 @@
 <dt class="sig sig-object py" id="RomiCoder.RomiCoder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RomiCoder.</span></span><span class="sig-name descname"><span class="pre">RomiCoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoderChannelAPin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoderChannelBPin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoderTimerNumber</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RomiCoder.RomiCoder" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Controls quadrature encoder.</p>
+<p>Each instance of an encoder takes two timers to operate.
+one timer is already determined by the pins used for the particular encoder.
+This timer is set up in the constructor. The second timer is used to set an interrupt.
+for the encoder to recalculate its positon.</p>
+<dl class="simple">
+<dt>First Last</dt><dd><p>January 1, 1970
+Interface with quadrature encoders
+Constructs an encoder object
+Updates encoder position and delta
+Gets the most recent encoder position
+Gets the most recent encoder delta
+Resets the encoder position to zero</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>encoderChannelAPin</strong> (<em>pyb.Pin</em>) – Corresponds to channel 1 of the encoder timer.</p></li>
+<li><p><strong>encoderChannelBPin</strong> (<em>pyb.Pin</em>) – Corresponds to channel 2 of the encoder timer.</p></li>
+<li><p><strong>AR</strong> (<em>int</em>) – The auto reload value of the encoder timer.</p></li>
+<li><p><strong>PS</strong> (<em>int</em>) – The timer prescaler.</p></li>
+<li><p><strong>encoderTimerNumber</strong> (<em>int</em>) – The number of the timer that is to be used for the encoder (eg TIM1).</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="RomiCoder.RomiCoder.get_delta">
 <span class="sig-name descname"><span class="pre">get_delta</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RomiCoder.RomiCoder.get_delta" title="Link to this definition"></a></dt>

@@ -71,7 +71,6 @@
 <li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 </ul>
 </li>
@@ -115,6 +114,19 @@
 <dt class="sig sig-object py" id="RomiMotor.RomiMotor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RomiMotor.</span></span><span class="sig-name descname"><span class="pre">RomiMotor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">PWM_tim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SLP_pin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PH_pin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PH_channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DIR_pin</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RomiMotor.RomiMotor" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A driver class for one channel of the L6206.</p>
+<p>Objects of this class can e used to apply PWM to a given DC motor on one channel of the L6206 from ST Microelectronics</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>PWM_tim</strong> (<em>pyb.Timer</em>) – PWM timer for motor.</p></li>
+<li><p><strong>SLP_pin</strong> (<em>pyb.Pin</em>) – SLP pin acts as an enable/disable pin.</p></li>
+<li><p><strong>PH_pin</strong> (<em>pyb.Pin</em>) – PH pin corresponds to PWM signal.</p></li>
+<li><p><strong>PH_channel</strong> (<em>int</em>) – PH channel number for PWM signal.</p></li>
+<li><p><strong>DIR_pin</strong> (<em>pyb.Pin</em>) – Direction Pin.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="RomiMotor.RomiMotor.disable">
 <span class="sig-name descname"><span class="pre">disable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RomiMotor.RomiMotor.disable" title="Link to this definition"></a></dt>

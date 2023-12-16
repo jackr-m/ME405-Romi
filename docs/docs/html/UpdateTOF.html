@@ -69,7 +69,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 </ul>
 </li>
@@ -107,6 +106,15 @@
 <dt class="sig sig-object py" id="UpdateTOF.UpdateTOF">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UpdateTOF.</span></span><span class="sig-name descname"><span class="pre">UpdateTOF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s_tofdistance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i2c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UpdateTOF.UpdateTOF" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Updates an dafruit_vl53l1x Time of Flight sensor position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s_tofposition</strong> (<em>task_share.Share</em>) – Conveys the Time of Flight position, reported in millimeters.</p></li>
+<li><p><strong>i2c</strong> (<em>machine.I2C</em>) – Pre-initialized I2C object, designating the i2c bus used.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="UpdateTOF.UpdateTOF.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UpdateTOF.UpdateTOF.run" title="Link to this definition"></a></dt>

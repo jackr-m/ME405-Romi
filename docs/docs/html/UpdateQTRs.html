@@ -69,7 +69,6 @@
 <li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 </ul>
 </li>
@@ -107,6 +106,19 @@
 <dt class="sig sig-object py" id="UpdateQTRs.UpdateQTRs">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UpdateQTRs.</span></span><span class="sig-name descname"><span class="pre">UpdateQTRs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qtrfront</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors" title="QTRSensors.QTRSensors"><span class="pre">QTRSensors</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">qtrrear</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors" title="QTRSensors.QTRSensors"><span class="pre">QTRSensors</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linePosTarget_front</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linePosTarget_rear</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UpdateQTRs.UpdateQTRs" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>“Manages BOTH QTR sensors.</p>
+<p>Maintans a singular s_pos value to replace the “pos” variable that used to be in LineFollower.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qtrfront</strong> (<a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors" title="QTRSensors.QTRSensors"><em>QTRSensors.QTRSensors</em></a>) – Front sensor.</p></li>
+<li><p><strong>qtrrear</strong> (<a class="reference internal" href="QTRSensors.html#QTRSensors.QTRSensors" title="QTRSensors.QTRSensors"><em>QTRSensors.QTRSensors</em></a>) – Rear sensor.</p></li>
+<li><p><strong>s_pos</strong> (<em>Share</em>) – Composite guess of line position.</p></li>
+<li><p><strong>linePosTarget_front</strong> (<em>int</em><em>, </em><em>optional</em>) – Target front line pos, only used for rear position scaling in this class. Defaults to 3000.</p></li>
+<li><p><strong>linePosTarget_rear</strong> (<em>int</em><em>, </em><em>optional</em>) – Target rear line pos, only used for rear position scaling in this class. Defaults to 2000.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="UpdateQTRs.UpdateQTRs.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UpdateQTRs.UpdateQTRs.run" title="Link to this definition"></a></dt>

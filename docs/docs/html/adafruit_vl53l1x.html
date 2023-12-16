@@ -81,7 +81,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 </ul>
 </li>
@@ -138,6 +137,18 @@
 <dt class="sig sig-object py" id="adafruit_vl53l1x.VL53L1X">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adafruit_vl53l1x.</span></span><span class="sig-name descname"><span class="pre">VL53L1X</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i2c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">41</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adafruit_vl53l1x.VL53L1X" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Driver for the VL53L1X distance sensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i2c</strong> (<em>machine.I2C</em>) – I2C bus corresponding to TOF.</p></li>
+<li><p><strong>address</strong> (<em>int</em><em>, </em><em>optional</em>) – I2C address of TOF. Defaults to 41.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> – Detected model/serial number doesn’t match requirements for use in driver.</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="adafruit_vl53l1x.VL53L1X.clear_interrupt">
 <span class="sig-name descname"><span class="pre">clear_interrupt</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#adafruit_vl53l1x.VL53L1X.clear_interrupt" title="Link to this definition"></a></dt>

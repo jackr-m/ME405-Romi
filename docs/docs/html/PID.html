@@ -74,7 +74,6 @@
 <li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 </ul>
 </li>
@@ -112,6 +111,35 @@
 <dt class="sig sig-object py" id="PID.PID">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PID.</span></span><span class="sig-name descname"><span class="pre">PID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Kp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ki</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[None,</span> <span class="pre">None]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proportional_on_measurement</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PID.PID" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A simple PID controller.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Kp</strong> – The value for the proportional gain Kp</p></li>
+<li><p><strong>Ki</strong> – The value for the integral gain Ki</p></li>
+<li><p><strong>Kd</strong> – The value for the derivative gain Kd</p></li>
+<li><p><strong>setpoint</strong> – The initial setpoint that the PID will try to achieve</p></li>
+<li><p><strong>sample_time</strong> – The interval in the setted scale which the controller should wait before generating
+a new output value. The PID works best when it is constantly called (eg. during a
+loop), but with a sample time set so that the time difference between each update is
+(close to) constant. If set to None, the PID will compute a new output value every time
+it is called, keep None to use param dt for timestep.</p></li>
+<li><p><strong>scale</strong> – Set the scale of the controller, accepted values are ‘s’ for seconds, ‘ms’ for
+miliseconds, ‘us’ for microseconds, ‘ns’ for nanoscondas and ‘cpu’ for the highest precision
+at cpu clock. On default and on error set to seconds.</p></li>
+<li><p><strong>output_limits</strong> – The initial output limits to use, given as an iterable with 2
+elements, for example: (lower, upper). The output will never go below the lower limit
+or above the upper limit. Either of the limits can also be set to None to have no limit
+in that direction. Setting output limits also avoids integral windup, since the
+integral term will never be allowed to grow outside of the limits.</p></li>
+<li><p><strong>auto_mode</strong> – Whether the controller should be enabled (auto mode) or not (manual mode)</p></li>
+<li><p><strong>proportional_on_measurement</strong> – Whether the proportional term should be calculated on
+the input directly rather than on the error (which is the traditional way). Using
+proportional-on-measurement avoids overshoot for some types of systems.</p></li>
+<li><p><strong>error_map</strong> – Function to transform the error value in another constrained value.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="PID.PID.auto_mode">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">auto_mode</span></span><a class="headerlink" href="#PID.PID.auto_mode" title="Link to this definition"></a></dt>

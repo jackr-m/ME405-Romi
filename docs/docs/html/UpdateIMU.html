@@ -69,7 +69,6 @@
 <li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 </ul>
 </li>
@@ -107,6 +106,16 @@
 <dt class="sig sig-object py" id="UpdateIMU.UpdateIMU">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UpdateIMU.</span></span><span class="sig-name descname"><span class="pre">UpdateIMU</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s_field_heading</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i2c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UpdateIMU.UpdateIMU" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Task to update a IMU euler angle heading relative to game field.</p>
+<p>The IMU must be a BNO055 IMU from BOSCH.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s_field_heading</strong> (<em>task_share.Share</em>) – Used to convey the romi chassis heading in field-space accorning to the IMU.</p></li>
+<li><p><strong>i2c</strong> (<em>machine.I2C</em>) – Preinitialized I2C object to designate the correct communication bus.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="UpdateIMU.UpdateIMU.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UpdateIMU.UpdateIMU.run" title="Link to this definition"></a></dt>

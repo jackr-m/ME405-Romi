@@ -21,7 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="machine module" href="machine.html" />
+    <link rel="next" title="main module" href="main.html" />
     <link rel="prev" title="adafruit_vl53l1x module" href="adafruit_vl53l1x.html" /> 
 </head>
 
@@ -80,7 +80,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 </ul>
 </li>
@@ -184,6 +183,31 @@ while True:</p>
 </dd>
 </dl>
 <p>&#64;endcode</p>
+<p>!
+Initialize a task object so it may be run by the scheduler.</p>
+<p>This method initializes a task object, saving copies of constructor
+parameters and preparing an empty dictionary for states.</p>
+<dl class="simple">
+<dt>&#64;param run_fun The function which implements the task’s code. It must</dt><dd><p>be a generator which yields the current state.</p>
+</dd>
+<dt>&#64;param name The name of the task, by default &#64;c NoName. This should</dt><dd><p>be overridden with a more descriptive name by the programmer.</p>
+</dd>
+<dt>&#64;param priority The priority of the task, a positive integer with</dt><dd><p>higher numbers meaning higher priority (default 0)</p>
+</dd>
+<dt>&#64;param period The time in milliseconds between runs of the task if it’s</dt><dd><p>run by a timer or &#64;c None if the task is not run by a timer.
+The time can be given in a &#64;c float or &#64;c int; it will be
+converted to microseconds for internal use by the scheduler.</p>
+</dd>
+</dl>
+<p>&#64;param profile Set to &#64;c True to enable run-time profiling
+&#64;param trace Set to &#64;c True to generate a list of transitions between</p>
+<blockquote>
+<div><p>states. &#64;b Note: This slows things down and allocates memory.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>&#64;param shares A list or tuple of shares and queues used by this task.</dt><dd><p>If no list is given, no shares are passed to the task</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="cotask.Task.get_trace">
 <span class="sig-name descname"><span class="pre">get_trace</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cotask.Task.get_trace" title="Link to this definition"></a></dt>
@@ -260,6 +284,9 @@ for class &#64;c Task.</p>
 look through the list to find the highest priority task which is ready to
 run at any given time. Tasks can also be scheduled in a simpler
 “round-robin” fashion.</p>
+<p>!
+Initialize the task list. This creates the list of priorities in
+which tasks will be organized by priority.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cotask.TaskList.append">
 <span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cotask.TaskList.append" title="Link to this definition"></a></dt>
@@ -303,7 +330,7 @@ again.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="adafruit_vl53l1x.html" class="btn btn-neutral float-left" title="adafruit_vl53l1x module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="machine.html" class="btn btn-neutral float-right" title="machine module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="main.html" class="btn btn-neutral float-right" title="main module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

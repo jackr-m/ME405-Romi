@@ -78,7 +78,6 @@
 <li class="toctree-l2"><a class="reference internal" href="UpdateTOF.html">UpdateTOF module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adafruit_vl53l1x.html">adafruit_vl53l1x module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 </ul>
 </li>
@@ -117,6 +116,19 @@
 <dt class="sig sig-object py" id="ClosedLoop.ClosedLoop">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ClosedLoop.</span></span><span class="sig-name descname"><span class="pre">ClosedLoop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Kp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ki</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lowerSatLimit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upperSatLimit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ClosedLoop.ClosedLoop" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>PID Controller with changeable setpoint and gains.</p>
+<p>Does not need to run at a set frequency, adjust gains based on user-input time deltas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Kp</strong> (<em>float</em>) – value of proportional gain</p></li>
+<li><p><strong>Ki</strong> (<em>float</em>) – value of integral gain</p></li>
+<li><p><strong>Kd</strong> (<em>float</em>) – value of derivative gain</p></li>
+<li><p><strong>lowerSatLimit</strong> (<em>any</em>) – Int or Long, lower saturation limit for I path.</p></li>
+<li><p><strong>upperSatLimit</strong> (<em>any</em>) – Int or Long, upper saturation limit for I path.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="ClosedLoop.ClosedLoop.calculateEfforts">
 <span class="sig-name descname"><span class="pre">calculateEfforts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">currentValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msTimePassed</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ClosedLoop.ClosedLoop.calculateEfforts" title="Link to this definition"></a></dt>
