@@ -13,6 +13,15 @@ sys.path.insert(0, os.path.abspath('../'))
 # replace time with utime
 #sys.modules['time'] = __import__('utime')
 
+# make sure to include __init__
+def skip(app, what, name, obj, would_skip, options):
+    if name == "__init__":
+        return False
+    return would_skip
+
+def setup(app):
+    app.connect("autodoc-skip-member", skip)
+
 project = 'ME405-Romi'
 copyright = '2023, Jack Miller & Casey Pickett'
 author = 'Jack Miller & Casey Pickett'

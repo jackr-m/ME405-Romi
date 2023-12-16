@@ -20,5 +20,4 @@ Lab 06
    UpdateTOF
    adafruit_vl53l1x
    cotask
-   machine
    main
