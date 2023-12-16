@@ -24,5 +24,3 @@ Lab 06
    machine
    main
    task_share
-   time
-   utime
