@@ -17,8 +17,8 @@ class ClosedLoop:
             Kp (float): value of proportional gain
             Ki (float): value of integral gain
             Kd (float): value of derivative gain
-            lowerSatLimit (any): Int or Long, lower saturation limit for I path.
-            upperSatLimit (any): Int or Long, upper saturation limit for I path.
+            lowerSatLimit (int or long): Lower saturation limit for I path.
+            upperSatLimit (int ot long): Upper saturation limit for I path.
         """
 
         self.Kp = Kp

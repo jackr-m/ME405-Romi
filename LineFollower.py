@@ -21,10 +21,10 @@ class LineFollower:
             rightTargetSpeed: Share object conveying desired right motor speed
             s_xCoord (Share): Share object conveying mm left wheel NET distance traveled
             s_yCoord (Share): Share object conveying mm right wheel NET distance traveled
-            heading: Share object conveying IMU heading
-            s_tofdistance: Share object conveying TOF distance for wall detection
-            linePosTarget_front: integer QTR position target for front sensor
-            linePosTarget_rear: integer QTR position target for rear sensor
+            heading (Share): Share object conveying IMU heading
+            s_tofdistance (Share): Share object conveying TOF distance for wall detection
+            linePosTarget_front (int): QTR position target for front sensor
+            linePosTarget_rear (int): QTR position target for rear sensor
             centerSpeed (float): sets the desired base speed for the motors, determines how fast romi travels (rad/s)
             taskperiod (int): period the task runs at (milliseconds)
         """
