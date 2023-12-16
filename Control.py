@@ -5,7 +5,6 @@ from RomiMotor import RomiMotor
 from pyb import Timer, Pin
 from task_share import Share
 from ClosedLoop import ClosedLoop
-from PID import PID
 
 class Control:
 
