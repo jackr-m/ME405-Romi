@@ -1,4 +1,8 @@
-"""Houses ClosedLoop Module"""
+"""Implements a PID algorithm, with integral saturation limits
+
+Allows for a different time period to be used each update, so the algorithm does not have to run with constant timing.
+
+"""
 
 from math import isnan
 

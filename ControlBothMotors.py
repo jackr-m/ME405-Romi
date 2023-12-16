@@ -1,4 +1,4 @@
-"""Houses the ControlBothMotors class.
+"""Controls both the left and right motors as a task.
 """
 
 from pyb import Timer, Pin

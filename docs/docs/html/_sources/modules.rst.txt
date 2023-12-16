@@ -6,7 +6,6 @@ Lab 06
 
    BNO055
    ClosedLoop
-   Control
    ControlBothMotors
    GarbageCollector
    LineFollower

@@ -81,9 +81,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cotask.html">cotask module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="machine.html">machine module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_share.html">task_share module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="time.html">time module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utime.html">utime module</a></li>
 </ul>
 </li>
 </ul>
@@ -115,7 +112,8 @@
              
   <section id="module-ClosedLoop">
 <span id="closedloop-module"></span><h1>ClosedLoop module<a class="headerlink" href="#module-ClosedLoop" title="Link to this heading"></a></h1>
-<p>Houses ClosedLoop Module</p>
+<p>Implements a PID algorithm, with integral saturation limits</p>
+<p>Allows for a different time period to be used each update, so the algorithm does not have to run with constant timing.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="ClosedLoop.ClosedLoop">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ClosedLoop.</span></span><span class="sig-name descname"><span class="pre">ClosedLoop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Kp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ki</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lowerSatLimit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upperSatLimit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ClosedLoop.ClosedLoop" title="Link to this definition"></a></dt>
