@@ -82,43 +82,48 @@
              
   <section id="code-structure">
 <h1>Code Structure<a class="headerlink" href="#code-structure" title="Link to this heading"></a></h1>
-<p>This code uses a Finite State Machine (FSM) scheme for its structure.</p>
+<p>This code uses a Finite State Machine (FSM) scheme for its structure.
+It is implemented using the cotask and task_share modules provided from <a class="reference external" href="https://spluttflob.github.io/ME405-Support/index.html#ss_modules">https://spluttflob.github.io/ME405-Support/index.html#ss_modules</a></p>
 <section id="task-diagram">
 <h2>Task Diagram<a class="headerlink" href="#task-diagram" title="Link to this heading"></a></h2>
 <p>To give an overview of this structure, here is a Task Diagram:</p>
-<p>[INSERT HERE]</p>
+<figure class="align-default" id="id1">
+<img alt="Task Diagram" src="_images/Task_Diagram.svg" /><figcaption>
+<p><span class="caption-text">Task Diagram</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 <section id="state-transition-diagrams">
 <h2>State Transition Diagrams<a class="headerlink" href="#state-transition-diagrams" title="Link to this heading"></a></h2>
 <p>To give a little more detail into each task, here are State Transition Diagrams for each task labelled in the Task Diagram.</p>
-<figure class="align-default" id="id1">
-<img alt="Line Follower Task" src="_images/Line_Follower.svg" /><figcaption>
-<p><span class="caption-text">Line Follower Task</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
-</figcaption>
-</figure>
 <figure class="align-default" id="id2">
-<img alt="Motor Control Task" src="_images/Control.svg" /><figcaption>
-<p><span class="caption-text">Motor Control Task</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<img alt="Line Follower Task" src="_images/Line_Follower.svg" /><figcaption>
+<p><span class="caption-text">Line Follower Task</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id3">
-<img alt="Update QTR Sensor Task" src="_images/Update_QTR.svg" /><figcaption>
-<p><span class="caption-text">Update QTR Sensor Task</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+<img alt="Motor Control Task" src="_images/Control.svg" /><figcaption>
+<p><span class="caption-text">Motor Control Task</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id4">
-<img alt="Update IMU Task" src="_images/Update_IMU.svg" /><figcaption>
-<p><span class="caption-text">Update IMU Task</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+<img alt="Update QTR Sensor Task" src="_images/Update_QTR.svg" /><figcaption>
+<p><span class="caption-text">Update QTR Sensor Task</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id5">
-<img alt="Update ToF Task" src="_images/Update_TOF.svg" /><figcaption>
-<p><span class="caption-text">Update ToF Task</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+<img alt="Update IMU Task" src="_images/Update_IMU.svg" /><figcaption>
+<p><span class="caption-text">Update IMU Task</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id6">
+<img alt="Update ToF Task" src="_images/Update_TOF.svg" /><figcaption>
+<p><span class="caption-text">Update ToF Task</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id7">
 <img alt="Garbage Collector Task" src="_images/Garbage_Collector.svg" /><figcaption>
-<p><span class="caption-text">Garbage Collector Task</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+<p><span class="caption-text">Garbage Collector Task</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>

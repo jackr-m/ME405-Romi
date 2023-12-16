@@ -9,7 +9,10 @@ Task Diagram
 
 To give an overview of this structure, here is a Task Diagram:
 
-[INSERT HERE]
+.. figure:: state_machines/Task_Diagram.svg
+    :alt: Task Diagram
+
+    Task Diagram
 
 State Transition Diagrams
 *************************
