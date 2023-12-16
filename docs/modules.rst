@@ -19,5 +19,4 @@ Modules
    UpdateQTRs
    UpdateTOF
    adafruit_vl53l1x
-   cotask
    main

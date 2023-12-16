@@ -2,6 +2,7 @@ Code Structure
 ==============
 
 This code uses a Finite State Machine (FSM) scheme for its structure.
+It is implemented using the cotask and task_share modules provided from `<https://spluttflob.github.io/ME405-Support/index.html#ss_modules>`_
 
 Task Diagram
 ************
