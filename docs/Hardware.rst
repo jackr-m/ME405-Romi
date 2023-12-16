@@ -14,6 +14,7 @@ We are using the Motor Driver and Power Distribution Board for the Romi Chassis 
 
 .. image:: https://a.pololu-files.com/picture/0J7351.1200.jpg
     :alt: Romi chassis with motor driver/power distribution board and encoders
+    :width: 400
 
 Processor
 *********
@@ -23,6 +24,14 @@ It is being used in conjuction with a Shoe of Brian (`<https://spluttflob.github
 Sensors
 *******
 We are also using the rotary encoder kit for the chassis (`<https://www.pololu.com/product/3542>`_) for our positional feedback.
+
+Coordinate System
+*****************
+We are using a standard 3-axis coordinate system, where the front of the robot points in the positive X direction, and the central pivot axis is the positive Z axis.
+Here is a descriptive photo of the coordinate system of the track:
+
+.. image:: photos/Field_Coordinates.svg
+    :alt: Field Coordinates
 
 Photos
 ******

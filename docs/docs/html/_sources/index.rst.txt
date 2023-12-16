@@ -15,6 +15,7 @@ Welcome to ME405-Romi's documentation!
    :caption: Contents:
 
    Hardware
+   Code Structure
    modules
 
 

@@ -21,7 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Modules" href="modules.html" />
+    <link rel="next" title="Code Structure" href="Code%20Structure.html" />
     <link rel="prev" title="Welcome to ME405-Romi’s documentation!" href="index.html" /> 
 </head>
 
@@ -50,10 +50,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#base-chassis">Base Chassis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#processor">Processor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sensors">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#coordinate-system">Coordinate System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#photos">Photos</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Code%20Structure.html">Code Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
 </ul>
 
@@ -90,14 +92,15 @@
 <li><p><a class="reference internal" href="#base-chassis" id="id1">Base Chassis</a></p></li>
 <li><p><a class="reference internal" href="#processor" id="id2">Processor</a></p></li>
 <li><p><a class="reference internal" href="#sensors" id="id3">Sensors</a></p></li>
-<li><p><a class="reference internal" href="#photos" id="id4">Photos</a></p></li>
+<li><p><a class="reference internal" href="#coordinate-system" id="id4">Coordinate System</a></p></li>
+<li><p><a class="reference internal" href="#photos" id="id5">Photos</a></p></li>
 </ul>
 </nav>
 <section id="base-chassis">
 <h2><a class="toc-backref" href="#id1" role="doc-backlink">Base Chassis</a><a class="headerlink" href="#base-chassis" title="Link to this heading"></a></h2>
 <p>The chassis is a Pololu Romi (<a class="reference external" href="https://www.pololu.com/category/202/romi-chassis-and-accessories">https://www.pololu.com/category/202/romi-chassis-and-accessories</a>).
 We are using the Motor Driver and Power Distribution Board for the Romi Chassis (<a class="reference external" href="https://www.pololu.com/product/3543">https://www.pololu.com/product/3543</a>) to get regulated voltage from 6xLR6 batteries, and drive the 2 DC motors with the included TI DRV8838 motor drivers.</p>
-<img alt="https://a.pololu-files.com/picture/0J7351.1200.jpg" src="https://a.pololu-files.com/picture/0J7351.1200.jpg" />
+<a class="reference internal image-reference" href="https://a.pololu-files.com/picture/0J7351.1200.jpg"><img alt="Romi chassis with motor driver/power distribution board and encoders" src="https://a.pololu-files.com/picture/0J7351.1200.jpg" style="width: 400px;" /></a>
 </section>
 <section id="processor">
 <h2><a class="toc-backref" href="#id2" role="doc-backlink">Processor</a><a class="headerlink" href="#processor" title="Link to this heading"></a></h2>
@@ -108,8 +111,13 @@ It is being used in conjuction with a Shoe of Brian (<a class="reference externa
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">Sensors</a><a class="headerlink" href="#sensors" title="Link to this heading"></a></h2>
 <p>We are also using the rotary encoder kit for the chassis (<a class="reference external" href="https://www.pololu.com/product/3542">https://www.pololu.com/product/3542</a>) for our positional feedback.</p>
 </section>
+<section id="coordinate-system">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Coordinate System</a><a class="headerlink" href="#coordinate-system" title="Link to this heading"></a></h2>
+<p>We are using a standard 3-axis coordinate system, where the front of the robot points in the positive X direction, and the central pivot axis is the positive Z axis.
+Here is a descriptive photo of the coordinate system of the track:</p>
+<img alt="Field Coordinates" src="_images/Field_Coordinates.svg" /></section>
 <section id="photos">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Photos</a><a class="headerlink" href="#photos" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Photos</a><a class="headerlink" href="#photos" title="Link to this heading"></a></h2>
 <p>Insert here</p>
 </section>
 </section>
@@ -127,7 +135,7 @@ It is being used in conjuction with a Shoe of Brian (<a class="reference externa
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Welcome to ME405-Romi’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="modules.html" class="btn btn-neutral float-right" title="Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Code%20Structure.html" class="btn btn-neutral float-right" title="Code Structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
