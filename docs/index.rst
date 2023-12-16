@@ -8,6 +8,8 @@ Welcome to ME405-Romi's documentation!
 
 A line-following, wall-avoiding robot based on the Pololu Romi Chassis, using a Nucelo L476RG board running Micropython.
 
+For source code, please visit `<https://github.com/jackr-m/ME405-Romi>`_, all under MIT license.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
